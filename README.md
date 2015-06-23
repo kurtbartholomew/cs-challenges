@@ -15,4 +15,5 @@ grunt
 ```
 
 Opens a window in your default browser with the test runner
+
 Lints and live-reloads the test page when a js file is changed
