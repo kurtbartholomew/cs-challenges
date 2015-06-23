@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Algorithm Tester</title>
+  <link rel="stylesheet" href="test/lib/mocha/mocha.css">
+  <script src="test/lib/mocha/mocha.js"></script>
+  <script src="test/lib/chai/chai.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <!-- The "BDD" interface provides describe(), context(), it(), before(), after(), beforeEach(), and afterEach(): -->
+
+  <script>window.expect = chai.expect</script>
+  <!-- Provides the use of expect so we don't have to use assert statements -->
+  <script>window.assert = chai.assert</script>
+  <!-- Provides the use of assert so we don't have to use assert statements -->
+
+  <script src="problems/knapsack/knapsack1.js"></script>
+  <!-- Load the algorithm problems to test -->
+</head>
+<body>
+  <div id="mocha"></div>
+  <!-- mocha.js places all its content inside a div with id mocha for clientside testing -->
+
+  <script src="test/spec/main.spec.js"></script>
+  <!-- Test files can be placed here or in the head -->
+
+  <script>mocha.run()</script>
+  <!-- The run method allows us to control when our test files are loaded (this runs our tests 'onload') -->
+
+</body>
+</html>

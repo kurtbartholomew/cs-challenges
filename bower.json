@@ -1,0 +1,21 @@
+{
+  "name": "practice_algorithms",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kurtbartholomew/toy-problems",
+  "authors": [
+    "Kurt Bartholomew <siever246@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test_lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mocha": "~2.2.5",
+    "chai": "~3.0.0"
+  }
+}
