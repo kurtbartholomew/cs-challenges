@@ -39,5 +39,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('default', ['connect','watch']);
+  grunt.registerTask('default', ['jshint','concat','connect','watch']);
 };
