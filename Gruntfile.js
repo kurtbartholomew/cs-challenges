@@ -3,10 +3,16 @@ module.exports = function(grunt) {
     jshint: {
       files: ['problems/**/*.js','test/spec/*.js','Gruntfile.js']
     },
+    concat: {
+      scripts: {
+        src: ['problems/**/*.js'],
+        dest: 'problems/problems.js'
+      }
+    },
     watch: {
       scripts: {
         files: ['problems/**/*.js','test/spec/*.js','Gruntfile.js'],
-        tasks: 'jshint',
+        tasks: ['jshint','concat'],
         options : {
           livereload: true
         }
@@ -31,6 +37,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', ['connect','watch']);
 };
