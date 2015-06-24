@@ -21,3 +21,13 @@ describe('Square Matrix Multiplication', function() {
     assert.equal(JSON.stringify(matrixMultiplication([[1, 2], [3, 2]], [[3, 2], [1, 1]])),JSON.stringify([[5, 4], [11, 8]]));
   });
 });
+
+describe('Primes in Numbers', function() {
+  it('should display the proper factors for 7775460', function() {
+    assert.equals(primeFactors(7775460),"(2**2)(3**3)(5)(7)(11**2)(17)");
+  });
+
+  it('should display the proper factors for 86240', function() {
+    assert.equals(primeFactors(86240),"(2**5)(5)(7**2)(11)");
+  });
+});

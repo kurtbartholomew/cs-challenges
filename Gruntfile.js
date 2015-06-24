@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     concat: {
       scripts: {
         src: ['problems/**/*.js'],
-        dest: 'problems/problems.js'
+        dest: 'problems.js'
       }
     },
     watch: {
@@ -39,5 +39,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-concat');
 
-  grunt.registerTask('default', ['jshint','concat','connect','watch']);
+  grunt.registerTask('default', ['connect','watch']);
 };

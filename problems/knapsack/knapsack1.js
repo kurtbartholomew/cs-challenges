@@ -48,5 +48,5 @@ knapsack will return an array of integers that specifies the quantity of each it
 */
 
 var knapsack = function(capacity,items) {
-  //your code here
+  return [];
 };
