@@ -31,3 +31,41 @@ describe('Primes in Numbers', function() {
     assert.equals(primeFactors(86240),"(2**5)(5)(7**2)(11)");
   });
 });
+
+describe('Sierpinski\'s Gasket', function(){
+  it('should have a single L for an input of 0', function() {
+    var inputOf0 = 'L';
+    assert.equals(sierpinski(0),inputOf0);
+  });
+
+  it('should have 4 layers of L\'s for 1', function() {
+    var inputOf1 = [
+      'L',
+      'L L'
+    ].join('\n');
+    assert.equals(sierpinski(1),inputOf1);
+  });
+
+  it('should have 4 layers of L\'s for 2', function() {
+    var inputOf2 = [
+      'L',
+      'L L',
+      'L   L',
+      'L L L L'
+    ].join('\n');
+    assert.equals(sierpinski(2),inputOf2);
+  });
+  it('should have 8 layers of L\'s for 3', function() {
+    var inputOf3 = [
+      'L',
+      'L L',
+      'L   L',
+      'L L L L',
+      'L       L',
+      'L L     L L',
+      'L   L   L   L',
+      'L L L L L L L L'
+    ].join('\n');
+    assert.equals(sierpinski(3),inputOf3);
+  });
+});
