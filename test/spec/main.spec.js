@@ -69,3 +69,58 @@ describe('Sierpinski\'s Gasket', function(){
     assert.equals(sierpinski(3),inputOf3);
   });
 });
+
+describe('Recursive max', function() {
+  it('should return the correct max from a list', function() {
+    assert.equals(recursiveMax([2,7,8,3,1,4]), 8);
+  });
+});
+
+describe('Recursive occurrence count', function() {
+  it('should', function() {
+    assert.equals(recursiveTimes([2,7,4,4,1,4],4),3);
+  });
+});
+
+describe('Recursive list reverse', function() {
+  it('should', function() {
+    assert.equals(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
+  });
+});
+
+describe('Recursive pair swap', function() {
+  it('should', function() {
+    assert.equals(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
+  });
+
+  it('should', function() {
+    assert.equals(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
+  });
+});
+
+describe('Recursive list sum', function() {
+  it('should', function() {
+    assert.equals(recursivelistSum([2,7,8,3,1,4]),25);
+  });
+});
+
+describe('Recursive list separate', function() {
+  it('should', function() {
+    assert.equals(recursiveListSeparate([2,7,8,3,1,4]),[[2], [7], [8], [3], [1], [4]]);
+  });
+});
+
+describe('Recursive pair separate', function() {
+  it('should', function() {
+    assert.equals(recursivePairSeparate([2,7,8,3,1,4]),[[2,7], [8,3], [1,4]]);
+  });
+  it('should', function() {
+    assert.equals(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
+  });
+});
+
+describe('Recursive list flatten', function() {
+  it('should', function() {
+    assert.equals(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
+  });
+});
