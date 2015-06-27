@@ -185,4 +185,40 @@ describe('Simple Recursion', function(){
     });
   });
 
+  describe('Recursive List Mirror', function() {
+    it('should insert elements to mirror the original list', function() {
+      assert.equals(recursiveSeriesReduce([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
+    });
+  });
+
+  describe('Recursive Element Insert', function() {
+    it('should create nested lists of each element with the passed value', function() {
+      assert.equals(recursiveSeriesReduce([[],[3],[7]],5),[[5],[3,5],[7,5]]);
+    });
+  });
+
+  describe('Recursive List Nest', function() {
+    it('should append every nested list inside the previous list', function() {
+      assert.equals(recursiveListNest([[4,3],[5,6],[8,2]]),[4,3,[5,6,[8,2]]]);
+    });
+  });
+
+  describe('Recursive Sublist Check', function() {
+    it('should return true if the main list contains the passed sublist', function() {
+      assert.equals(recursiveSublistCheck([2,7,8,3,1,4],[2,7]),true);
+    });
+
+    it('should return false if the main list doesn\'t contains the passed sublist', function() {
+      assert.equals(recursiveSublistCheck([5,6,7,1,4,6,7,1,3],[6,7,1]),false);
+    });
+  });
+  
+  describe('Recursive Sublist Extraction', function() {
+    it('should properly extract a list from even numbered lists', function() {
+      assert.equals(recursiveSublistExtract([2,7,8,3,1,4],2,4),[8,3]);
+    });
+    it('should properly extract a list from odd numbered lists', function() {
+      assert.equals(recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
+    });
+  });
 });
