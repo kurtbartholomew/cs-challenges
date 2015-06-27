@@ -70,57 +70,119 @@ describe('Sierpinski\'s Gasket', function(){
   });
 });
 
-describe('Recursive max', function() {
-  it('should return the correct max from a list', function() {
-    assert.equals(recursiveMax([2,7,8,3,1,4]), 8);
-  });
-});
+describe('Simple Recursion', function(){
 
-describe('Recursive occurrence count', function() {
-  it('should', function() {
-    assert.equals(recursiveTimes([2,7,4,4,1,4],4),3);
-  });
-});
-
-describe('Recursive list reverse', function() {
-  it('should', function() {
-    assert.equals(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
-  });
-});
-
-describe('Recursive pair swap', function() {
-  it('should', function() {
-    assert.equals(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
+  describe('Recursive max', function() {
+    it('should return the correct max from a list', function() {
+      assert.equals(recursiveMax([2,7,8,3,1,4]), 8);
+    });
   });
 
-  it('should', function() {
-    assert.equals(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
+  describe('Recursive occurrence count', function() {
+    it('should count the correct number of 4\'s', function() {
+      assert.equals(recursiveTimes([2,7,4,4,1,4],4),3);
+    });
   });
-});
 
-describe('Recursive list sum', function() {
-  it('should', function() {
-    assert.equals(recursivelistSum([2,7,8,3,1,4]),25);
+  describe('Recursive list reverse', function() {
+    it('should properly reverse a list', function() {
+      assert.equals(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
+    });
   });
-});
 
-describe('Recursive list separate', function() {
-  it('should', function() {
-    assert.equals(recursiveListSeparate([2,7,8,3,1,4]),[[2], [7], [8], [3], [1], [4]]);
-  });
-});
+  describe('Recursive pair swap', function() {
+    it('should swap properly for even lists', function() {
+      assert.equals(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
+    });
 
-describe('Recursive pair separate', function() {
-  it('should', function() {
-    assert.equals(recursivePairSeparate([2,7,8,3,1,4]),[[2,7], [8,3], [1,4]]);
+    it('should swap properly for odd lists', function() {
+      assert.equals(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
+    });
   });
-  it('should', function() {
-    assert.equals(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
-  });
-});
 
-describe('Recursive list flatten', function() {
-  it('should', function() {
-    assert.equals(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
+  describe('Recursive list sum', function() {
+    it('should add together the list properly', function() {
+      assert.equals(recursivelistSum([2,7,8,3,1,4]),25);
+    });
   });
+
+  describe('Recursive list separate', function() {
+    it('should separate each index out properly', function() {
+      assert.equals(recursiveListSeparate([2,7,8,3,1,4]),[[2], [7], [8], [3], [1], [4]]);
+    });
+  });
+
+  describe('Recursive pair separate', function() {
+    it('should properly separate pairs of even lists', function() {
+      assert.equals(recursivePairSeparate([2,7,8,3,1,4]),[[2,7], [8,3], [1,4]]);
+    });
+    it('should properly separate pairs of odd lists', function() {
+      assert.equals(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
+    });
+  });
+
+  describe('Recursive list flatten', function() {
+    it('should properly create single list', function() {
+      assert.equals(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
+    });
+  });
+
+  describe('Recursive list split', function() {
+    it('should divide a list at the provided index', function() {
+      assert.equals(recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
+    });
+  });
+
+  describe('Recursive Evens Filter', function() {
+    it('should properly return only even integers', function() {
+      assert.equals(recursiveEvenFilter([2,7,8,3,1,4]),[2,8,4]);
+    });
+  });
+
+  describe('Recursive List Sign Inversion', function() {
+    it('should shift every other integer negative', function() {
+      assert.equals(recursiveListInvert([2,7,8,3,1,4]),[2,-7,8,-3,1,-4]);
+    });
+
+    it('should also shift negatives back to positive', function() {
+      assert.equals(recursiveListInvert([-5,-3,7,1,-6,2]),[5,-3,7,-1,6,-2]);
+    });
+  });
+
+  describe('Recursive List Zip', function() {
+    it('should zip two lists together into one', function() {
+      assert.equals(recursiveListZip([2,7,8,3,1,4], [9,5,1]),[2,9,7,5,8,1,3,1,4]);
+    });
+  });
+
+  describe('Recursive List Creator', function() {
+    it('should create a list of all zeroes', function() {
+      assert.equals(recursiveListCreator(0, 5),[0,0,0,0,0]);
+    });
+
+    it('should create a list of three sevens', function() {
+      assert.equals(recursiveListCreator(7, 3),[7,7,7]);
+    });
+  });
+
+  describe('Recursive Counting List', function() {
+    it('should create a list from 2 to 5', function() {
+      assert.equals(recursiveCountingList(2,5),[2,3,4]);
+    });
+
+    it('should create a list from 8 to 1', function() {
+      assert.equals(recursiveCountingList(8,1),[8,7,6,5,4,3,2]);
+    });
+
+    it('should create an empty list if given the same elements', function() {
+      assert.equals(recursiveCountingList(3,3),[]);
+    });
+  });
+
+  describe('Recursive List Zip', function() {
+    it('should reduce a series of zeroes to one', function() {
+      assert.equals(recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
+    });
+  });
+
 });
