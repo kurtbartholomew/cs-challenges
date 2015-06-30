@@ -247,3 +247,13 @@ describe('Least Common Multiple', function() {
     assert.equal(leastCommonMultiple(9),9);
   });
 });
+
+describe('Josephus Survivor', function() {
+  it('should correctly return the last survivor ', function() {
+    assert.equal(josephusSurvivor(7,3),4);
+    assert.equal(josephusSurvivor(11,19),10);
+    assert.equal(josephusSurvivor(1,300),1);
+    assert.equal(josephusSurvivor(14,2),13);
+    assert.equal(josephusSurvivor(100,1),100);
+  });
+});
