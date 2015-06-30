@@ -1,10 +1,19 @@
 /*
-	Count the occurences of an element inside a list.
-	Example: [2,7,4,4,1,4] for 4
-	Returns 3
+  Count the occurences of an element inside a list.
+  Example: [2,7,4,4,1,4] for 4
+  Returns 3
 
 */
 
-var recursiveTimes = function(arr,element) {
-	// TODO - Finish this
+var iterativeTimes = function(arr, element) {
+  return arr.reduce(function(count,currentElement){
+    return element === currentElement ? count + 1 : count;
+  },0);
+};
+
+var recursiveTimes = function(arr, element) {
+  var count = arguments[2] || 0;
+  if(!arr.length) { return count; }
+  if(arr[0] === element) { count++; }
+  return recursiveTimes(arr.slice(1),element,count);
 };
