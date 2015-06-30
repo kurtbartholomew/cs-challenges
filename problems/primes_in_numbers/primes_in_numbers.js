@@ -9,5 +9,5 @@ Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
  */
 
 function primeFactors(n){
-    //your code here
+  //your code here
 }
