@@ -86,17 +86,17 @@ describe('Simple Recursion', function(){
 
   describe('Recursive list reverse', function() {
     it('should properly reverse a list', function() {
-      assert.equal(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
+      assert.deepEqual(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
     });
   });
 
   describe('Recursive pair swap', function() {
     it('should swap properly for even lists', function() {
-      assert.equal(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
+      assert.deepEqual(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
     });
 
     it('should swap properly for odd lists', function() {
-      assert.equal(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
+      assert.deepEqual(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
     });
   });
 
@@ -108,98 +108,98 @@ describe('Simple Recursion', function(){
 
   describe('Recursive list separate', function() {
     it('should separate each index out properly', function() {
-      assert.equal(recursiveListSeparate([2,7,8,3,1,4]),[[2], [7], [8], [3], [1], [4]]);
+      assert.deepEqual(recursiveListSeparate([2,7,8,3,1,4]),[[2], [7], [8], [3], [1], [4]]);
     });
   });
 
   describe('Recursive pair separate', function() {
     it('should properly separate pairs of even lists', function() {
-      assert.equal(recursivePairSeparate([2,7,8,3,1,4]),[[2,7], [8,3], [1,4]]);
+      assert.deepEqual(recursivePairSeparate([2,7,8,3,1,4]),[[2,7], [8,3], [1,4]]);
     });
     it('should properly separate pairs of odd lists', function() {
-      assert.equal(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
+      assert.deepEqual(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
     });
   });
 
   describe('Recursive list flatten', function() {
     it('should properly create single list', function() {
-      assert.equal(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
+      assert.deepEqual(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
     });
   });
 
   describe('Recursive list split', function() {
     it('should divide a list at the provided index', function() {
-      assert.equal(recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
+      assert.deepEqual(recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
     });
   });
 
   describe('Recursive Evens Filter', function() {
     it('should properly return only even integers', function() {
-      assert.equal(recursiveEvenFilter([2,7,8,3,1,4]),[2,8,4]);
+      assert.deepEqual(recursiveEvenFilter([2,7,8,3,1,4]),[2,8,4]);
     });
   });
 
   describe('Recursive List Sign Inversion', function() {
     it('should shift every other integer negative', function() {
-      assert.equal(recursiveListInvert([2,7,8,3,1,4]),[2,-7,8,-3,1,-4]);
+      assert.deepEqual(recursiveListInvert([2,7,8,3,1,4]),[2,-7,8,-3,1,-4]);
     });
 
     it('should also shift negatives back to positive', function() {
-      assert.equal(recursiveListInvert([-5,-3,7,1,-6,2]),[5,-3,7,-1,6,-2]);
+      assert.deepEqual(recursiveListInvert([-5,-3,7,1,-6,2]),[5,-3,7,-1,6,-2]);
     });
   });
 
   describe('Recursive List Zip', function() {
     it('should zip two lists together into one', function() {
-      assert.equal(recursiveListZip([2,7,8,3,1,4], [9,5,1]),[2,9,7,5,8,1,3,1,4]);
+      assert.deepEqual(recursiveListZip([2,7,8,3,1,4], [9,5,1]),[2,9,7,5,8,1,3,1,4]);
     });
   });
 
   describe('Recursive List Creator', function() {
     it('should create a list of all zeroes', function() {
-      assert.equal(recursiveListCreator(0, 5),[0,0,0,0,0]);
+      assert.deepEqual(recursiveListCreator(0, 5),[0,0,0,0,0]);
     });
 
     it('should create a list of three sevens', function() {
-      assert.equal(recursiveListCreator(7, 3),[7,7,7]);
+      assert.deepEqual(recursiveListCreator(7, 3),[7,7,7]);
     });
   });
 
   describe('Recursive Counting List', function() {
     it('should create a list from 2 to 5', function() {
-      assert.equal(recursiveCountingList(2,5),[2,3,4]);
+      assert.deepEqual(recursiveCountingList(2,5),[2,3,4]);
     });
 
     it('should create a list from 8 to 1', function() {
-      assert.equal(recursiveCountingList(8,1),[8,7,6,5,4,3,2]);
+      assert.deepEqual(recursiveCountingList(8,1),[8,7,6,5,4,3,2]);
     });
 
     it('should create an empty list if given the same elements', function() {
-      assert.equal(recursiveCountingList(3,3),[]);
+      assert.deepEqual(recursiveCountingList(3,3),[]);
     });
   });
 
   describe('Recursive List Zip', function() {
     it('should reduce a series of zeroes to one', function() {
-      assert.equal(recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
+      assert.deepEqual(recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
     });
   });
 
   describe('Recursive List Mirror', function() {
     it('should insert elements to mirror the original list', function() {
-      assert.equal(recursiveSeriesReduce([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
+      assert.deepEqual(recursiveSeriesReduce([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
     });
   });
 
   describe('Recursive Element Insert', function() {
     it('should create nested lists of each element with the passed value', function() {
-      assert.equal(recursiveSeriesReduce([[],[3],[7]],5),[[5],[3,5],[7,5]]);
+      assert.deepEqual(recursiveSeriesReduce([[],[3],[7]],5),[[5],[3,5],[7,5]]);
     });
   });
 
   describe('Recursive List Nest', function() {
     it('should append every nested list inside the previous list', function() {
-      assert.equal(recursiveListNest([[4,3],[5,6],[8,2]]),[4,3,[5,6,[8,2]]]);
+      assert.deepEqual(recursiveListNest([[4,3],[5,6],[8,2]]),[4,3,[5,6,[8,2]]]);
     });
   });
 
@@ -215,10 +215,10 @@ describe('Simple Recursion', function(){
   
   describe('Recursive Sublist Extraction', function() {
     it('should properly extract a list from even numbered lists', function() {
-      assert.equal(recursiveSublistExtract([2,7,8,3,1,4],2,4),[8,3]);
+      assert.deepEqual(recursiveSublistExtract([2,7,8,3,1,4],2,4),[8,3]);
     });
     it('should properly extract a list from odd numbered lists', function() {
-      assert.equal(recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
+      assert.deepEqual(recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
     });
   });
 });

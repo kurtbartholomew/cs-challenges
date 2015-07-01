@@ -10,6 +10,26 @@
 
 */
 
+var iterativePairSwap = function(arr) {
+  var temp = 0;
+  for(var i = 0; i < arr.length; i++) {
+    if(i % 2 !== 0) {
+      temp = arr[i];
+      arr[i] = arr[i-1];
+      arr[i-1] = temp;
+    }
+  }
+  return arr;
+};
+
 var recursivePairSwap = function(arr) {
-  // TODO: Finish this
+  var index = arguments[1] !== undefined ? arguments[1] : 0;
+  var newList = arguments[2] || [];
+  if(index === arr.length) { return newList; }
+  if(index % 2 !== 0){
+    newList[index] = arr[(index-1)];
+  } else {
+    newList[index] = arr[(index+1)] !== undefined ? arr[(index+1)] : arr[index];
+  }
+  return recursivePairSwap(arr,index+1,newList);
 };
