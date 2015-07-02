@@ -11,9 +11,14 @@ var iterativeMax = function(arr) {
   },-Infinity);
 };
 
+// var recursiveMax = function(arr) {
+//   var max = arguments[1] || 0;
+//   if(!arr.length) { return max; }
+//   max = arr[0] > max ? arr[0] : max;
+//   return recursiveMax(arr.slice(1),max);
+// };
+
 var recursiveMax = function(arr) {
-  var max = arguments[1] || 0;
-  if(!arr.length) { return max; }
-  max = arr[0] > max ? arr[0] : max;
-  return recursiveMax(arr.slice(1),max);
+  if(!arr.length) { return -Infinity; }
+  return Math.max(arr[0],recursiveMax(arr.slice(1)));
 };
