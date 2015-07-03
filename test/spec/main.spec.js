@@ -263,3 +263,13 @@ describe('32 bit integer to IPv4', function() {
     assert.equal(int32ToIp(2149583361),"128.32.10.1");
   });
 });
+
+describe('Unique Character Checker', function() {
+  it('should return true if there are no repeated characters', function(){
+    assert.equal(uniqueChecker('nodachi'),true);
+  });
+
+  it('should return false if characters are repeated', function(){
+    assert.equal(uniqueChecker('flamberge'),false);
+  });
+});
