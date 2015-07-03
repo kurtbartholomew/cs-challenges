@@ -257,3 +257,9 @@ describe('Josephus Survivor', function() {
     assert.equal(josephusSurvivor(100,1),100);
   });
 });
+
+describe('32 bit integer to IPv4', function() {
+  it('should translate a 32 bit integer to ipv4 address', function() {
+    assert.equal(int32ToIp(2149583361),"128.32.10.1");
+  });
+});
