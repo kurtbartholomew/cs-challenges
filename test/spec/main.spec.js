@@ -102,7 +102,7 @@ describe('Simple Recursion', function(){
 
   describe('Recursive list sum', function() {
     it('should add together the list properly', function() {
-      assert.equal(recursivelistSum([2,7,8,3,1,4]),25);
+      assert.equal(recursiveListSum([2,7,8,3,1,4]),25);
     });
   });
 
