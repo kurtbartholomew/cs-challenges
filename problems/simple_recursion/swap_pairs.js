@@ -23,13 +23,8 @@ var iterativePairSwap = function(arr) {
 };
 
 var recursivePairSwap = function(arr) {
-  var index = arguments[1] !== undefined ? arguments[1] : 0;
-  var newList = arguments[2] || [];
-  if(index === arr.length) { return newList; }
-  if(index % 2 !== 0){
-    newList[index] = arr[(index-1)];
-  } else {
-    newList[index] = arr[(index+1)] !== undefined ? arr[(index+1)] : arr[index];
-  }
-  return recursivePairSwap(arr,index+1,newList);
+  if(!arr.length) { return arr; }
+  return arr.length % 2 === 0 ? 
+    recursivePairSwap(arr.slice(0,-2)).concat(arr[arr.length-1],arr[arr.length-2]) : 
+    recursivePairSwap(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
