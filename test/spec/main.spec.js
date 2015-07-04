@@ -273,3 +273,21 @@ describe('Unique Character Checker', function() {
     assert.equal(uniqueChecker('flamberge'),false);
   });
 });
+
+describe('String Permutation Finder', function() {
+  it('should return true if the second string is a permutation', function(){
+    assert.equal(stringPermuteFinder('supreme','presume'),false);
+  });
+
+  it('should return false if letters are used more than once', function() {
+    assert.equal(stringPermuteFinder('macguffin','macmuffin'),false);
+  });
+
+  it('should return false because of extra whitespace', function() {
+    assert.equal(stringPermuteFinder('taco','   coat     '),false);
+  });
+  
+  it('should return false if letter case is changed', function() {
+    assert.equal(stringPermuteFinder('grandiose','Organised'),false);
+  });
+});
