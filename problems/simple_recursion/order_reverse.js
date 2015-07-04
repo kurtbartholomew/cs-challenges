@@ -13,12 +13,6 @@ var iterativeReverse = function(arr) {
 };
 
 var recursiveReverse = function(arr) {
-  var index = arguments[1] === undefined ? arr.length-1 : arguments[1];
-  var newList = arguments[2] || [];
-  if(index === 0) {
-    newList.push(arr[index]);
-    return newList;
-  }
-  newList.push(arr[index]);
-  return recursiveReverse(arr,index-1,newList);
+  if(!arr.length) { return arr; }
+  return recursiveReverse(arr.slice(1)).concat(arr[0]);
 };

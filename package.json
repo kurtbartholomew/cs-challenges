@@ -1,7 +1,7 @@
 {
   "name": "practice_algorithms",
   "version": "1.0.0",
-  "description": "A collection of algorithmic challenges for my personal growth",
+  "description": "A collection of algorithmic challenges for staying sharp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
