@@ -6,6 +6,15 @@
 
 */
 
-var recursiveEvenFilter = function(arr) {
+var iterativeEvenFilter = function(arr) { 
+  return arr.filter(function(element) {
+    return element % 2 === 0;
+  });
+};
 
+var recursiveEvenFilter = function(arr) {
+  if(!arr.length) { return arr; }
+  return arr[arr.length-1] % 2 === 0 ? 
+    recursiveEvenFilter(arr.slice(0,-1)).concat(arr[arr.length-1]) :
+    recursiveEvenFilter(arr.slice(0,-1));
 };

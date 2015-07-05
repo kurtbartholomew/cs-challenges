@@ -56,7 +56,7 @@ describe('Simple Recursion', function(){
   });
 
   describe('Recursive List Split', function() {
-    it('should divide a list at the provided index', function() {
+    it('should produce two lists of integers: one lower than the pivot element and one higher or equal', function() {
       assert.deepEqual(recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
     });
   });
