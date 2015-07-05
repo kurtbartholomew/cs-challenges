@@ -6,6 +6,18 @@
 
 */
 
+var iterativeListMirror = function(arr) {
+  var result = arr.slice();
+  var length = result.length;
+  for(var i = (length-1); i >= 0; i--) {
+    result[length] = result[i];
+    length++;
+  }
+  return result;
+};
+
 var recursiveListMirror = function(arr) {
-	// TODO : Finish this
+	if(!arr.length) { return arr; }
+  console.log(arr);
+  return [arr[0]].concat(recursiveListMirror(arr.slice(1)).concat(arr[0]));
 };

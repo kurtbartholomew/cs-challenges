@@ -115,13 +115,13 @@ describe('Simple Recursion', function(){
 
   describe('Recursive List Mirror', function() {
     it('should insert elements to mirror the original list', function() {
-      assert.deepEqual(recursiveSeriesReduce([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
+      assert.deepEqual(recursiveListMirror([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
     });
   });
 
   describe('Recursive Element Insert', function() {
     it('should create nested lists of each element with the passed value', function() {
-      assert.deepEqual(recursiveSeriesReduce([[],[3],[7]],5),[[5],[3,5],[7,5]]);
+      assert.deepEqual(recursiveElementInsert([[],[3],[7]],5),[[5],[3,5],[7,5]]);
     });
   });
 
