@@ -7,6 +7,20 @@
 
 */
 
+var iterativeListZip = function(arr1, arr2) {
+  var zipped = [];
+  var smallestLength = Math.min(arr1.length,arr2.length);
+  for(var i = 0; i < smallestLength; i++) {
+    zipped.push(arr1[i],arr2[i]);
+  }
+  return arr1.length === smallestLength ? 
+    zipped.concat(arr2.slice(smallestLength)):
+    zipped.concat(arr1.slice(smallestLength));
+};
+
 var recursiveListZip = function(arr1, arr2) {
-  // TODO : Finish this
+  if(!arr1.length || !arr2.length) { 
+    return arr1.concat(arr2);
+  }
+  return [arr1[0],arr2[0]].concat(recursiveListZip(arr1.slice(1),arr2.slice(1)));
 };
