@@ -12,6 +12,15 @@
 
 */
 
-var recursiveCountingList = function(start,exclusiveEnd) {
-  // TODO : Finish this
+var iterativeCountingList = function(start, exclusiveEnd) {
+  return Array.apply(null,{length:(Math.abs(exclusiveEnd-start))}).map(function(_element,index){
+    return exclusiveEnd-start > 0 ? start+index : start-index;
+  });
+};
+
+var recursiveCountingList = function(start, exclusiveEnd) {
+  if(start === exclusiveEnd) { return []; }
+  return exclusiveEnd-start > 0 ?
+    recursiveCountingList(start, exclusiveEnd-1).concat(exclusiveEnd-1) :
+    recursiveCountingList(start, exclusiveEnd+1).concat(exclusiveEnd+1);
 };

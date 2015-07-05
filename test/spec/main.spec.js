@@ -107,7 +107,7 @@ describe('Simple Recursion', function(){
     });
   });
 
-  describe('Recursive List Zip', function() {
+  describe('Recursive Series Reduction', function() {
     it('should reduce a series of zeroes to one', function() {
       assert.deepEqual(recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
     });
