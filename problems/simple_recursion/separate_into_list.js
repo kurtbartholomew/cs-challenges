@@ -8,7 +8,7 @@
 
 var iterativeListSeperate = function(arr) {
   return arr.map(function(element) {
-    return [].concat(element);
+    return [element];
   },[]);
 };
 
@@ -16,4 +16,3 @@ var recursiveListSeparate = function(arr) {
   if(!arr.length) { return arr; }
   return recursiveListSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1]]]);
 };
-
