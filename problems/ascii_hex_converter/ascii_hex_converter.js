@@ -3,11 +3,11 @@
 
   Example :
   Converter.toHex("Look mom, no hands")
-  => "4c6f6f6b206d6f6d2c206e6f2068616e6473"
+  Returns "4c6f6f6b206d6f6d2c206e6f2068616e6473"
 
   Example :
   Converter.toAscii("4c6f6f6b206d6f6d2c206e6f2068616e6473")
-  => "Look mom, no hands"
+  Returns "Look mom, no hands"
 
 */
 

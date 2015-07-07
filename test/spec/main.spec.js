@@ -291,3 +291,12 @@ describe('String Permutation Finder', function() {
     assert.equal(stringPermuteFinder('grandiose','Organised'),false);
   });
 });
+
+describe('String to URL Changer', function() {
+  it('should return the same string if it contains no spaces', function() {
+    assert.equal(stringToURL('antidisestablishmentarianism'),'antidisestablishmentarianism');
+  });
+  it('should fill spaces with %20', function() {
+    assert.equal(stringToURL('The woman had a refined palate'),'The%20woman%20had%20a%20refined%20palate');
+  });
+});
