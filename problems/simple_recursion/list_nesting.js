@@ -7,5 +7,8 @@
 */
 
 var recursiveListNest = function(arr) {
-  // TODO : Finish this
+  if(!arr.length) { return []; }
+  return arr.length === 1 ?
+    arr[0].concat(recursiveListNest(arr.slice(1))):
+    arr[0].concat([recursiveListNest(arr.slice(1))]);
 };
