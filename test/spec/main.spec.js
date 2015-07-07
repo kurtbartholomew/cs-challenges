@@ -236,15 +236,15 @@ describe('ASCII Hex Converter', function() {
 
 describe('Least Common Multiple', function() {
   it('should find the smallest multiple of 2 and 5', function() {
-    assert.equal(leastCommonMultiple(2,5),10);
+    assert.equal(leastCommonMultiples(2,5),10);
   });
   
   it('should find the smallest multiple of 2, 3, and 4', function() {
-    assert.equal(leastCommonMultiple(2,3,4),12);
+    assert.equal(leastCommonMultiples(2,3,4),12);
   });
   
   it('should find the smallest multiple of 9', function() {
-    assert.equal(leastCommonMultiple(9),9);
+    assert.equal(leastCommonMultiples(9),9);
   });
 });
 
