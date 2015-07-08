@@ -10,5 +10,16 @@
 */
 
 var recursiveListSplit = function(arr, element) {
-	// TODO: Finish this
+	if(!arr.length) { 
+    arr[0] = [];
+    arr[1] = [];
+    return arr;
+  }
+  var newArr = recursiveListSplit(arr.slice(0,-1),element);
+  if(arr[arr.length-1] < element) {
+    newArr[0].push(arr[arr.length-1]);
+  } else {
+    newArr[1].push(arr[arr.length-1]);
+  }
+  return newArr;
 };
