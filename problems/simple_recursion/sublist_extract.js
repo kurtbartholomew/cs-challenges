@@ -10,6 +10,15 @@
 
 */
 
+var iterativeSublistExtract = function(arr, startIndex, endIndex) {
+  return arr.slice(startIndex,endIndex);
+};
+
 var recursiveSublistExtract = function(arr, startIndex, endIndex) {
-  // TODO : Finish this
+  if(arr.length === (startIndex+1)) { return [arr[startIndex]]; }
+  var newArr = recursiveSublistExtract(arr.slice(0,-1),startIndex,endIndex);
+  if(arr.length < (endIndex+1)){
+    newArr.push(arr[arr.length-1]);
+  }
+  return newArr;
 };
