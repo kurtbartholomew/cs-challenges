@@ -132,11 +132,11 @@ describe('Simple Recursion', function(){
   });
 
   describe('Recursive Sublist Check', function() {
-    it('should return true if the main list contains the passed sublist', function() {
+    it('should return true if the main list starts with the passed sublist', function() {
       assert.equal(recursiveSublistCheck([2,7,8,3,1,4],[2,7]),true);
     });
 
-    it('should return false if the main list doesn\'t contains the passed sublist', function() {
+    it('should return false if the main list doesn\'t start with the passed sublist', function() {
       assert.equal(recursiveSublistCheck([5,6,7,1,4,6,7,1,3],[6,7,1]),false);
     });
   });

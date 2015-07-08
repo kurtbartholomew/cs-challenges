@@ -10,5 +10,9 @@
 */
 
 var recursiveSublistCheck = function(arr, subarr) {
-  // TODO : Finish this
+  if(subarr.length === 1) { return arr[0] === subarr[0]; }
+  var starting = subarr.length === 1 ? 
+    recursiveSublistCheck(arr, subarr.slice(1)):
+    recursiveSublistCheck(arr.slice(1), subarr.slice(1));
+  return starting && (arr[0] === subarr[0]);
 };
