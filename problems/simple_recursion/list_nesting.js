@@ -6,6 +6,12 @@
 
 */
 
+var iterativeListNest = function(arr) {
+  return arr.reduceRight(function(nestedList,element){
+    return element.concat([nestedList]);
+  });
+};
+
 var recursiveListNest = function(arr) {
   if(!arr.length) { return []; }
   return arr.length === 1 ?

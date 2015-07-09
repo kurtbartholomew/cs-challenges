@@ -25,7 +25,6 @@ var iterativePairSeparate = function(arr) {
 
 var recursivePairSeparate = function(arr) {
   if(!arr.length) { return arr; }
-  console.log(arr);
   return arr.length % 2 === 0 ? 
     recursivePairSeparate(arr.slice(0,-2)).concat([[arr[arr.length-2],arr[arr.length-1]]]) :
     recursivePairSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1],0]]);

@@ -9,12 +9,16 @@
 
 */
 
+var iterativeListSplit = function(arr, element) {
+  return arr.reduce(function(splitArray,comparisonElement){
+    if(comparisonElement < element) { splitArray[0].push(comparisonElement); }
+    else { splitArray[1].push(comparisonElement); }
+    return splitArray;
+  },[[],[]]);
+};
+
 var recursiveListSplit = function(arr, element) {
-	if(!arr.length) { 
-    arr[0] = [];
-    arr[1] = [];
-    return arr;
-  }
+	if(!arr.length) { return [[],[]]; }
   var newArr = recursiveListSplit(arr.slice(0,-1),element);
   if(arr[arr.length-1] < element) {
     newArr[0].push(arr[arr.length-1]);
