@@ -442,3 +442,25 @@ describe('String to URL Changer', function() {
     assert.equal(stringToURL('The woman had a refined palate'),'The%20woman%20had%20a%20refined%20palate');
   });
 });
+
+describe('Palindrome Permutation Finder', function() {
+  it('should find palindromes when they exist in the provided characters', function(){
+    assert.equal(palindromicPermuter("ceararc"),true);
+  });
+  
+  it('should return nothing if no palindromes can be made', function(){
+    assert.equal(palindromicPermuter("helicop"),false);
+  });  
+});
+
+describe('One Change Away Check', function() {
+  it('should return true if the two strings provided are the same word', function(){
+    assert.equal(oneChangeAwayCheck("monkey","monkey"),true);
+  });
+  it('should return false if the first word is more than one change away from the second', function(){
+    assert.equal(oneChangeAwayCheck("monkey","mooney"),false);
+  });
+  it('should return true if the first word is one changed character away from the second', function(){
+    assert.equal(oneChangeAwayCheck("monkey","money"),true);
+  });
+});
