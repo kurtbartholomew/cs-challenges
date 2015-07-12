@@ -464,3 +464,13 @@ describe('One Change Away Check', function() {
     assert.equal(oneChangeAwayCheck("monkey","money"),true);
   });
 });
+
+describe('String Compression', function() {
+  it('should compress strings with multiple instances of characters', function() {
+    assert.equal(stringCompress('bbbbaaaannnnaaaannnnaaa'),'b4a4n4a4n4a3');
+  });
+
+  it('should not compress strings with no repeat characters', function() {
+    assert.equal(stringCompress('banana'),'banana');
+  });
+});

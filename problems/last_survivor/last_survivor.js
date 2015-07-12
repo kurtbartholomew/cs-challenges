@@ -37,22 +37,3 @@ var josephusSurvivor = function(n, k){
   }
   return survivors[0];
 };
-
-// var josephusSurvivor = function(n, k) {
-//   var survivors = Array.apply(null,{length:n}).map(function(element,index){
-//      return index+1;
-//   });
-//   var counter = 0;
-//   var removeSurvivor = function(survivorArray){
-//     if(survivorArray.length === 1) { return survivorArray[0]; }
-//     counter += (k-1);
-//     if(counter > survivorArray.length) {
-//       counter = counter % survivorArray.length;
-//     }
-//     console.log(survivorArray,counter+1);
-//     console.log(survivorArray.splice(counter,1));
-//     return removeSurvivor(survivorArray);
-//   };
-
-//   return removeSurvivor(survivors);
-// };
