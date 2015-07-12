@@ -418,7 +418,7 @@ describe('Unique Character Checker', function() {
 
 describe('String Permutation Finder', function() {
   it('should return true if the second string is a permutation', function(){
-    assert.equal(stringPermuteFinder('supreme','presume'),false);
+    assert.equal(stringPermuteFinder('supreme','presume'),true);
   });
 
   it('should return false if letters are used more than once', function() {
