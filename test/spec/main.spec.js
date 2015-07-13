@@ -487,3 +487,15 @@ describe('Matrix Bomberman', function() {
     assert.deepEqual(matrixBomberman([[5,3,8],[2,7,1],[0,9,4]]),[[0,3,8],[0,7,1],[0,0,0]]);
   });
 });
+
+describe('Incrementing an Integer Array', function() {
+  it('should increment only the last integer if it is not a 9', function() {
+    assert.deepEqual(integerArrayIncrement([1,2,3,4]),[1,2,3,4,5]);
+  });
+  it('should increment only the last integer if it is not a 9', function() {
+    assert.deepEqual(integerArrayIncrement([2,0,9,0,9]),[2,0,9,1,0]);
+  });
+  it('should increment only the last integer if it is not a 9', function() {
+    assert.deepEqual(integerArrayIncrement([9,9,9,9,9]),[1,0,0,0,0,0]);
+  });
+});
