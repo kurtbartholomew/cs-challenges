@@ -5,7 +5,7 @@ Write a function that accepts two square (nxn) matrices (two dimensional arrays)
 
 How to multiply two square matrices: 
 
-We are given two matrices, A and B, of size 2x2 (Kata tests are not limited to 2x2).
+We are given two matrices, A and B, of size 2x2 (Tests are not limited to 2x2).
 Matrix C, the solution, will be equal to the product of A and B. 
 To fill in cell [ 0 ][ 0 ] of matrix C, you need to compute: A[0][0] * B[0][0] + A[0][1] * B[1][0]. 
 
@@ -34,6 +34,18 @@ C[1][1] = A[1][0] * B[0][1] + A[1][1] * B[1][1] = 3 * 2 + 2 * 1 = 8
 
 */
 
-function matrixMultiplication(a, b) {
-  //TODO  
+function matrixMultiplication(matrix1, matrix2) {
+  var result = [[],[]];
+  var length = matrix1.length;
+
+  for(var i = 0; i < length; i++) {
+    for(var j = 0; j < length; j++) {
+      result[i][j] = 0;
+      for(var k = 0; k < length; k++) {
+        result[i][j] += matrix1[i][k] * matrix2[k][j];
+      }
+    }
+  }
+
+  return result;
 }
