@@ -490,7 +490,7 @@ describe('Matrix Bomberman', function() {
 
 describe('Incrementing an Integer Array', function() {
   it('should increment only the last integer if it is not a 9', function() {
-    assert.deepEqual(integerArrayIncrement([1,2,3,4]),[1,2,3,4,5]);
+    assert.deepEqual(integerArrayIncrement([1,2,3,4]),[1,2,3,5]);
   });
   it('should increment only the last integer if it is not a 9', function() {
     assert.deepEqual(integerArrayIncrement([2,0,9,0,9]),[2,0,9,1,0]);

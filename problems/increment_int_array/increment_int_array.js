@@ -13,5 +13,18 @@
  */
 
 var integerArrayIncrement = function(intArray){
-  // TODO : Finish this
+  for(var i = intArray.length; i >= 0; i--){
+    if(i === (intArray.length-1)) {
+      intArray[i]++;
+    }
+    if(intArray[i] > 9) {
+      intArray[i] = 0;
+      if(intArray[i-1] !== undefined){
+        intArray[i-1]++;
+      } else {
+        intArray.unshift(1);
+      }
+    }
+  }
+  return intArray;
 };
