@@ -481,3 +481,9 @@ describe('Rotating a Matrix', function() {
       [[13,9,5,1],[14,10,6,2],[15,11,7,3],[16,12,8,4]]);
   });
 });
+
+describe('Matrix Bomberman', function() {
+  it('should replace all values perpendicular to zero with zero', function() {
+    assert.deepEqual(matrixBomberman([[5,3,8],[2,7,1],[0,9,4]]),[[0,3,8],[0,7,1],[0,0,0]]);
+  });
+});
