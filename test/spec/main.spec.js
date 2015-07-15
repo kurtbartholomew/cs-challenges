@@ -499,3 +499,13 @@ describe('Incrementing an Integer Array', function() {
     assert.deepEqual(integerArrayIncrement([9,9,9,9,9]),[1,0,0,0,0,0]);
   });
 });
+
+describe('Rotated String Finder', function() {
+  it('should return true if second string is rotated version of first', function() {
+    assert.equal(rotatedStringLocator('anthropomorphic','phicanthropomor'),true);
+  });
+
+  it('should return false if string is reversed instead of rotated', function() {
+    assert.equal(rotatedStringLocator('geriatric','cirtaireg'),false);
+  });
+});
