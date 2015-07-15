@@ -492,10 +492,10 @@ describe('Incrementing an Integer Array', function() {
   it('should increment only the last integer if it is not a 9', function() {
     assert.deepEqual(integerArrayIncrement([1,2,3,4]),[1,2,3,5]);
   });
-  it('should increment only the last integer if it is not a 9', function() {
+  it('should increment the index before it if the last integer is a 9', function() {
     assert.deepEqual(integerArrayIncrement([2,0,9,0,9]),[2,0,9,1,0]);
   });
-  it('should increment only the last integer if it is not a 9', function() {
+  it('should add an additional array index and start with 1 if values are all 9\'s', function() {
     assert.deepEqual(integerArrayIncrement([9,9,9,9,9]),[1,0,0,0,0,0]);
   });
 });
