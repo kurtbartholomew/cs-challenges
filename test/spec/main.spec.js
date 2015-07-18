@@ -301,6 +301,11 @@ describe('Data Structures', function() {
       assert.property(linky,'head');
       assert.property(linky,'tail');
     });
+    it('nodes should contain a next reference and value when instantiated', function() {
+      var node = new LinkedListNode();
+      assert.property(node,'next');
+      assert.property(node,'value');
+    });
     it('should be able to add nodes', function() {
       var linky = new LinkedList();
       linky.addToTail(7);
@@ -325,9 +330,9 @@ describe('Data Structures', function() {
       linky.addToTail(9);
       assert.equal(linky.size(),3);
     });
-    it('should not throw an error if remove is called on an empty list', function() {
+    it('should return null if remove is called on an empty list', function() {
       var linky = new LinkedList();
-      assert.doesNotThrow(linky.removeFromHead,Error);
+      assert.equal(linky.removeFromHead(),null);
     });
   });
 });
@@ -546,5 +551,32 @@ describe('Rotated String Finder', function() {
 
   it('should return false if string is reversed instead of rotated', function() {
     assert.equal(rotatedStringLocator('geriatric','cirtaireg'),false);
+  });
+});
+
+describe('Duplication Removal', function() {
+  it('should remove duplicates from a linked list if they exist', function() {
+    var linky = new LinkedList();
+    var vals = [8,9,2,6,8,2,3];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    var noDupsList = DuplicationRemoval(linky);
+    while(noDupsList.size() > 0){
+      vals.push(noDupsList.removeFromHead());
+    }
+    assert.deepEqual(vals,[8,9,2,6,3]);
+  });
+  it('should return', function() {
+    var linky = new LinkedList();
+    var vals = [5,3,2,7,8,1];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    var noDupsList = DuplicationRemoval(linky);
+    while(noDupsList.size() > 0){
+      vals.push(noDupsList.removeFromHead());
+    }
+    assert.deepEqual(vals,[5,3,2,7,8,1]);
   });
 });
