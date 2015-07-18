@@ -11,11 +11,15 @@
 
 */
 
-function Converter(){
-  this.toAscii = function ( hex ) {
-    //...
-  };
-  this.toHex = function ( ascii ) {
-    //...
-  };
-}
+var Converter = function(){ };
+
+Converter.toAscii = function ( hex ) {
+  return hex.replace(/../g, function(h) {
+    return String.fromCharCode(parseInt(h,16));
+  });
+};
+Converter.toHex = function ( ascii ) {
+  return ascii.replace(/./g, function(a) {
+    return a.charCodeAt().toString(16);
+  });
+};
