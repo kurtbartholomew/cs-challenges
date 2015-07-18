@@ -293,6 +293,45 @@ describe('Simple Recursion', function(){
   });
 });
 
+describe('Data Structures', function() {
+
+  describe('Linked List', function() {
+    it('should contain a head and tail reference when instantiated', function() {
+      var linky = new LinkedList();
+      assert.property(linky,'head');
+      assert.property(linky,'tail');
+    });
+    it('should be able to add nodes', function() {
+      var linky = new LinkedList();
+      linky.addToTail(7);
+      linky.addToTail(8);
+      linky.addToTail(9);
+      assert.equal(linky.head.value,7);
+      assert.equal(linky.tail.value,9);
+    });
+    it('should be able to remove nodes', function() {
+      var linky = new LinkedList();
+      linky.addToTail(7);
+      linky.addToTail(8);
+      linky.addToTail(9);
+      assert.equal(linky.removeFromHead(),7);
+      assert.equal(linky.removeFromHead(),8);
+    });
+    it('should be able to return the size of the linked list', function() {
+      var linky = new LinkedList();
+      assert.equal(linky.size(),0);
+      linky.addToTail(7);
+      linky.addToTail(8);
+      linky.addToTail(9);
+      assert.equal(linky.size(),3);
+    });
+    it('should not throw an error if remove is called on an empty list', function() {
+      var linky = new LinkedList();
+      assert.doesNotThrow(linky.removeFromHead,Error);
+    });
+  });
+});
+
 describe('Knapsack (greedy solution)', function() {
   it('should choose one item correctly', function() {
     assert.equal("["+knapsack(100, [[1, 1]]).join(", ")+"]", "["+[100].join(", ")+"]");
