@@ -335,6 +335,46 @@ describe('Data Structures', function() {
       assert.equal(linky.removeFromHead(),null);
     });
   });
+
+  describe('Stack', function() {
+    it('should return the size of a stack', function() {
+      var stacky = new Stack();
+      assert.equal(stacky.size(),0);
+    });
+    it('should be able to add new values to the stack', function() {
+      var stacky = new Stack();
+      stacky.push(7);
+      stacky.push(8);
+      assert.equal(stacky.size(),2);
+    });
+    it('should be able to look at the top value on the stack', function() {
+      var stacky = new Stack();
+      stacky.push(1);
+      stacky.push(2);
+      stacky.push(3);
+      stacky.push(4);
+      assert.equal(stacky.peek(),4);
+    });
+    it('should be able to remove the top value on the stack', function() {
+      var stacky = new Stack();
+      stacky.push(1);
+      stacky.push(2);
+      stacky.push(3);
+      stacky.push(4);
+      assert.equal(stacky.pop(),4);
+    });
+    it('should return null when trying to remove from an empty stack', function() {
+      var stacky = new Stack();
+      assert.equal(stacky.pop() === null,true);
+    });
+    it('should be able to tell if the stack is empty or not', function() {
+      var stacky = new Stack();
+      stacky.push(5);
+      assert.equal(stacky.isEmpty(),false);
+      stacky.pop();
+      assert.equal(stacky.isEmpty(),true);
+    });
+  });
 });
 
 describe('Knapsack (greedy solution)', function() {
