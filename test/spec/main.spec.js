@@ -620,3 +620,23 @@ describe('Duplication Removal', function() {
     assert.deepEqual(vals,[5,3,2,7,8,1]);
   });
 });
+
+describe('Nth From The End', function() {
+  it('returns the value of the nth node from the end of a linked list', function() {
+    var linky = new LinkedList();
+    var vals = [8,9,2,6,8,2,3];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(nthFromLast(linky,4),6);
+  });
+  it('returns null if the list is empty or n is out of bounds', function() {
+    var linky = new LinkedList();
+    assert.equal(nthFromLast(linky,5) === null,true);
+    var vals = [5,3,2,7,8,1];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(nthFromLast(linky,8) === null,true);
+  });
+});
