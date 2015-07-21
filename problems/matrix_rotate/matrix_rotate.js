@@ -34,8 +34,6 @@ var matrixRotate = function(matrix) {
       matrix[end][arrLength-j] = matrix[j][end];
       // Top to Right
       matrix[j][end] = temp;
-      console.log(matrix);
-      console.log('layer',layer,'j',j);
     }
   }
   return matrix;
