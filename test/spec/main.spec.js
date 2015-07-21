@@ -375,6 +375,38 @@ describe('Data Structures', function() {
       assert.equal(stacky.isEmpty(),true);
     });
   });
+
+  describe('Queue', function() {
+    it('should return the size of a stack', function() {
+      var line = new Queue();
+      assert.equal(line.size(),0);
+    });
+    it('should be able to add new values to the stack', function() {
+      var line = new Queue();
+      line.enqueue(7);
+      line.enqueue(8);
+      assert.equal(line.size(),2);
+    });
+    it('should be able to remove the top value on the stack', function() {
+      var line = new Queue();
+      line.enqueue(1);
+      line.enqueue(2);
+      line.enqueue(3);
+      line.enqueue(4);
+      assert.equal(line.dequeue(),1);
+    });
+    it('should return null when trying to remove from an empty stack', function() {
+      var line = new Queue();
+      assert.equal(line.dequeue() === null,true);
+    });
+    it('should be able to tell if the stack is empty or not', function() {
+      var line = new Queue();
+      line.enqueue(5);
+      assert.equal(line.isEmpty(),false);
+      line.dequeue();
+      assert.equal(line.isEmpty(),true);
+    });
+  });
 });
 
 describe('Knapsack (greedy solution)', function() {

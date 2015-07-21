@@ -12,8 +12,8 @@
     var stacky = new Stack();
     stacky.size()             //  0
     stacky.push(2)            // (2)
-    stacky.push(12)           // (2)(12)
-    stacky.push(1)            // (2)(12)(1)
+    stacky.push(12)           // (2) <- (12)
+    stacky.push(1)            // (2) <- (12) <- (1)
     stacky.size()             //  3
     stacky.pop()              //  1
     stacky.peek()             //  12
