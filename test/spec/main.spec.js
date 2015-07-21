@@ -639,7 +639,7 @@ describe('Duplication Removal', function() {
     }
     assert.deepEqual(vals,[8,9,2,6,3]);
   });
-  it('should return', function() {
+  it('should return the same linked list if no duplicates exist', function() {
     var linky = new LinkedList();
     var vals = [5,3,2,7,8,1];
     while(vals.length) {
