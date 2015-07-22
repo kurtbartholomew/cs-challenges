@@ -689,3 +689,26 @@ describe('Nth From The End', function() {
     assert.equal(nthFromLast(linky,8) === null,true);
   });
 });
+
+describe('Center Node Removal', function() {
+  it('does not mutate a list if it has an even number of nodes', function() {
+    var linky = new LinkedList();
+    var vals = [3,4,5,6,7,8];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    centerNodeRemoval(linky);
+    assert.equal(linky.size() % 2,0);
+  });
+  it('the original list to remove it\'s center node', function() {
+    var linky = new LinkedList();
+    var vals = [5,3,2,7,8,1,4];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    linky.removeFromHead();
+    linky.removeFromHead();
+    linky.removeFromHead();
+    assert.equal(linky.removeFromHead(),8);
+  });
+});
