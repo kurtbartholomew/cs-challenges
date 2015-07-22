@@ -10,6 +10,28 @@
   
 */
 
-function primeFactors(n){
-  //your code here
-}
+var primeFactors = function(n){
+
+  var retrievePrimes = function(number){
+    if(number < 2) { return [[number,1]]; }
+    var factors = [];
+    var currentPrimeCounter;
+    for(var i = 2; i <= number; i++){
+      currentPrimeCounter = 0;
+      while(number % i === 0) {
+        number /= i;
+        currentPrimeCounter++;
+      }
+      if(currentPrimeCounter) { factors.push([i,currentPrimeCounter]); }
+    }
+    return factors;
+  };
+
+  var displayPrimes = function(primeArray){
+    return "("  + primeArray[0] + 
+            (primeArray[1] > 1 ? "**" + primeArray[1] : '') + ")";
+  };
+
+  return retrievePrimes(n).map(displayPrimes).join('');
+
+};
