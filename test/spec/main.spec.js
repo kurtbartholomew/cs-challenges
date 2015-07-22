@@ -1,4 +1,4 @@
-describe('Simple Recursion', function(){
+describe('Recursion', function(){
 
   describe('Recursive Max', function() {
 
@@ -289,6 +289,27 @@ describe('Simple Recursion', function(){
     });
     it('should extract a list from odd numbered lists', function() {
       assert.deepEqual(recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
+    });
+  });
+
+  describe('Fibonacci Sequence', function() {
+    it('should operate recursively', function() {
+      sinon.spy(window,"fibonacci");
+      fibonacci(3);
+      assert.equal(fibonacci.callCount > 1,true);
+      window.fibonacci.restore();
+    });
+
+    it('should return 0 when n is zero and 1 when n is one', function() {
+      assert.equal(fibonacci(0),0);
+      assert.equal(fibonacci(1),1);
+    });
+    it('should return the nth number in a fibonacci sequence', function() {
+      assert.equal(fibonacci(5),5);
+      assert.equal(fibonacci(6),8);
+    });
+    it('should utilize memoization to reduce run time', function() {
+      assert.equal(fibonacci(45),1134903170);
     });
   });
 });
