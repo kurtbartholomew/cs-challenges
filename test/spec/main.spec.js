@@ -534,6 +534,9 @@ describe('32 bit integer to IPv4', function() {
   it('should translate a 32 bit integer to ipv4 address', function() {
     assert.equal(int32ToIp(2149583361),"128.32.10.1");
   });
+  it('should translate a ipv4 address to 32 bit integer', function() {
+    assert.equal(ipToInt32("128.32.10.1"),2149583361);
+  });
 });
 
 describe('Unique Character Checker', function() {
