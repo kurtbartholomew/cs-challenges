@@ -8,5 +8,16 @@
 */
 
 var nthFromLast = function(lList,numberOfNodes) {
-  // TODO : Finish this
+  if(lList.size() < numberOfNodes) { return null; }
+  var first = lList.head;
+  var second = lList.head;
+  var startCounter = 0;
+  while(first){
+    if(startCounter>=numberOfNodes){
+      second = second.next;
+    }
+    first = first.next;
+    startCounter++;
+  }
+  return second.value;
 };
