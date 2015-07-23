@@ -712,3 +712,30 @@ describe('Center Node Removal', function() {
     assert.equal(linky.removeFromHead(),8);
   });
 });
+
+describe('Linked List Sectioning', function() {
+  it('returns a linked list that is already in proper order unchanged', function() {
+    var linky = new LinkedList();
+    var vals = [1,2,3,4,5,6,7,8];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    var sectioned = linkedListSectioning(linky,5);
+    while(sectioned.size() > 0){
+      vals.push(sectioned.removeFromHead());
+    }
+    assert.equal(vals,[1,2,3,4,5,6,7,8]);
+  });
+  it('the original list to remove it\'s center node', function() {
+    var linky = new LinkedList();
+    var vals = [8,3,16,15,32,7,2,17];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    var sectioned = linkedListSectioning(linky,5);
+    while(sectioned.size() > 0){
+      vals.push(sectioned.removeFromHead());
+    }
+    assert.equal(vals,[8,3,7,2,15,16,32,17]);
+  });
+});
