@@ -739,3 +739,36 @@ describe('Linked List Sectioning', function() {
     assert.equal(vals,[8,3,7,2,15,16,32,17]);
   });
 });
+
+describe('Linked List Addition', function() {
+  it('returns an added list from a backwards list', function() {
+    var linky1 = new LinkedList();
+    var linky2 = new LinkedList();
+    var vals1 = [6,5,4,9];
+    var vals2 = [1,7,2,3];
+    while(vals1.length) {
+      linky1.addToTail(vals1.shift());
+      linky2.addToTail(vals2.shift());
+    }
+    var addedList = backwardListAddition(linky1,linky2);
+    while(addedList.size() > 0){
+      vals1.push(addedList.removeFromHead());
+    }
+    assert.equal(vals1,[7,2,7,2,1]);
+  });
+  it('returns an added list from a forwards list', function() {
+    var linky1 = new LinkedList();
+    var linky2 = new LinkedList();
+    var vals1 = [9,4,5,6];
+    var vals2 = [3,2,7,1];
+    while(vals1.length) {
+      linky1.addToTail(vals1.shift());
+      linky2.addToTail(vals2.shift());
+    }
+    var addedList = forwardListAddition(linky1,linky2);
+    while(addedList.size() > 0){
+      vals1.push(addedList.removeFromHead());
+    }
+    assert.equal(vals1,[1,2,7,2,7]);
+  });
+});
