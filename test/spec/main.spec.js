@@ -706,6 +706,7 @@ describe('Center Node Removal', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
+    centerNodeRemoval(linky);
     linky.removeFromHead();
     linky.removeFromHead();
     linky.removeFromHead();
@@ -726,7 +727,7 @@ describe('Linked List Sectioning', function() {
     }
     assert.equal(vals,[1,2,3,4,5,6,7,8]);
   });
-  it('the original list to remove it\'s center node', function() {
+  it('returns a sectioned list', function() {
     var linky = new LinkedList();
     var vals = [8,3,16,15,32,7,2,17];
     while(vals.length) {
