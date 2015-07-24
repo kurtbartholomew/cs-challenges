@@ -725,7 +725,7 @@ describe('Linked List Sectioning', function() {
     while(sectioned.size() > 0){
       vals.push(sectioned.removeFromHead());
     }
-    assert.equal(vals,[1,2,3,4,5,6,7,8]);
+    assert.deepEqual(vals,[1,2,3,4,5,6,7,8]);
   });
   it('returns a sectioned list', function() {
     var linky = new LinkedList();
@@ -737,7 +737,7 @@ describe('Linked List Sectioning', function() {
     while(sectioned.size() > 0){
       vals.push(sectioned.removeFromHead());
     }
-    assert.equal(vals,[8,3,7,2,15,16,32,17]);
+    assert.deepEqual(vals,[3,2,8,16,15,32,7,17]);
   });
 });
 
@@ -755,7 +755,7 @@ describe('Linked List Addition', function() {
     while(addedList.size() > 0){
       vals1.push(addedList.removeFromHead());
     }
-    assert.equal(vals1,[7,2,7,2,1]);
+    assert.deepEqual(vals1,[7,2,7,2,1]);
   });
   it('returns an added list from a forwards list', function() {
     var linky1 = new LinkedList();
@@ -770,6 +770,6 @@ describe('Linked List Addition', function() {
     while(addedList.size() > 0){
       vals1.push(addedList.removeFromHead());
     }
-    assert.equal(vals1,[1,2,7,2,7]);
+    assert.deepEqual(vals1,[1,2,7,2,7]);
   });
 });
