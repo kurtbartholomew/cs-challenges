@@ -773,3 +773,30 @@ describe('Linked List Addition', function() {
     assert.deepEqual(vals1,[1,2,7,2,7]);
   });
 });
+
+describe('Linked List Palindrome Finder', function() {
+  it('returns true if an odd-lettered palindrome exists in the linked list', function() {
+    var linky = new LinkedList();
+    var vals = ['r','a','c','e','c','a','r'];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(linkedListPalindromeFinder(linky),true);
+  });
+  it('returns true if an even-lettered palindrome exists in the linked list', function() {
+    var linky = new LinkedList();
+    var vals = ['r','e','d','d','e','r'];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(linkedListPalindromeFinder(linky),true);
+  });
+  it('returns false if no palindrome exists', function() {
+    var linky = new LinkedList();
+    var vals = [1,2,3,4,5,6,7,8];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(linkedListPalindromeFinder(linky),false);
+  });
+});
