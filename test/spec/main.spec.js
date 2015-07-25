@@ -757,7 +757,7 @@ describe('Linked List Addition', function() {
     }
     assert.deepEqual(vals1,[7,2,7,2,1]);
   });
-  it('returns an added list from a forwards list', function() {
+  xit('returns an added list from a forwards list', function() {
     var linky1 = new LinkedList();
     var linky2 = new LinkedList();
     var vals1 = [9,4,5,6];
