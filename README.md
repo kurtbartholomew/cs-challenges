@@ -1,5 +1,6 @@
-# Toy Problems
-A collection of algorithmic challenges for my personal growth
+# CS Challenges
+A cultivated collection of computer science challenges involving
+algorithms and data structures as well as automated test suite to support them.
 
 ### Usage
 
