@@ -1,5 +1,6 @@
 /*
   Given two linked lists, find if the lists share a common node.
+  Equal values should not cause the method to return true.
 
   Example: (3) -> (4) -> (5) -> (6) -> (7),
                                  |

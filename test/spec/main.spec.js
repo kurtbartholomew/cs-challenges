@@ -834,3 +834,27 @@ describe('Common Node Detector', function() {
     assert.equal(commonNodeDetector(linky1,linky2),true);
   });
 });
+
+describe('Linked Loop Finder', function() {
+  it('should return false if no loop of nodes exists', function() {
+    var linky = new LinkedList();
+    var vals = [2,3,4,5,6,7];
+    while(vals.length) {
+      linky.addToTail(vals.shift());
+    }
+    assert.equal(linkedLoopFinder(linky),true);
+  });
+  it('should return true if a loop exists', function() {
+    var linky = new LinkedList();
+    linky.addToTail(9);
+    linky.addToTail(35);
+    var nodeToLoopTo = new LinkedListNode(29);
+    linky.tail.next = nodeToLoopTo;
+    linky.tail = nodeToLoopTo;
+    linky.addToTail(42);
+    linky.addToTail(75);
+    linky.addToTail(64);
+    linky.tail.next = nodeToLoopTo;
+    assert.equal(linkedLoopFinder(linky),true);
+  });
+});
