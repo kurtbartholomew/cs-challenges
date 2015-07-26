@@ -800,3 +800,37 @@ describe('Linked List Palindrome Finder', function() {
     assert.equal(linkedListPalindromeFinder(linky),false);
   });
 });
+
+describe('Common Node Detector', function() {
+  it('should return false if no common nodes exist between two lists', function() {
+    var linky1 = new LinkedList();
+    var linky2 = new LinkedList();
+    var vals1 = [10,11,12,13,14];
+    var vals2 = [14,13,12,11,10];
+    while(vals1.length) {
+        linky1.addToTail(vals1.shift());
+        linky2.addToTail(vals2.shift());
+    }
+    assert.equal(commonNodeDetector(linky1,linky2),false);
+  });
+  it('should return true if two linked lists share a node', function() {
+    var linky1 = new LinkedList();
+    var linky2 = new LinkedList();
+    var vals1 = [3,4,5,6,7];
+    var vals2 = [9,8,7,6,5];
+    while(vals1.length) {
+      if(vals1[0] === 6){
+        var commonNode = new LinkedListNode(vals1.shift());
+        linky1.tail.next = commonNode;
+        linky1.tail = commonNode;
+        linky2.tail.next = commonNode;
+        linky2.tail = commonNode;
+        vals2.shift();
+      } else {
+        linky1.addToTail(vals1.shift());
+        linky2.addToTail(vals2.shift());
+      }
+    }
+    assert.equal(commonNodeDetector(linky1,linky2),true);
+  });
+});
