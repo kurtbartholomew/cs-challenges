@@ -867,3 +867,12 @@ describe('Linked Loop Finder', function() {
     assert.equal(linkedLoopFinder(linky),true);
   });
 });
+
+describe('Stack Method to Find Minimum', function() {
+  it('should return the minimum of a stack', function() {
+    var altStacky = new AltStack();
+    var values = [105,71,33,83,45,39,54,90];
+    values.forEach(function(value){ altStacky.push(value); });
+    assert.equal(altStacky.minimum(),33);
+  });
+});
