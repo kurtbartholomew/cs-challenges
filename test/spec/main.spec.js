@@ -802,7 +802,7 @@ describe('Linked List Palindrome Finder', function() {
 });
 
 describe('Common Node Detector', function() {
-  it('should return false if no common nodes exist between two lists', function() {
+  it('should return null if no common nodes exist between two lists', function() {
     var linky1 = new LinkedList();
     var linky2 = new LinkedList();
     var vals1 = [10,11,12,13,14];
@@ -811,16 +811,25 @@ describe('Common Node Detector', function() {
         linky1.addToTail(vals1.shift());
         linky2.addToTail(vals2.shift());
     }
-    assert.equal(commonNodeDetector(linky1,linky2),false);
+    assert.equal(commonNodeDetector(linky1,linky2),null);
   });
-  it('should return true if two linked lists share a node', function() {
+  it('should return the first shared node two linked lists connect', function() {
     var linky1 = new LinkedList();
     var linky2 = new LinkedList();
-    var vals1 = [3,4,5,6,7];
+    var vals1 = [3,4,5,6,5];
     var vals2 = [9,8,7,6,5];
+    var commonNode;
+    var commonFirstNode;
     while(vals1.length) {
       if(vals1[0] === 6){
-        var commonNode = new LinkedListNode(vals1.shift());
+        commonFirstNode = new LinkedListNode(vals1.shift());
+        linky1.tail.next = commonFirstNode;
+        linky1.tail = commonFirstNode;
+        linky2.tail.next = commonFirstNode;
+        linky2.tail = commonFirstNode;
+        vals2.shift();
+      } else if(vals1.length < 2){
+        commonNode = new LinkedListNode(vals1.shift());
         linky1.tail.next = commonNode;
         linky1.tail = commonNode;
         linky2.tail.next = commonNode;
@@ -831,7 +840,7 @@ describe('Common Node Detector', function() {
         linky2.addToTail(vals2.shift());
       }
     }
-    assert.equal(commonNodeDetector(linky1,linky2),true);
+    assert.equal(commonNodeDetector(linky1,linky2),commonFirstNode);
   });
 });
 
