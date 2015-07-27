@@ -43,9 +43,8 @@ Stack.prototype.pop = function(){
 };
 
 Stack.prototype.peek = function(){
-  var peekedVal = this.storage[this.objectSize];
-  this.objectSize--;
-  return peekedVal;
+  if(this.top === null) { return null; }
+  return this.storage[this.objectSize];
 };
 
 Stack.prototype.isEmpty = function(){
@@ -90,8 +89,7 @@ Stack.prototype.isEmpty = function(){
 
 // Stack.prototype.peek = function(){
 //   if(this.top === null) { return null; }
-//   var peekedVal = this.top.value;
-//   return peekedVal;
+//   return this.top.value;
 // };
 
 // Stack.prototype.isEmpty = function(){
