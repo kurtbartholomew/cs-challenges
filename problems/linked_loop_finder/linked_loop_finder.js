@@ -14,5 +14,16 @@
 */
 
 var linkedLoopFinder = function(linkedList){
-  // TODO : Finish this
+  var slowPointer = linkedList.head;
+  var fastPointer = linkedList.head;
+
+  while(fastPointer !== null && fastPointer.next !== null) {
+    slowPointer = slowPointer.next;
+    fastPointer = fastPointer.next.next;
+
+    if(slowPointer === fastPointer) {
+      return true;
+    }
+  }
+  return false;
 };

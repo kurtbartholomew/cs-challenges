@@ -851,7 +851,7 @@ describe('Linked Loop Finder', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(linkedLoopFinder(linky),true);
+    assert.equal(linkedLoopFinder(linky),false);
   });
   it('should return true if a loop exists', function() {
     var linky = new LinkedList();
