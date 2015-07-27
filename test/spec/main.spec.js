@@ -869,6 +869,10 @@ describe('Linked Loop Finder', function() {
 });
 
 describe('Stack Method to Find Minimum', function() {
+  it('should return null if the stack is empty', function() {
+    var altStacky = new AltStack();
+    assert.equal(altStacky.minimum() === null,true);
+  });
   it('should return the minimum of a stack', function() {
     var altStacky = new AltStack();
     var values = [105,71,33,83,45,39,54,90];
