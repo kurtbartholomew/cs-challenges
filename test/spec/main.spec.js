@@ -880,3 +880,21 @@ describe('Stack Method to Find Minimum', function() {
     assert.equal(altStacky.minimum(),33);
   });
 });
+
+describe('Stack Collection', function() {
+  it('should return the same values from the collection as a normal stack', function() {
+    var multiStacky = new multiStackCollection(3);
+    var values = [2,4,6,8,10,12,14];
+    values.forEach(function(value){ multiStacky.push(value); });
+    assert.equal(multiStacky.pop(),14);
+    assert.equal(multiStacky.pop(),12);
+    assert.equal(multiStacky.pop(),10);
+    assert.equal(multiStacky.pop(),8);
+  });
+  it('should possess a popFrom function that targets a specific stack in the colleciton', function() {
+    var multiStacky = new multiStackCollection(2);
+    var values = [5,6,7,8,9,10,11];
+    values.forEach(function(value){ multiStacky.push(value); });
+    assert.equal(multiStacky.popAt(2),8);
+  });
+});
