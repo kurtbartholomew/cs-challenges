@@ -898,3 +898,26 @@ describe('Stack Collection', function() {
     assert.equal(multiStacky.popAt(2),8);
   });
 });
+
+describe('Stack Queue', function() {
+  it('should provide a size function that returns the number of elements stored', function() {
+    var stackyQueue = new StackQueue();
+    assert.equal(stackyQueue.size(),0);
+  });
+  it('should provide a enqueue function that stores values', function() {
+    var stackyQueue = new StackQueue();
+    stackyQueue.enqueue(3);
+    stackyQueue.enqueue(8);
+    stackyQueue.enqueue(9);
+    assert.equal(stackyQueue.size(),3);
+  });
+  it('should provide a dequeue function that removes and returns values from the queue', function() {
+    var stackyQueue = new StackQueue();
+    assert.equal(stackyQueue.dequeue(),null);
+    stackyQueue.enqueue(7);
+    stackyQueue.enqueue(3);
+    stackyQueue.enqueue(5);
+    assert.equal(stackyQueue.dequeue(),7);
+    assert.equal(stackyQueue.dequeue(),3);
+  });
+});
