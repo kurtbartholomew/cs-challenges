@@ -8,3 +8,11 @@
 var multiStackCollection = function(stackSize) {
   // TODO : Finish this
 };
+
+multiStackCollection.prototype.push = function(value){
+  
+};
+
+multiStackCollection.prototype.pop = function(){
+  
+};
