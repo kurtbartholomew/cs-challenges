@@ -929,8 +929,8 @@ describe('Order Stack', function() {
     values.forEach(function(value){ stacky.push(value); });
     var orderedStacky = orderStack(stacky);
     var orderedVals = [];
-    while(orderedStacky.peek() !== null){ orderedVal.push(orderedStacky.pop()); }
-    assert.equal(orderedVals,[1,2,3,4,5,6,7]);
+    while(orderedStacky.peek() !== null){ orderedVals.push(orderedStacky.pop()); }
+    assert.deepEqual(orderedVals,[1,2,3,4,5,6,7]);
   });
   it('should return ordered descending stack from an unordered stack', function() {
     var stacky = new Stack();
@@ -938,7 +938,7 @@ describe('Order Stack', function() {
     values.forEach(function(value){ stacky.push(value); });
     var orderedStacky = orderStack(stacky);
     var orderedVals = [];
-    while(orderedStacky.peek() !== null){ orderedVal.push(orderedStacky.pop()); }
-    assert.equal(orderedVals,[2,4,6,7,8,12,15]);
+    while(orderedStacky.peek() !== null){ orderedVals.push(orderedStacky.pop()); }
+    assert.deepEqual(orderedVals,[2,4,6,7,8,12,15]);
   });
 });

@@ -12,5 +12,18 @@
 */
 
 var orderStack = function(unorderedStack){
-  // TODO : Finish this
+  var tempStack = new Stack();
+  var tempVal = 0;
+  if(unorderedStack.peek() === null) { return null; }
+  while(!unorderedStack.isEmpty()){
+    tempVal = unorderedStack.pop();
+    while(!tempStack.isEmpty() && tempStack.peek() > tempVal){
+      unorderedStack.push(tempStack.pop());
+    }
+    tempStack.push(tempVal);
+  }
+  while(!tempStack.isEmpty()){
+    unorderedStack.push(tempStack.pop());
+  }
+  return unorderedStack;
 };
