@@ -43,7 +43,7 @@ Stack.prototype.pop = function(){
 };
 
 Stack.prototype.peek = function(){
-  if(this.top === null) { return null; }
+  if(this.objectSize === 0) { return null; }
   return this.storage[this.objectSize];
 };
 

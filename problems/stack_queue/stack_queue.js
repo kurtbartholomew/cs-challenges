@@ -12,19 +12,24 @@
 
 */
 
-function StackQueue(){
-  
-}
-
-StackQueue.prototype.size = function(){
-
+var StackQueue =  function(){
+  this.front = new Stack();
+  this.back = new Stack();
 };
 
-StackQueue.prototype.enqueue = function(){
-  
+StackQueue.prototype.size = function(){
+  return this.front.objectSize + this.back.objectSize;
+};
+
+StackQueue.prototype.enqueue = function(value){
+  this.back.push(value);
 };
 
 StackQueue.prototype.dequeue = function(){
-  
+  if(this.back.isEmpty() && this.front.isEmpty()) { return null; }
+  if(this.front.isEmpty() && !this.back.isEmpty()) {
+    while(this.back.peek() !== null){ this.front.push(this.back.pop()); }
+  }
+  return this.front.pop();
 };
 
