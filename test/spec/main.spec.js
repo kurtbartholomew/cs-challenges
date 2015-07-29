@@ -921,3 +921,24 @@ describe('Stack Queue', function() {
     assert.equal(stackyQueue.dequeue(),3);
   });
 });
+
+describe('Order Stack', function() {
+  it('should return an ordered stack unchanged', function() {
+    var stacky = new Stack();
+    var values = [7,6,5,4,3,2,1];
+    values.forEach(function(value){ stacky.push(value); });
+    var orderedStacky = orderStack(stacky);
+    var orderedVals = [];
+    while(orderedStacky.peek() !== null){ orderedVal.push(orderedStacky.pop()); }
+    assert.equal(orderedVals,[1,2,3,4,5,6,7]);
+  });
+  it('should return ordered descending stack from an unordered stack', function() {
+    var stacky = new Stack();
+    var values = [4,8,6,12,15,2,7];
+    values.forEach(function(value){ stacky.push(value); });
+    var orderedStacky = orderStack(stacky);
+    var orderedVals = [];
+    while(orderedStacky.peek() !== null){ orderedVal.push(orderedStacky.pop()); }
+    assert.equal(orderedVals,[2,4,6,7,8,12,15]);
+  });
+});
