@@ -942,3 +942,36 @@ describe('Order Stack', function() {
     assert.deepEqual(orderedVals,[2,4,6,7,8,12,15]);
   });
 });
+
+describe('Park Ride Queue', function() {
+  it('should return null when attempting to dequeue an empty queue', function() {
+    var parkyQueue = new parkRideQueue();
+    assert.equal(parkyQueue.dequeueEither(), null);
+    assert.equal(parkyQueue.dequeueRed(), null);
+    assert.equal(parkyQueue.dequeueBlue(), null);
+  });
+  it('should be able to enqueue and dequeue a Red queue passenger', function() {
+    var parkyQueue = new parkRideQueue();
+    parkyQueue.enqueue("Red","Jim");
+    parkyQueue.enqueue("Blue","Manny");
+    parkyQueue.enqueue("Red","Sara");
+    assert.equal(parkyQueue.dequeueRed(), "Jim");
+    assert.equal(parkyQueue.dequeueRed(), "Sara");
+  });
+  it('should be able to enqueue and dequeue a Blue queue passenger', function() {
+    var parkyQueue = new parkRideQueue();
+    parkyQueue.enqueue("Blue","Manny");
+    parkyQueue.enqueue("Red","Jim");
+    parkyQueue.enqueue("Blue","Jenna");
+    assert.equal(parkyQueue.dequeueBlue(), "Manny");
+    assert.equal(parkyQueue.dequeueBlue(), "Jenna");
+  });
+  it('should be able to enqueue multiple passengers and dequeue the earliest queued passenger', function() {
+    var parkyQueue = new parkRideQueue();
+    parkyQueue.enqueue("Blue","Manny");
+    parkyQueue.enqueue("Red","Jim");
+    parkyQueue.enqueue("Red","Sara");
+    assert.equal(parkyQueue.dequeueEither(), "Manny");
+    assert.equal(parkyQueue.dequeueEither(), "Jim");
+  });
+});
