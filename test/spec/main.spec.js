@@ -424,10 +424,6 @@ describe('Data Structures', function() {
   
   describe('Tree', function() {
 
-    beforeEach(function(){
-      var leafy = new Tree();
-    });
-
     it('should contain a data attribute and children array', function() {
       var leafy = new Tree();
       assert.property(leafy,'children');
@@ -451,7 +447,8 @@ describe('Data Structures', function() {
       leafy.addChild(2);
       leafy.addChild(4);
       assert.equal(leafy.children.length,2);
-      leafy.removeChild(4);
+      assert.equal(leafy.removeChild(4).data,4);
+      assert.equal(leafy.children.length,1);
     });
     it('should return null if attempting to remove a node that doesn\'t exist', function() {
       var leafy = new Tree();
@@ -469,7 +466,7 @@ describe('Data Structures', function() {
       leafy.children[0].addChild(20);
       leafy.children[1].addChild(13);
       leafy.children[1].children[0].addChild(7);
-      assert.equal(leafy.contains(7));
+      assert.equal(leafy.contains(7),true);
     });
   });
 });
