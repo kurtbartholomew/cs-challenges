@@ -946,9 +946,9 @@ describe('Order Stack', function() {
 describe('Park Ride Queue', function() {
   it('should return null when attempting to dequeue an empty queue', function() {
     var parkyQueue = new parkRideQueue();
-    assert.equal(parkyQueue.dequeueEither(), null);
-    assert.equal(parkyQueue.dequeueRed(), null);
-    assert.equal(parkyQueue.dequeueBlue(), null);
+    assert.equal(parkyQueue.dequeueEither() === null, true);
+    assert.equal(parkyQueue.dequeueRed() === null, true);
+    assert.equal(parkyQueue.dequeueBlue() === null, true);
   });
   it('should be able to enqueue and dequeue a Red queue passenger', function() {
     var parkyQueue = new parkRideQueue();
