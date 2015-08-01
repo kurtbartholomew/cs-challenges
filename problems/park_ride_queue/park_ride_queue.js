@@ -19,21 +19,42 @@
 */
 
 var parkRideQueue = function(){
-  // TODO : Finish this
+  this.redQueue = new LinkedList();
+  this.blueQueue = new LinkedList();
+  this.passengerCount = 0;
 };
 
 parkRideQueue.prototype.enqueue = function(entranceType,name){
-
+  if(entranceType.constructor !== String && name.constructor !== String ) {
+    throw Error('Please use strings for the entrance type and name');
+  }
+  this.passengerCount++;
+  if(entranceType === 'Red'){
+    this.redQueue.addToTail(name);
+    this.redQueue.tail.enterTime = this.passengerCount;
+  }
+  if(entranceType === 'Blue'){
+    this.blueQueue.addToTail(name);
+    this.blueQueue.tail.enterTime = this.passengerCount;
+  }
 };
 
 parkRideQueue.prototype.dequeueEither = function(){
-
+  if(this.redQueue.head === null && this.blueQueue.head === null){
+    return null;
+  }
+  if(this.redQueue.head === null) { return this.dequeueBlue(); }
+  if(this.blueQueue.head === null) { return this.dequeueRed(); }
+  return this.redQueue.head.enterTime <= this.blueQueue.head.enterTime ?
+         this.dequeueRed() : this.dequeueBlue();
 };
 
 parkRideQueue.prototype.dequeueRed = function(){
-
+  if(this.redQueue.head === null){ return null; }
+  return this.redQueue.removeFromHead();
 };
 
 parkRideQueue.prototype.dequeueBlue = function(){
-
+  if(this.blueQueue.head === null){ return null; }
+  return this.blueQueue.removeFromHead();
 };
