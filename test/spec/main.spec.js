@@ -421,6 +421,57 @@ describe('Data Structures', function() {
       assert.equal(line.isEmpty(),true);
     });
   });
+  
+  describe('Tree', function() {
+
+    beforeEach(function(){
+      var leafy = new Tree();
+    });
+
+    it('should contain a data attribute and children array', function() {
+      var leafy = new Tree();
+      assert.property(leafy,'children');
+      assert.property(leafy,'data');
+    });
+    it('that is created with no value should have a data attribute of null', function() {
+      var leafy = new Tree();
+      assert.equal(leafy.data === null, true);
+    });
+    it('should be created with no children', function() {
+      var leafy = new Tree();
+      assert.deepEqual(leafy.children,[]);
+    });
+    it('should be able to add children to the current node', function() {
+      var leafy = new Tree();
+      leafy.addChild(4);
+      assert.equal(leafy.children.length,1);
+    });
+    it('should be able to remove children from the current node', function() {
+      var leafy = new Tree();
+      leafy.addChild(2);
+      leafy.addChild(4);
+      assert.equal(leafy.children.length,2);
+      leafy.removeChild(4);
+    });
+    it('should return null if attempting to remove a node that doesn\'t exist', function() {
+      var leafy = new Tree();
+      assert.equal(leafy.removeChild(4) === null,true);
+    });
+    it('should return false if the contains method finds no children with the passed value', function() {
+      var leafy = new Tree();
+      assert.equal(leafy.contains(7),false);
+    });
+    it('should return true if the contains method finds a child with the passed value', function() {
+      var leafy = new Tree();
+      leafy.addChild(4);
+      leafy.addChild(2);
+      leafy.children[0].addChild(10);
+      leafy.children[0].addChild(20);
+      leafy.children[1].addChild(13);
+      leafy.children[1].children[0].addChild(7);
+      assert.equal(leafy.contains(7));
+    });
+  });
 });
 
 describe('Knapsack (greedy solution)', function() {
