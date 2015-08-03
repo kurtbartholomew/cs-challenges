@@ -495,35 +495,16 @@ describe('Data Structures', function() {
     });
     it('should throw an error if a node with the same value is already in the graph', function(){
       var graphy = new Graph();
-      assert.equal(graphy.nodes.length,0);
       graphy.addNode('Z');
-      assert.equal(graphy.nodes.length,1);
       assert.throws(function(){ graphy.addNode('Z'); }, Error );
-    });
-    it('should be able to remove nodes and return the removed node', function(){
-      var graphy = new Graph();
-      assert.equal(graphy.nodes.length,0);
-      graphy.addNode('Z');
-      graphy.addNode('Y');
-      graphy.addNode('X');
-      assert.equal(graphy.nodes.length,3);
-      var oldYNode = graphy.removeNode('Y');
-      assert.equal(graphy.nodes.length,2);
-      assert.equal(oldYNode.data,'Y');
-    });
-    it('should throw an error attempting to remove a node not in the graph', function(){
-      var graphy = new Graph();
-      graphy.addNode('Z');
-      graphy.addNode('Y');
-      assert.throws(function(){ graphy.removeNode('X'); }, Error );
     });
     it('should be able to add an edge between two nodes', function() {
       var graphy = new Graph();
       graphy.addNode('Y');
       graphy.addNode('X');
       graphy.addEdge('X','Y');
-      var yNode = graphy.nodes[1];
-      var xNode = graphy.nodes[2];
+      var yNode = graphy.nodes[0];
+      var xNode = graphy.nodes[1];
       assert.equal(yNode.edges[0],'X');
       assert.equal(xNode.edges[0],'Y');
     });
@@ -560,6 +541,32 @@ describe('Data Structures', function() {
       graphy.removeEdge('Z','Y');
       assert.throws(function(){ graphy.removeEdge('Z','Y'); }, Error );
     });
+    it('should be able to remove nodes and return the removed node', function(){
+      var graphy = new Graph();
+      graphy.addNode('Z');
+      graphy.addNode('Y');
+      graphy.addNode('X');
+      var oldYNode = graphy.removeNode('Y');
+      assert.equal(graphy.nodes.length,2);
+      assert.equal(oldYNode.data,'Y');
+    });
+    it('should also remove a node\'s references in other node\'s edge lists on removal', function(){
+      var graphy = new Graph();
+      graphy.addNode('Z');
+      graphy.addNode('Y');
+      graphy.addNode('X');
+      graphy.addEdge('X','Y');
+      var oldYNode = graphy.removeNode('Y');
+      graphy.nodes.forEach(function(node){
+        assert.equal(node.edges.indexOf('Y'),-1);
+      });
+    });
+    it('should throw an error attempting to remove a node not in the graph', function(){
+      var graphy = new Graph();
+      graphy.addNode('Z');
+      graphy.addNode('Y');
+      assert.throws(function(){ graphy.removeNode('X'); }, Error );
+    });
     it('should return true from an adjacency check if an edge exists between two nodes', function(){
       var graphy = new Graph();
       graphy.addNode('U');
@@ -575,11 +582,11 @@ describe('Data Structures', function() {
     });
     it('should throw an error from an adjacency check if either node does not exist in the graph', function(){
       var graphy = new Graph();
-      assert.equal(function(){ graphy.checkAdjacency('X','U'); }, Error);
+      assert.throws(function(){ graphy.checkAdjacency('X','U'); }, Error);
     });
     it('should throw an error from an adjacency check if the nodes passed are the same', function(){
       var graphy = new Graph();
-      assert.equal(function(){ graphy.checkAdjacency('X','X'); }, Error);
+      assert.throws(function(){ graphy.checkAdjacency('X','X'); }, Error);
     });
     it('should be able to list adjacent nodes from a node on the graph', function() {
       var graphy = new Graph();
@@ -599,7 +606,7 @@ describe('Data Structures', function() {
     });
     it('should throw an error when attempting to list adjacent nodes for a non-existent node', function() {
       var graphy = new Graph();
-      assert.equal(function(){ graphy.findAdjacentNodes('O'); }, Error);
+      assert.throws(function(){ graphy.findAdjacentNodes('O'); }, Error);
     });
   });
 });
