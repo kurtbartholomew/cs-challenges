@@ -489,6 +489,10 @@ describe('Data Structures', function() {
       bsleafy.insert(4);
       assert.equal(bsleafy.left.data,4);
     });
+    it('should throw an error in no value is passed to the insert function', function() {
+      var bsleafy = new BinarySearchTree(10);
+      assert.throws(function(){ bsleafy.insert() ; }, Error );
+    });
     it('should properly sort inserted values', function() {
       var bsleafy = new BinarySearchTree(10);
       bsleafy.insert(4);
@@ -521,6 +525,10 @@ describe('Data Structures', function() {
       bsleafy.insert(12);
       assert.equal(bsleafy.contains(14),false);
     });
+    it('should throw an error if no value is passed to the contains function', function() {
+      var bsleafy = new BinarySearchTree(10);
+      assert.throws(function() { bsleafy.contains(); }, Error );
+    });
     it('should not allow duplicate values', function() {
       var bsleafy = new BinarySearchTree(10);
       bsleafy.insert(4);
@@ -529,7 +537,7 @@ describe('Data Structures', function() {
       bsleafy.insert(11);
       bsleafy.insert(14);
       bsleafy.insert(15);
-      assert.throws(function(){ bsleafy.contains(11); }, Error );
+      assert.throws(function(){ bsleafy.insert(11); }, Error );
     });
   });
 

@@ -35,13 +35,48 @@
 */
 
 var BinarySearchTree = function(value){
-  // TODO : Finish this
+  if(!value){ throw new Error("Cannot start a tree with no value passed"); }
+  this.data = value;
+  this.left = null;
+  this.right = null;
 };
 
-BinarySearchTree.prototype.insert = function(){
-
+BinarySearchTree.prototype.insert = function(value){
+  if(!value){ throw new Error("Cannot insert a node without a value"); }
+  if(this.contains(value)) { throw new Error("Cannot insert a value already in the tree"); }
+  var currentNode = this;
+  while(currentNode !== null) {
+    if(value < currentNode.data) { 
+      if(currentNode.left === null) { 
+        currentNode.left = new BinarySearchTree(value); 
+        break;
+      } else { currentNode = currentNode.left; }
+    } else {
+      if(currentNode.right === null) { 
+        currentNode.right = new BinarySearchTree(value);
+        break;
+      } else { currentNode = currentNode.right; }
+    }
+  }
 };
 
-BinarySearchTree.prototype.contains = function(){
+BinarySearchTree.prototype.contains = function(value){
+  if(!value){ throw new Error("Cannot search for a null value"); }
+  var found = false;
+  
+  var checkForMatch = function(node){
+    if(node === null) {
+      return ;
+    }
+    if(node.data === value) { found = true; }
+    if(value < node.data) {
+     checkForMatch(node.left);
+    } else {
+      checkForMatch(node.right);
+    }
+  };
 
+  checkForMatch(this);
+
+  return found;
 };
