@@ -1,24 +1,22 @@
 /*
-  Given a directed graph with an adjacency matrix, find if there
+  Given a directed graph with nodes containing adjacency lists, find if there
   is a route between the two nodes provided.
 
-  Example: {nodes:['A','B','C','D','E','F'],
-            edges:[[0, 0, 0, 0, 0, 0],
-                   [0, 0, 1, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 1, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 1],
-                   [0, 0, 0, 1, 0, 0]]
+  Example: {nodes:[{data:'A',edges:[]},
+                   {data:'B',edges:['C']},
+                   {data:'C',edges:[]},
+                   {data:'D',edges:['B']},
+                   {data:'E',edges:['F']},
+                   {data:'F',edges:['D']}],
            }, 'F','C'
   Return: true (E->F->D->B->C)
   
-  Example: {nodes:['A','B','C','D','E','F'],
-            edges:[[0, 0, 0, 0, 0, 1],
-                   [0, 0, 1, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 1],
-                   [0, 0, 0, 0, 0, 0],
-                   [0, 0, 0, 0, 0, 1],
-                   [0, 0, 0, 1, 0, 0]]
+  Example: {nodes:[{data:'A',edges:['F']},
+                   {data:'B',edges:['C']},
+                   {data:'C',edges:['F']},
+                   {data:'D',edges:[]},
+                   {data:'E',edges:['F']},
+                   {data:'F',edges:['D']}],
            }, 'F','C'
   Return false
 

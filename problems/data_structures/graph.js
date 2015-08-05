@@ -78,8 +78,10 @@
 
 */
 
-function Graph(){
+function Graph(directed){
   this.nodes = [];
+  this.directed = false;
+  if(directed === 'D') { this.directed = true; }
 }
 
 function GraphNode(dataValue){
@@ -119,7 +121,7 @@ Graph.prototype.addEdge = function(graphNode1Value,graphNode2Value){
     throw new Error("This edge already exists");
   }
   verifiedNodes[0].edges.push(graphNode2Value);
-  verifiedNodes[1].edges.push(graphNode1Value);
+  if(!this.directed){ verifiedNodes[1].edges.push(graphNode1Value); }
 };
 
 Graph.prototype.removeEdge = function(graphNode1Value,graphNode2Value){
@@ -127,10 +129,13 @@ Graph.prototype.removeEdge = function(graphNode1Value,graphNode2Value){
 
   var edgeIndex1 = verifiedNodes[0].edges.indexOf(graphNode2Value);
   if(edgeIndex1 === -1) { throw new Error("Edge does not exist"); }
-  var edgeIndex2 = verifiedNodes[1].edges.indexOf(graphNode1Value);
-  if(edgeIndex2 === -1) { throw new Error("Edge does not exist"); }
+  var edgeIndex2;
+  if(!this.directed){
+    edgeIndex2 = verifiedNodes[1].edges.indexOf(graphNode1Value);
+    if(edgeIndex2 === -1) { throw new Error("Edge does not exist"); }
+  }
   verifiedNodes[0].edges.splice(edgeIndex1,1);
-  verifiedNodes[1].edges.splice(edgeIndex2,1);
+  if(!this.directed){ verifiedNodes[1].edges.splice(edgeIndex2,1); }
 };
 
 Graph.prototype.removeNode = function(graphNodeValue){
@@ -148,8 +153,12 @@ Graph.prototype.removeNode = function(graphNodeValue){
 Graph.prototype.checkAdjacency = function(graphNode1Value,graphNode2Value){
   var verifiedNodes = this.checkForExistence(graphNode1Value,graphNode2Value);
 
-  return (verifiedNodes[0].edges.indexOf(graphNode2Value) > -1 &&
+  if(!this.directed){ 
+    return(verifiedNodes[0].edges.indexOf(graphNode2Value) > -1 &&
           verifiedNodes[1].edges.indexOf(graphNode1Value) > -1);
+  } else {
+    return (verifiedNodes[0].edges.indexOf(graphNode2Value) > -1);
+  }
 };
 
 Graph.prototype.findAdjacentNodes = function(graphNodeValue){
