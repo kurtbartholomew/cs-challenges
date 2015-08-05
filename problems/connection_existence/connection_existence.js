@@ -24,5 +24,25 @@
 
 
 var findConnectionExistence = function(graph,nodeValue1,nodeValue2){
-  // TODO : Finish this
+  var startNode = graph.searchForNode(nodeValue1);
+  var endNode = graph.searchForNode(nodeValue2);
+
+  var bfsQueue = new Queue();
+
+  bfsQueue.enqueue(startNode);
+
+  while(!bfsQueue.isEmpty()){
+    var currentNode = bfsQueue.dequeue();
+    if(currentNode !== null){
+      console.log(currentNode);
+      for(var i = 0; i < currentNode.edges.length; i++) {
+        if(currentNode.visited === undefined){
+          if(graph.searchForNode(currentNode.edges[i]) === endNode){ return true; }
+        }
+          bfsQueue.enqueue(graph.searchForNode(currentNode.edges[i]));
+      }
+      currentNode.visited = true;
+    }
+  }
+  return false;
 };

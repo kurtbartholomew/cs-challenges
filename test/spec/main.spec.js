@@ -1410,36 +1410,36 @@ describe('Park Ride Queue', function() {
     assert.equal(parkyQueue.dequeueEither(), "Manny");
     assert.equal(parkyQueue.dequeueEither(), "Jim");
   });
+});
 
-  describe('Connection Existence', function() {
-    it('should return true if there is a path between nodes in a graph', function() {
-      var graphy = new Graph('D');
-      graphy.addNode('A');
-      graphy.addNode('B');
-      graphy.addNode('C');
-      graphy.addNode('D');
-      graphy.addNode('E');
-      graphy.addNode('F');
-      graphy.addEdge('B','C');
-      graphy.addEdge('D','B');
-      graphy.addEdge('E','F');
-      graphy.addEdge('F','D');
-      assert.equal(findConnectionExistence(graphy,'F','C'),true);
-    });
-    it('should return false if there is no path between nodes in a graph', function() {
-      var graphy = new Graph('D');
-      graphy.addNode('A');
-      graphy.addNode('B');
-      graphy.addNode('C');
-      graphy.addNode('D');
-      graphy.addNode('E');
-      graphy.addNode('F');
-      graphy.addEdge('A','F');
-      graphy.addEdge('B','C');
-      graphy.addEdge('C','F');
-      graphy.addEdge('E','F');
-      graphy.addEdge('F','D');
-      assert.equal(findConnectionExistence(graphy,'F','C'),false);
-    });
+describe('Connection Existence', function() {
+  it('should return true if there is a path between nodes in a graph', function() {
+    var graphy = new Graph('D');
+    graphy.addNode('A');
+    graphy.addNode('B');
+    graphy.addNode('C');
+    graphy.addNode('D');
+    graphy.addNode('E');
+    graphy.addNode('F');
+    graphy.addEdge('B','C');
+    graphy.addEdge('D','B');
+    graphy.addEdge('E','F');
+    graphy.addEdge('F','D');
+    assert.equal(findConnectionExistence(graphy,'F','C'),true);
+  });
+  it('should return false if there is no path between nodes in a graph', function() {
+    var graphy = new Graph('D');
+    graphy.addNode('A');
+    graphy.addNode('B');
+    graphy.addNode('C');
+    graphy.addNode('D');
+    graphy.addNode('E');
+    graphy.addNode('F');
+    graphy.addEdge('A','F');
+    graphy.addEdge('B','C');
+    graphy.addEdge('C','F');
+    graphy.addEdge('E','F');
+    graphy.addEdge('F','D');
+    assert.equal(findConnectionExistence(graphy,'F','C'),false);
   });
 });
