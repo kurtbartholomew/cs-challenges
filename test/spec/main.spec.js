@@ -1405,4 +1405,21 @@ describe('Park Ride Queue', function() {
     assert.equal(parkyQueue.dequeueEither(), "Manny");
     assert.equal(parkyQueue.dequeueEither(), "Jim");
   });
+
+  describe('Connection Existence', function() {
+    it('should return true if there is a path between nodes in a graph', function() {
+      var graphy = new GraphM();
+      graphy.nodes = ['A','B','C','D','E','F'];
+      graphy.edges = [[0, 0, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 0],
+                     [0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1],[0, 0, 0, 1, 0, 0]];
+      assert.equal(findConnectionExistence(graphy,'F','C'),true);
+    });
+    it('should return false if there is no path between nodes in a graph', function() {
+      var graphy = new GraphM();
+      graphy.nodes = ['A','B','C','D','E','F'];
+      graphy.edges = [[0, 0, 0, 0, 0, 1],[0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 1],
+                      [0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1],[0, 0, 0, 1, 0, 0]];
+      assert.equal(findConnectionExistence(graphy,'F','C'),false);
+    });
+  });
 });
