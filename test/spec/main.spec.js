@@ -547,6 +547,11 @@ describe('Data Structures', function() {
       assert.property(graphy,'nodes');
       assert.deepEqual(graphy.nodes,[]);
     });
+    it('should be able to be instantiated as a directed graph', function() {
+      var graphy = new GraphM('D');
+      assert.property(graphy,'directed');
+      assert.deepEqual(graphy.directed,true);
+    });
     it('nodes should be instantiated with a data property to hold its value', function() {
       var graphyNode = new GraphNode();
       assert.property(graphyNode,'data');
@@ -1408,17 +1413,32 @@ describe('Park Ride Queue', function() {
 
   describe('Connection Existence', function() {
     it('should return true if there is a path between nodes in a graph', function() {
-      var graphy = new GraphM();
-      graphy.nodes = ['A','B','C','D','E','F'];
-      graphy.edges = [[0, 0, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 0],
-                     [0, 1, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1],[0, 0, 0, 1, 0, 0]];
+      var graphy = new Graph('D');
+      graphy.addNode('A');
+      graphy.addNode('B');
+      graphy.addNode('C');
+      graphy.addNode('D');
+      graphy.addNode('E');
+      graphy.addNode('F');
+      graphy.addEdge('B','C');
+      graphy.addEdge('D','B');
+      graphy.addEdge('E','F');
+      graphy.addEdge('F','D');
       assert.equal(findConnectionExistence(graphy,'F','C'),true);
     });
     it('should return false if there is no path between nodes in a graph', function() {
-      var graphy = new GraphM();
-      graphy.nodes = ['A','B','C','D','E','F'];
-      graphy.edges = [[0, 0, 0, 0, 0, 1],[0, 0, 1, 0, 0, 0],[0, 0, 0, 0, 0, 1],
-                      [0, 0, 0, 0, 0, 0],[0, 0, 0, 0, 0, 1],[0, 0, 0, 1, 0, 0]];
+      var graphy = new Graph('D');
+      graphy.addNode('A');
+      graphy.addNode('B');
+      graphy.addNode('C');
+      graphy.addNode('D');
+      graphy.addNode('E');
+      graphy.addNode('F');
+      graphy.addEdge('A','F');
+      graphy.addEdge('B','C');
+      graphy.addEdge('C','F');
+      graphy.addEdge('E','F');
+      graphy.addEdge('F','D');
       assert.equal(findConnectionExistence(graphy,'F','C'),false);
     });
   });

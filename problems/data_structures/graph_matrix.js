@@ -18,17 +18,16 @@
     Example Graph Node List for 'A': ['K','N','S']
 
   - The Graph itself holds an adjacency matrix
-    Example (using the graph above): [[ '','K','S','A','T','N'],
-                                      ['K', 0 , 0 , 1 , 0 , 1 ],
-                                      ['S', 0 , 0 , 1 , 1 , 0 ],
-                                      ['A', 1 , 1 , 0 , 0 , 1 ],
-                                      ['T', 0 , 1 , 0 , 0 , 0 ],
-                                      ['N', 1 , 0 , 1 , 0 , 0 ]]
+    Example (using the graph above): [[ 0 , 0 , 1 , 0 , 1 ],
+                                      [ 0 , 0 , 1 , 1 , 0 ],
+                                      [ 1 , 1 , 0 , 0 , 1 ],
+                                      [ 0 , 1 , 0 , 0 , 0 ],
+                                      [ 1 , 0 , 1 , 0 , 0 ]]
 
   Notice that the matrix is mirrored. In a directed graph, edges
   (connections between nodes) are specified to travel in one direction.
-  This leads to an ingoing and outgoing list on each graph node or
-  a non-symmetrical adjacency matrix.
+  This leads to listing outgoing nodes on an adjacency list on each graph node 
+  or a non-symmetrical adjacency matrix.
   
   Strength of Adjacency List: Fast for adding nodes
   Weakness of Adjacency List: Slow for removing edges or nodes (must find all refs)
