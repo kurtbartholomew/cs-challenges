@@ -79,81 +79,110 @@
 
 */
 
-function Graph(){
+function GraphM(directed){
   this.nodes = [];
-}
-
-function GraphNode(dataValue){
-  this.data = dataValue || null;
   this.edges = [];
+  this.directed = false;
+  if(directed === 'D') { this.directed = true; }
 }
 
-Graph.prototype.searchForNode = function(nodeValue){
+function GraphNodeM(dataValue){
+  this.data = dataValue || null;
+}
+
+GraphM.prototype.searchForNode = function(nodeValue){
   for(var i = 0; i < this.nodes.length; i++) {
     if(this.nodes[i].data === nodeValue) {
-      return this.nodes[i];
+      return i;
     }
   }
   return null;
 };
 
-Graph.prototype.checkForExistence = function(graphNode1Value,graphNode2Value) {
+GraphM.prototype.checkForExistence = function(graphNode1Value,graphNode2Value) {
   if(graphNode1Value === graphNode2Value) { throw new Error("Cannot use same node"); }
-  var node1 = this.searchForNode(graphNode1Value);
-  if(node1 === null) { throw new Error("The " + graphNode1Value + " node does not exist"); }
-  var node2 = this.searchForNode(graphNode2Value);
-  if(node2 === null){ throw new Error("The " + graphNode2Value + " node does not exist"); }
-  return [node1,node2];
+  var nodeIndex1 = this.searchForNode(graphNode1Value);
+  if(nodeIndex1 === null) { throw new Error("The " + graphNode1Value + " node does not exist"); }
+  var nodeIndex2 = this.searchForNode(graphNode2Value);
+  if(nodeIndex2 === null){ throw new Error("The " + graphNode2Value + " node does not exist"); }
+  return [nodeIndex1,nodeIndex2];
 };
 
-Graph.prototype.addNode = function(graphNodeValue){
+GraphM.prototype.addNode = function(graphNodeValue){
   if(this.searchForNode(graphNodeValue) !== null) { throw new Error("Node already exists"); }
-  this.nodes.push(new GraphNode(graphNodeValue));
+  this.nodes.push(new GraphNodeM(graphNodeValue));
+  this.edges.forEach(function(row){ row.push(0); });
+  this.edges.push([]);
+  for(var i = 0; i < this.edges.length; i++) { this.edges[this.edges.length-1].push(0); }
 };
 
-Graph.prototype.addEdge = function(graphNode1Value,graphNode2Value){
-  var verifiedNodes = this.checkForExistence(graphNode1Value,graphNode2Value);
+GraphM.prototype.addEdge = function(graphNode1Value,graphNode2Value,weight){
+  var indices = this.checkForExistence(graphNode1Value,graphNode2Value);
 
-  if(verifiedNodes[0].edges.indexOf(graphNode2Value) > -1 &&
-     verifiedNodes[1].edges.indexOf(graphNode1Value) > -1)
+  if(this.edges[indices[0]][indices[1]] > 0 ||
+     this.edges[indices[1]][indices[0]] > 0)
   {
     throw new Error("This edge already exists");
   }
-  verifiedNodes[0].edges.push(graphNode2Value);
-  verifiedNodes[1].edges.push(graphNode1Value);
+
+  var weightD = 1;
+  if(weight !== undefined && weight.constructor === Number) { weightD = weight; } 
+  
+  this.edges[indices[0]][indices[1]] = weightD;
+  if(!this.directed){ this.edges[indices[1]][indices[0]] = weightD; }
+
 };
 
-Graph.prototype.removeEdge = function(graphNode1Value,graphNode2Value){
-  var verifiedNodes = this.checkForExistence(graphNode1Value,graphNode2Value);
+GraphM.prototype.removeEdge = function(graphNode1Value,graphNode2Value){
+  var indices = this.checkForExistence(graphNode1Value,graphNode2Value);
 
-  var edgeIndex1 = verifiedNodes[0].edges.indexOf(graphNode2Value);
-  if(edgeIndex1 === -1) { throw new Error("Edge does not exist"); }
-  var edgeIndex2 = verifiedNodes[1].edges.indexOf(graphNode1Value);
-  if(edgeIndex2 === -1) { throw new Error("Edge does not exist"); }
-  verifiedNodes[0].edges.splice(edgeIndex1,1);
-  verifiedNodes[1].edges.splice(edgeIndex2,1);
+  if(this.edges[indices[0]][indices[1]] === 0) { 
+    throw new Error("Edge does not exist"); 
+  } else {
+    this.edges[indices[0]][indices[1]] = 0;
+  }
+  if(!this.directed && this.edges[indices[1]][indices[0]] === 0) {
+   throw new Error("Edge does not exist"); 
+  } else if(!this.directed && this.edges[indices[1]][indices[0]]) {
+    this.edges[indices[1]][indices[0]] = 0;
+  }
+
 };
 
-Graph.prototype.removeNode = function(graphNodeValue){
-  var node = this.searchForNode(graphNodeValue);
-  if(node === null) { throw new Error("Node doesn't exist"); }
+GraphM.prototype.removeNode = function(graphNodeValue){
+  var index = this.searchForNode(graphNodeValue);
+  if(index === null) { throw new Error("Node doesn't exist"); }
+  this.edges.splice(index,1);
   var that = this;
-  node.edges.forEach(function(connectedNodeValue){
-    var connected = that.searchForNode(connectedNodeValue);
-    connected.edges.splice(connected.edges.indexOf(graphNodeValue),1);
+  this.edges.forEach(function(row){
+    row.splice(index,1);
   });
-  var index = this.nodes.indexOf(node);
   return this.nodes.splice(index,1)[0];
 };
 
-Graph.prototype.checkAdjacency = function(graphNode1Value,graphNode2Value){
-  var verifiedNodes = this.checkForExistence(graphNode1Value,graphNode2Value);
+GraphM.prototype.checkAdjacency = function(graphNode1Value,graphNode2Value){
+  var indices = this.checkForExistence(graphNode1Value,graphNode2Value);
+
+  if(!this.directed){ 
+    return (this.edges[indices[1]][indices[0]] > 0 &&
+           this.edges[indices[0]][indices[1]] > 0);
+  } else {
+    return this.edges[indices[1]][indices[0]] > 0;
+  }
 
   return (verifiedNodes[0].edges.indexOf(graphNode2Value) > -1 &&
           verifiedNodes[1].edges.indexOf(graphNode1Value) > -1);
 };
 
-Graph.prototype.findAdjacentNodes = function(graphNodeValue){
-  return this.searchForNode(graphNodeValue).edges;
+GraphM.prototype.findAdjacentNodes = function(graphNodeValue){
+  var adjacentNodes = [];
+  var mainIndex = this.searchForNode(graphNodeValue);
+  var that = this;
+  this.edges[mainIndex].forEach(function(columnElement,index){
+    if(index !== mainIndex && columnElement > 0){
+      adjacentNodes.push(that.nodes[index].data);
+    }
+  });
+  return adjacentNodes;
 };
 
