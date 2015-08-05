@@ -99,6 +99,20 @@ GraphM.prototype.searchForNode = function(nodeValue){
   return null;
 };
 
+GraphM.prototype.printAMatrix = function(){
+  var header = '';
+  this.nodes.forEach(function(node){ header += ' ' + node.data; });
+  console.log(header);
+  var that = this;
+  this.edges.forEach(function(row,index){
+    var rowText = that.nodes[index].data  + ' ';
+    row.forEach(function(columnVal){
+      rowText+= ' ' + columnVal;
+    });
+    console.log(rowText);
+  });
+};
+
 GraphM.prototype.checkForExistence = function(graphNode1Value,graphNode2Value) {
   if(graphNode1Value === graphNode2Value) { throw new Error("Cannot use same node"); }
   var nodeIndex1 = this.searchForNode(graphNode1Value);
@@ -119,8 +133,7 @@ GraphM.prototype.addNode = function(graphNodeValue){
 GraphM.prototype.addEdge = function(graphNode1Value,graphNode2Value,weight){
   var indices = this.checkForExistence(graphNode1Value,graphNode2Value);
 
-  if(this.edges[indices[0]][indices[1]] > 0 ||
-     this.edges[indices[1]][indices[0]] > 0)
+  if(this.edges[indices[0]][indices[1]] > 0)
   {
     throw new Error("This edge already exists");
   }
