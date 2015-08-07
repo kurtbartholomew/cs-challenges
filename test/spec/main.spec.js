@@ -1445,13 +1445,20 @@ describe('Connection Existence', function() {
 });
 
 describe('Smallest Binary Search Tree', function() {
-  it('should return a tree with a depth property',function(){
-    assert.property(smallestBST([1]),'depth');
-  });
+  
+  function maxHeight(bst) {
+    if (bst === null) return 0;
+    var left_height = maxHeight(bst.left);
+    var right_height = maxHeight(bst.right);
+    return (left_height > right_height) ? left_height + 1 : right_height + 1;
+  }
+
   it('should return a tree with minimal height for odd lists', function() {
-    assert.equal(smallestBST([1,2,3,4,5,6,7,8,9,10,11]).depth,4);
+    var bst = smallestBST([1,2,3,4,5,6,7,8,9,10,11]);
+    assert.equal(maxHeight(bst),4);
   });
   it('should return a tree with minimal height for even lists', function() {
-    assert.equal(smallestBST([5,6,7,8,9,10]).depth,3);
+    var bst = smallestBST([5,6,7,8,9,10]);
+    assert.equal(maxHeight(bst),3);
   });
 });

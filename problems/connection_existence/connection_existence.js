@@ -34,7 +34,6 @@ var findConnectionExistence = function(graph,nodeValue1,nodeValue2){
   while(!bfsQueue.isEmpty()){
     var currentNode = bfsQueue.dequeue();
     if(currentNode !== null){
-      console.log(currentNode);
       for(var i = 0; i < currentNode.edges.length; i++) {
         if(currentNode.visited === undefined){
           if(graph.searchForNode(currentNode.edges[i]) === endNode){ return true; }
