@@ -1443,3 +1443,15 @@ describe('Connection Existence', function() {
     assert.equal(findConnectionExistence(graphy,'F','C'),false);
   });
 });
+
+describe('Smallest Binary Search Tree', function() {
+  it('should return a tree with a depth property',function(){
+    assert.property(smallestBST([1]),'depth');
+  });
+  it('should return a tree with minimal height for odd lists', function() {
+    assert.equal(smallestBST([1,2,3,4,5,6,7,8,9,10,11]).depth,4);
+  });
+  it('should return a tree with minimal height for even lists', function() {
+    assert.equal(smallestBST([5,6,7,8,9,10]).depth,3);
+  });
+});
