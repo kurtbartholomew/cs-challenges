@@ -1462,3 +1462,35 @@ describe('Smallest Binary Search Tree', function() {
     assert.equal(maxHeight(bst),3);
   });
 });
+
+describe('Tree Level Store', function() {
+
+  function binTree(data){
+    this.data = data || null;
+    this.left = null;
+    this.right = null;
+  }
+
+  it('should throw an error if no tree is provided', function() {
+    assert.throws(function(){ treeLevelStore(); }, Error);
+  });
+  it('should return an array if a tree is provided', function() {
+    var bTreeNode = new binTree(5);
+    assert.equal(treeLevelStore(bTreeNode).constructor, Array);
+  });
+  it('should return an array of linked lists if given a binary tree', function() {
+    var bTreeNode = new binTree(5);
+    bTreeNode.left = new binTree(6);
+    bTreeNode.right = new binTree(14);
+    bTreeNode.left.left = new binTree(9);
+    bTreeNode.left.right = new binTree(12);
+    bTreeNode.right.left = new binTree(7);
+    bTreeNode.right.right = new binTree(19);
+    var list = treeLevelStore(bTreeNode);
+    assert.equal(list[0].head.value,5);
+    assert.equal(list[1].head.value,6);
+    assert.equal(list[1].tail.value,14);
+    assert.equal(list[2].head.value,9);
+    assert.equal(list[2].tail.value,19);
+  });
+});
