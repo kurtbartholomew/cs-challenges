@@ -1494,3 +1494,35 @@ describe('Tree Level Store', function() {
     assert.equal(list[2].tail.value,19);
   });
 });
+
+describe('Balanced Tree Check', function() {
+
+  function binTree(data){
+    this.data = data || null;
+    this.left = null;
+    this.right = null;
+  }
+
+  it('should throw an error if no tree is provided', function() {
+    assert.throws(function(){ balancedTreeCheck(); }, Error );
+  });
+  it('should return true if the tree is balanced', function() {
+    var bTreeNode = new binTree(5);
+    bTreeNode.left = new binTree(6);
+    bTreeNode.right = new binTree(14);
+    bTreeNode.left.left = new binTree(9);
+    bTreeNode.left.right = new binTree(12);
+    bTreeNode.right.left = new binTree(7);
+    bTreeNode.right.right = new binTree(19);
+    assert.equal(balancedTreeCheck(bTreeNode),true);
+  });
+  it('should return false if the tree is not balanced', function() {
+    var bTreeNode = new binTree(5);
+    bTreeNode.left = new binTree(6);
+    bTreeNode.right = new binTree(14);
+    bTreeNode.right.right = new binTree(19);
+    bTreeNode.right.right.left = new binTree(15);
+    bTreeNode.right.right.right = new binTree(24);
+    assert.equal(balancedTreeCheck(bTreeNode),false);
+  });
+});
