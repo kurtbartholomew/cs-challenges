@@ -1523,7 +1523,7 @@ describe('Balanced Tree Check', function() {
     bTreeNode.right.right = new binTree(19);
     bTreeNode.right.right.left = new binTree(15);
     bTreeNode.right.right.right = new binTree(24);
-    assert.equal(balancedTreeCheck(b TreeNode),false);
+    assert.equal(balancedTreeCheck(bTreeNode),false);
   });
 });
 describe('Binary Search Tree Validator', function() {
@@ -1535,7 +1535,7 @@ describe('Binary Search Tree Validator', function() {
   }
 
   it('should throw an error if no tree is provided', function() {
-    assert.throws(function(){ balancedTreeCheck(); }, Error );
+    assert.throws(function(){ BSTValidator(); }, Error );
   });
   it('should return true if the tree is balanced', function() {
     var bTreeNode = new binTree(9);
@@ -1545,7 +1545,7 @@ describe('Binary Search Tree Validator', function() {
     bTreeNode.left.right = new binTree(7);
     bTreeNode.right.left = new binTree(12);
     bTreeNode.right.right = new binTree(17);
-    assert.equal(balancedTreeCheck(bTreeNode),true);
+    assert.equal(BSTValidator(bTreeNode),true);
   });
   it('should return false if the tree is not balanced', function() {
     var bTreeNode = new binTree(9);
@@ -1555,6 +1555,16 @@ describe('Binary Search Tree Validator', function() {
     bTreeNode.left.right = new binTree(7);
     bTreeNode.right.left = new binTree(12);
     bTreeNode.right.right = new binTree(17);
-    assert.equal(balancedTreeCheck(bTreeNode),false);
+    assert.equal(BSTValidator(bTreeNode),false);
+  });
+  it('should return false if duplicate values exist in right branches', function() {
+    var bTreeNode = new binTree(9);
+    bTreeNode.left = new binTree(5);
+    bTreeNode.right = new binTree(15);
+    bTreeNode.left.left = new binTree(3);
+    bTreeNode.left.right = new binTree(7);
+    bTreeNode.right.left = new binTree(12);
+    bTreeNode.right.right = new binTree(15);
+    assert.equal(BSTValidator(bTreeNode),false);
   });
 });
