@@ -4,11 +4,17 @@
   limit and once the limit is reached, the least used object is removed from
   the cache.
 
-  Example:
-  Returns
+  Example:  var cachey = new lruCache(4)
+            cachey.set('data1',data1)
+            cachey.set('data2',data1) 
+            cachey.set('data3',data1) 
+            cachey.set('data4',data1)
+            cachey.get('data1')         // data1
+            cachey.set('data5',data5)
+            cachey.get('data2')         // null
 
 */
 
-var lruCache = function(){
+var lruCache = function(size){
   // TODO : Finish this
 };
