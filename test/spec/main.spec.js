@@ -1645,13 +1645,16 @@ describe('First Shared Node', function() {
   bTreeNode.right.right.left = new binTree(25);
   bTreeNode.right.right.right = new binTree(36);
 
-  it('should throw an error if no tree is provided', function() {
+  it('should throw an error if no nodes are provided', function() {
     assert.throws(function(){ firstSharedNode(); }, Error );
   });
-  it('should return the first node that is shared by the two nodes passed', function() {
-    assert.equal(firstSharedNode(bTreeNode),true);
+  it('should return null if the root node is ever passed as the second or third argument', function() {
+    assert.equal(firstSharedNode(bTreeNode,bTreeNode.right.right,bTreeNode),null);
   });
-  it('should return return the root node if they are immmediately in two seperate trees', function() {
-    assert.equal(firstSharedNode(bTreeNode),false);
+  it('should return the first node that is shared by the two nodes passed', function() {
+    assert.equal(firstSharedNode(bTreeNode,bTreeNode.left.left.right,bTreeNode.right.left),bTreeNode);
+  });
+  it('should return the root node if they are immmediately in two seperate trees', function() {
+    assert.equal(firstSharedNode(bTreeNode,bTreeNode.right.left.left,bTreeNode.right.right),bTreeNode.right);
   });
 });

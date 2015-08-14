@@ -28,6 +28,18 @@
 
 */
 
-var firstSharedNode = function(firstNode,secondNode){
-  // TODO : Finish this
+var checkPath = function(currentNode,firstNode,secondNode){
+  if(firstNode.data < currentNode.data && secondNode.data < currentNode.data) {
+    return checkPath(currentNode.left,firstNode,secondNode);
+  } else if(firstNode.data > currentNode.data && secondNode.data > currentNode.data) {
+    return checkPath(currentNode.right,firstNode,secondNode);
+  } else {
+    return currentNode;
+  }
+};
+
+var firstSharedNode = function(root,firstNode,secondNode){
+  if(!firstNode || !secondNode){ throw new Error("Please provide 2 tree nodes"); }
+  if(firstNode === root || secondNode === root) { return null; }
+  return checkPath(root,firstNode,secondNode);
 };
