@@ -1580,8 +1580,12 @@ describe('LRU (least-recently-used) Cache ', function() {
   it('should throw an error attempting to initialize the cache without a size', function() {
     assert.throws(function(){ new lruCache(); }, Error );
   });
+  it('should contain a limit property', function() {
+    assert.property(new lruCache(4),'limit');
+  });
   it('should contain a set method', function() {
-    assert.property(new lruCache(4),'set');
+    var cachey = new lruCache(4);
+    assert.isFunction(cachey.set,true);
   });
   it('should contain a storage list', function() {
     var cachey = new lruCache(4);
@@ -1592,15 +1596,16 @@ describe('LRU (least-recently-used) Cache ', function() {
   it('should be able to add data to the cache', function() {
     var cachey = new lruCache(4);
     cachey.set('data1',data1);
-    assert.equal(cachey.storage.head,data1);
+    assert.equal(cachey.storage.head.value,data1);
   });
   it('should contain a get method', function() {
-    assert.property(new lruCache(4),'get');
+    var cachey = new lruCache(4);
+    assert.isFunction(cachey.get,true);
   });
   it('should be able to retrieve data from the cache', function() {
     var cachey = new lruCache(4);
     cachey.set('data1',data1);
-    assert.equal(cachey.get('data1'),data1);
+    assert.equal(cachey.get('data1').value,data1);
   });
   it('should place the latest used data furthest from removal point', function() {
     var cachey = new lruCache(4);
@@ -1608,7 +1613,7 @@ describe('LRU (least-recently-used) Cache ', function() {
     cachey.set('data2',data2);
     cachey.set('data3',data3);
     cachey.get('data1');
-    assert.equal(cachey.storage.tail,data1);
+    assert.equal(cachey.storage.tail.value,data1);
   });
   it('should return null if data is not present in cache', function() {
     var cachey = new lruCache(4);

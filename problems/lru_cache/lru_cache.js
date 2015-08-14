@@ -16,5 +16,30 @@
 */
 
 var lruCache = function(size){
-  // TODO : Finish this
+  if(!size) { throw new Error('You must initialize the cache with a size.'); }
+  this.limit = size;
+  this.storage = new DoublyLinkedList();
+  this.list = {};
+};
+
+lruCache.prototype.set = function(name,data){
+  var newLLNode = new DoublyLinkedListNode(data);
+  newLLNode.name = name;
+  this.list[name] = newLLNode;
+  this.storage.addToTail(newLLNode);
+  if(this.storage.size() >= this.limit){
+    delete this.list[this.storage.removeFromHead().name];
+  }
+};
+
+lruCache.prototype.get = function(name){
+  currentNode = this.list[name];
+  if(currentNode) {
+    if(currentNode.previous){ currentNode.previous.next = currentNode.next; }
+    this.storage.addToTail(currentNode);
+    currentNode.next = null;
+    return currentNode;
+  } else {
+    return null;
+  }
 };
