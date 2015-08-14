@@ -15,6 +15,29 @@
 
 */
 
+// --------------- Memoization Solution ----------------------
+
+var memoHelper = function(numberOfHamburgers,memoizeArray){
+  if(numberOfHamburgers < 0) { return 0; }
+  if(numberOfHamburgers === 0) { return 1; }
+  if(memoizeArray[numberOfHamburgers] === undefined) {
+    memoizeArray[numberOfHamburgers] = memoHelper(numberOfHamburgers-1,memoizeArray) +
+    memoHelper(numberOfHamburgers-2,memoizeArray) + memoHelper(numberOfHamburgers-3,memoizeArray);
+  } else {
+    return memoizeArray[numberOfHamburgers];
+  }
+};
+
 var mealPlanner = function(numberOfHamburgers){
-  // TODO: Finish this
+  return memoHelper(numberOfHamburgers,[]);
+};
+
+// ---------------- Naive Recursive Solution ------------------------
+
+var mealPlanner = function(numberOfHamburgers){
+  if(numberOfHamburgers < 0) { return 0; }
+  if(numberOfHamburgers === 0) { return 1; }
+
+  return mealPlanner(numberOfHamburgers-1) + mealPlanner(numberOfHamburgers-2) +
+         mealPlanner(numberOfHamburgers-2);
 };

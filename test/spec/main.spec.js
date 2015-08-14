@@ -306,11 +306,11 @@ describe('Recursion', function(){
     });
   });
   describe('Meal Planner', function() {
-    it('should return the correct number of plans for even n', function() {
-      assert.equal(mealPlanner(72),5000);
+    it('should return the correct number of plans for a small amount of hamburgers', function() {
+      assert.equal(mealPlanner(8),171);
     });
-    it('should return the correct number of plans for odd n', function() {
-      assert.equal(mealPlanner(15),500);
+    it('should return the correct number of plans for a large amount of hamburgers', function() {
+      assert.equal(mealPlanner(22),2796203);
     });
   });
 });
