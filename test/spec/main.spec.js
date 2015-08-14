@@ -1620,3 +1620,38 @@ describe('LRU (least-recently-used) Cache ', function() {
     assert.equal(cachey.get('data2'),null);
   });
 });
+
+describe('First Shared Node', function() {
+
+  function binTree(data){
+    this.data = data || null;
+    this.left = null;
+    this.right = null;
+  }
+
+  var bTreeNode = new binTree(9);
+  bTreeNode.left = new binTree(5);
+  bTreeNode.right = new binTree(24);
+  bTreeNode.left.left = new binTree(3);
+  bTreeNode.left.right = new binTree(7);
+  bTreeNode.right.left = new binTree(18);
+  bTreeNode.right.right = new binTree(29);
+  bTreeNode.left.left.left = new binTree(2);
+  bTreeNode.left.left.right = new binTree(4);
+  bTreeNode.left.right.left = new binTree(6);
+  bTreeNode.left.right.left = new binTree(8);
+  bTreeNode.right.left.left = new binTree(15);
+  bTreeNode.right.left.right = new binTree(21);
+  bTreeNode.right.right.left = new binTree(25);
+  bTreeNode.right.right.right = new binTree(36);
+
+  it('should throw an error if no tree is provided', function() {
+    assert.throws(function(){ firstSharedNode(); }, Error );
+  });
+  it('should return the first node that is shared by the two nodes passed', function() {
+    assert.equal(firstSharedNode(bTreeNode),true);
+  });
+  it('should return return the root node if they are immmediately in two seperate trees', function() {
+    assert.equal(firstSharedNode(bTreeNode),false);
+  });
+});
