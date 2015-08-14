@@ -305,6 +305,14 @@ describe('Recursion', function(){
       assert.equal(fibonacci(45),1134903170);
     });
   });
+  describe('Meal Planner', function() {
+    it('should return the correct number of plans for even n', function() {
+      assert.equal(mealPlanner(72),5000);
+    });
+    it('should return the correct number of plans for odd n', function() {
+      assert.equal(mealPlanner(15),500);
+    });
+  });
 });
 
 describe('Data Structures', function() {
