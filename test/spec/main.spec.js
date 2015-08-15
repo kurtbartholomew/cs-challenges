@@ -871,9 +871,12 @@ describe('List of Primes', function() {
   it('should return null if integer is less than 2', function() {
     assert.equal(listOfPrimes(1) === null,true);
   });
+  it('should return a list of type array', function() {
+    assert.equal(listOfPrimes(5).constructor,Array);
+  });
   it('should return a list of primes if given an integer', function() {
-    assert.deepEqual(listOfPrimes(17),[]);
-    assert.deepEqual(listOfPrimes(587),[]);
+    assert.deepEqual(listOfPrimes(17),[ 2, 3, 5, 7, 11, 13, 17 ]);
+    assert.deepEqual(listOfPrimes(67),[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67]);
   });
 });
 
