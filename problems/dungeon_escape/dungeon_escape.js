@@ -28,18 +28,25 @@
 
 */
 
-var findRoute = function(dungeon,route,row,column){
-  if(row < 0 || column < 0 || !dungeon[row][column]) { return false; }
+var findRoute = function(dungeon,route,row,column,routeCache){
+  var coords = [row,column];
+  if(row < 0 || column < 0 || !dungeon[row][column]) { 
+    routeCache[coords] = false;
+    return false;
+  }
+  if(routeCache[coords] !== undefined){ return routeCache[coords]; }
   if((row === 0 && column === 0) ||
-      findRoute(dungeon,route,row-1,column) ||
-      findRoute(dungeon,route,row,column-1)) {
+      findRoute(dungeon,route,row-1,column,routeCache) ||
+      findRoute(dungeon,route,row,column-1,routeCache)) {
     route.push([row,column]);
+    routeCache[coords] = true;
     return true;
   }
 };
 
 var dungeonEscape = function(nxnMatrix){
   var route = [];
-  findRoute(nxnMatrix,route,nxnMatrix.length-1,nxnMatrix[0].length-1);
+  var routeCache = {};
+  findRoute(nxnMatrix,route,nxnMatrix.length-1,nxnMatrix[0].length-1,routeCache);
   return route;
 };

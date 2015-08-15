@@ -318,9 +318,9 @@ describe('Recursion', function(){
   describe('Dungeon Escape', function() {
     var possibleDungeon = [[1,1,1,0,0,0,0],
                            [1,0,1,1,1,1,1],
-                           [1,0,1,0,0,0,0],
                            [1,0,1,1,1,1,0],
-                           [1,0,1,0,0,1,1],
+                           [1,0,1,1,1,1,0],
+                           [1,0,1,0,1,1,1],
                            [1,0,1,1,0,0,1],
                            [1,1,0,1,1,0,1]];
     var impossibleDungeon = [[1,1,1,0,0,0,0],
@@ -331,13 +331,19 @@ describe('Recursion', function(){
                              [1,0,1,1,0,0,1],
                              [1,1,0,1,1,0,1]];
     it('should return an empty array when no path exists', function() {
+      sinon.spy(window,"findRoute");
       assert.deepEqual(dungeonEscape(impossibleDungeon),[]);
+      console.log(findRoute.callCount);
+      window.findRoute.restore();
     });
     it('should return an array of array positions for the path', function() {
+      sinon.spy(window,"findRoute");
       assert.deepEqual(dungeonEscape(possibleDungeon),[[0,0],[0,1],[0,2],[1,2],
-                                                       [2,2],[3,2],[3,3],[3,4],
+                                                       [1,3],[1,4],[1,5],[2,5],
                                                        [3,5],[4,5],[4,6],[5,6],
                                                        [6,6]]);
+      console.log(findRoute.callCount);
+      window.findRoute.restore();
     });
   });
 });
