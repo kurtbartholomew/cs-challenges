@@ -305,12 +305,39 @@ describe('Recursion', function(){
       assert.equal(fibonacci(45),1134903170);
     });
   });
+
   describe('Meal Planner', function() {
     it('should return the correct number of plans for a small amount of hamburgers', function() {
       assert.equal(mealPlanner(8),171);
     });
     it('should return the correct number of plans for a large amount of hamburgers', function() {
       assert.equal(mealPlanner(22),2796203);
+    });
+  });
+
+  describe('Dungeon Escape', function() {
+    var possibleDungeon = [[1,1,1,0,0,0,0],
+                           [1,0,1,1,1,1,1],
+                           [1,0,1,0,0,0,0],
+                           [1,0,1,1,1,1,0],
+                           [1,0,1,0,0,1,1],
+                           [1,0,1,1,0,0,1],
+                           [1,1,0,1,1,0,1]];
+    var impossibleDungeon = [[1,1,1,0,0,0,0],
+                             [1,0,1,1,1,1,1],
+                             [1,0,1,0,0,0,0],
+                             [1,0,1,0,0,1,0],
+                             [1,0,1,0,0,1,1],
+                             [1,0,1,1,0,0,1],
+                             [1,1,0,1,1,0,1]];
+    it('should return an empty array when no path exists', function() {
+      assert.deepEqual(dungeonEscape(impossibleDungeon),[]);
+    });
+    it('should return an array of array positions for the path', function() {
+      assert.deepEqual(dungeonEscape(possibleDungeon),[[0,0],[0,1],[0,2],[1,2],
+                                                       [2,2],[3,2],[3,3],[3,4],
+                                                       [3,5],[4,5],[4,6],[5,6],
+                                                       [6,6]]);
     });
   });
 });
