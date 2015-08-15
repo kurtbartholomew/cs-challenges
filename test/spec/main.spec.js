@@ -867,6 +867,16 @@ describe('Data Structures', function() {
   });
 });
 
+describe('List of Primes', function() {
+  it('should return null if integer is less than 2', function() {
+    assert.equal(listOfPrimes(1) === null,true);
+  });
+  it('should return a list of primes if given an integer', function() {
+    assert.deepEqual(listOfPrimes(17),[]);
+    assert.deepEqual(listOfPrimes(587),[]);
+  });
+});
+
 describe('Knapsack (greedy solution)', function() {
   it('should choose one item correctly', function() {
     assert.equal("["+knapsack(100, [[1, 1]]).join(", ")+"]", "["+[100].join(", ")+"]");
