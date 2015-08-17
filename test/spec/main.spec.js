@@ -343,10 +343,12 @@ describe('Recursion', function(){
 
   describe('Power Set', function() {
     it('should return null if given an empty set', function() {
-      assert.equal(powerSet([]),null);
+      assert.deepEqual(powerSet([]),['']);
     });
-    it('should return the correct number of plans for a large amount of hamburgers', function() {
-      assert.deepEqual(powerSet([5,8,3]),[5,58,53,583,8,83,3]);
+    it('should return the proper subsets of any given set', function() {
+      assert.deepEqual(powerSet(['5','8','3']),["", "5", "8", "58", "3", "53", "83", "583"]);
+      assert.deepEqual(powerSet(['5','8','3','4']),
+        ["", "5", "8", "58", "3", "53", "83", "583", "4", "54", "84", "584", "34", "534", "834", "5834"]);
     });
   });
 });
