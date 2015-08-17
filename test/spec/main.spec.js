@@ -331,19 +331,22 @@ describe('Recursion', function(){
                              [1,0,1,1,0,0,1],
                              [1,1,0,1,1,0,1]];
     it('should return an empty array when no path exists', function() {
-      sinon.spy(window,"findRoute");
       assert.deepEqual(dungeonEscape(impossibleDungeon),[]);
-      console.log(findRoute.callCount);
-      window.findRoute.restore();
     });
     it('should return an array of array positions for the path', function() {
-      sinon.spy(window,"findRoute");
       assert.deepEqual(dungeonEscape(possibleDungeon),[[0,0],[0,1],[0,2],[1,2],
                                                        [1,3],[1,4],[1,5],[2,5],
                                                        [3,5],[4,5],[4,6],[5,6],
                                                        [6,6]]);
-      console.log(findRoute.callCount);
-      window.findRoute.restore();
+    });
+  });
+
+  describe('Power Set', function() {
+    it('should return null if given an empty set', function() {
+      assert.equal(powerSet([]),null);
+    });
+    it('should return the correct number of plans for a large amount of hamburgers', function() {
+      assert.deepEqual(powerSet([5,8,3]),[5,58,53,583,8,83,3]);
     });
   });
 });
