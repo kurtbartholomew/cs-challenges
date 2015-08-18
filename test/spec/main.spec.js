@@ -356,9 +356,17 @@ describe('Recursion', function(){
     it('should throw errors if sufficient arguments are not provided', function() {
       assert.throws(function(){ brokenMultiply(); }, Error);
     });
+    it('should return zero if either input is zero', function() {
+       assert.equal(brokenMultiply(0,2),0);
+       assert.equal(brokenMultiply(7,0),0);
+    });
+    it('should return the other argument if either input is one', function() {
+       assert.equal(brokenMultiply(1,2),2);
+       assert.equal(brokenMultiply(7,1),7);
+    });
     it('should return the correct product', function() {
       assert.equal(brokenMultiply(2,2),4);
-      assert.equal(brokenMultiply(43,62),2604);
+      assert.equal(brokenMultiply(43,62),2666);
       assert.equal(brokenMultiply(450,953),428850);
     });
   });
