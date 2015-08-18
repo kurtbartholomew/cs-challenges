@@ -351,6 +351,17 @@ describe('Recursion', function(){
         ["", "5", "8", "58", "3", "53", "83", "583", "4", "54", "84", "584", "34", "534", "834", "5834"]);
     });
   });
+
+  describe('Broken Multiply', function() {
+    it('should throw errors if sufficient arguments are not provided', function() {
+      assert.throws(function(){ brokenMultiply(); }, Error);
+    });
+    it('should return the correct product', function() {
+      assert.equal(brokenMultiply(2,2),4);
+      assert.equal(brokenMultiply(43,62),2604);
+      assert.equal(brokenMultiply(450,953),428850);
+    });
+  });
 });
 
 describe('Data Structures', function() {
