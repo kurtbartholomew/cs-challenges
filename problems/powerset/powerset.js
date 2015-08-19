@@ -18,6 +18,5 @@ var powerSet = function(integerSet){
       results.push(results[j]+integerSet[i]);
     }
   }
-  console.log(results);
   return results;
 };

@@ -370,6 +370,35 @@ describe('Recursion', function(){
       assert.equal(brokenMultiply(450,953),428850);
     });
   });
+
+  describe('Coin sums', function(){
+    it('should throw errors if sufficient arguments are not provided', function() {
+      assert.throws(function(){ coinSums(); }, Error);
+    });
+    it('should operate recursively', function() {
+      sinon.spy(window,"coinSumsHelper");
+      coinSums(12);
+      console.log("Number of times called: " + coinSumsHelper.callCount);
+      window.coinSumsHelper.restore();
+      sinon.spy(window,"coinSumsHelper");
+      coinSums(21);
+      console.log("Number of times called: " + coinSumsHelper.callCount);
+      window.coinSumsHelper.restore();
+    });
+    it('should return zero if input is zero', function() {
+       assert.equal(coinSums(0),0);
+    });
+    it('should return one if input is below five', function() {
+       assert.equal(coinSums(1),1);
+       assert.equal(coinSums(2),2);
+       assert.equal(coinSums(3),3);
+       assert.equal(coinSums(4),4);
+    });
+    it('should return the correct number of ways', function() {
+      assert.equal(coinSums(12),23);
+      assert.equal(coinSums(21),67);
+    });
+  });
 });
 
 describe('Data Structures', function() {
