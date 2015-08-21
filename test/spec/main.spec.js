@@ -375,16 +375,6 @@ describe('Recursion', function(){
     it('should throw errors if sufficient arguments are not provided', function() {
       assert.throws(function(){ coinSums(); }, Error);
     });
-    it('should operate recursively', function() {
-      sinon.spy(window,"coinSumsHelper");
-      coinSums(12);
-      console.log("Number of times called: " + coinSumsHelper.callCount);
-      window.coinSumsHelper.restore();
-      sinon.spy(window,"coinSumsHelper");
-      coinSums(21);
-      console.log("Number of times called: " + coinSumsHelper.callCount);
-      window.coinSumsHelper.restore();
-    });
     it('should return zero if input is zero', function() {
        assert.equal(coinSums(0),0);
     });
