@@ -342,6 +342,9 @@ describe('Recursion', function(){
   });
 
   describe('Power Set', function() {
+    it('should throw errors if sufficient arguments are not provided', function() {
+      assert.throws(function(){ powerSet(); }, Error);
+    });
     it('should return null if given an empty set', function() {
       assert.deepEqual(powerSet([]),['']);
     });
