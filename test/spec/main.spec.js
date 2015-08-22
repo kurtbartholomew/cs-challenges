@@ -977,6 +977,14 @@ describe('Knapsack (greedy solution)', function() {
   });
 });
 
+describe('Sorting Algorithms', function(){
+  describe('Merge Sort', function(){
+    it('sort properly', function(){
+      assert.deepEqual(mergeSort([7,5,9,12,15,2,4,10]),[2,4,5,7,9,10,12,15]);
+    });
+  });
+});
+
 describe('Square Matrix Multiplication', function() {
   it('should work for a 2x2 matrix', function() {
     assert.equal(JSON.stringify(matrixMultiplication([[1, 2], [3, 2]], [[3, 2], [1, 1]])),JSON.stringify([[5, 4], [11, 8]]));
