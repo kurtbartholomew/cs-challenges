@@ -12,8 +12,44 @@
 
 */
 
+var qSwap = function(array,indexA,indexB){
+  var temp = array[indexA];
+  array[indexA] = array[indexB];
+  array[indexB] = array[indexA];
+};
 
+var qRandom = function(length){
+  return Math.floor(Math.random() * length);
+};
+
+var medianOfThreePivot = function(len){
+  var first = qRandom(len);
+  var second = qRandom(len);
+  var third = qRandom(len);
+  var large,small;
+
+  if(first > second){
+    large = first;
+    small = second;
+  } else {
+    large = second;
+    small = first;
+  }
+
+  if(third > large){ 
+    return large;
+  } else if(third < small){
+    return small;
+  } else {
+    return third;
+  }
+};
 
 var quickSort = function(currentArray){
 
+  var pivotIndex = medianOfThreePivot(currentArray.length);
+  var pivotValue = currentArray[pivotIndex];
+
+  
+  return ;
 };
