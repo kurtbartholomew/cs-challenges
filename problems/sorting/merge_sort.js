@@ -45,5 +45,3 @@ var mergeSort = function(currentArray){
   var secondHalf = mergeSort(currentArray.slice(middle));
   return merge(firstHalf,secondHalf);
 };
-
-console.log(mergeSort([7,5,9,12,15,2,4,10]));

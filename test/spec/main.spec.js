@@ -983,6 +983,11 @@ describe('Sorting Algorithms', function(){
       assert.deepEqual(mergeSort([7,5,9,12,15,2,4,10]),[2,4,5,7,9,10,12,15]);
     });
   });
+  describe('Quick Sort', function(){
+    it('sort properly', function(){
+      assert.deepEqual(quickSort([7,5,9,12,15,2,4,10]),[2,4,5,7,9,10,12,15]);
+    });
+  });
 });
 
 describe('Square Matrix Multiplication', function() {
