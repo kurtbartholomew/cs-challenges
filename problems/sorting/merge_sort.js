@@ -11,10 +11,39 @@
 
 */
 
-var merge = function(array1,array2){
-  // TODO: Finish this
+var merge = function(left,right){
+  var combinedArray = [];
+  var leftIndex = 0;
+  var rightIndex = 0;
+
+
+  while(leftIndex < left.length && rightIndex < right.length){
+    if(left[leftIndex] < right[rightIndex]){
+      combinedArray.push(left[leftIndex++]);
+    } else {
+      combinedArray.push(right[rightIndex++]);
+    }
+  }
+  while(rightIndex < right.length){ 
+    combinedArray.push(right[rightIndex++]);
+  }
+  while(leftIndex < left.length){ 
+    combinedArray.push(left[leftIndex++]);
+  }
+  return combinedArray;
 };
 
-var mergeSort = function(initialArray){
-  // TODO: Finish this
+var mergeSort = function(currentArray){
+  var arrayLength = currentArray.length;
+  if(arrayLength < 2){
+    return currentArray;
+  }
+
+  var middle = Math.floor(arrayLength / 2);
+
+  var firstHalf = mergeSort(currentArray.slice(0,middle));
+  var secondHalf = mergeSort(currentArray.slice(middle));
+  return merge(firstHalf,secondHalf);
 };
+
+console.log(mergeSort([7,5,9,12,15,2,4,10]));
