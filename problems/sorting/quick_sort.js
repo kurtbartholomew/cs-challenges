@@ -15,41 +15,43 @@
 var qSwap = function(array,indexA,indexB){
   var temp = array[indexA];
   array[indexA] = array[indexB];
-  array[indexB] = array[indexA];
+  array[indexB] = temp;
 };
 
-var qRandom = function(length){
-  return Math.floor(Math.random() * length);
-};
+var qDivide = function(currentArray,left,right){
+  var pivotValue = currentArray[((left+right)/2)];
 
-var medianOfThreePivot = function(len){
-  var first = qRandom(len);
-  var second = qRandom(len);
-  var third = qRandom(len);
-  var large,small;
+  while(left <= right){
 
-  if(first > second){
-    large = first;
-    small = second;
-  } else {
-    large = second;
-    small = first;
+    while(currentArray[left] < pivotValue){
+      left++;
+    }
+    while(currentArray[right] > pivotValue){
+      right--;
+    }
+
+    if(left <= right){
+      qSwap(currentArray,left,right);
+      left++;
+      right--;
+    }
+
   }
 
-  if(third > large){ 
-    return large;
-  } else if(third < small){
-    return small;
-  } else {
-    return third;
-  }
+  return left;
 };
 
-var quickSort = function(currentArray){
-
-  var pivotIndex = medianOfThreePivot(currentArray.length);
-  var pivotValue = currentArray[pivotIndex];
-
+var quickSort = function(currentArray,left,right){
+  if(left === undefined || right === undefined){
+    left = 0;
+    right = currentArray.length-1;
+  }
+  var starting = qDivide(currentArray,left,right);
   
-  return ;
+  if(left < (starting-1)){
+    quickSort(currentArray,left,starting-1);
+  }
+  if(starting < right){
+    quickSort(currentArray,starting,right);
+  }
 };
