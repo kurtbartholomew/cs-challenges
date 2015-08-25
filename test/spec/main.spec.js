@@ -392,6 +392,21 @@ describe('Recursion', function(){
       assert.equal(coinSums(21),67);
     });
   });
+
+  describe('Identity Index', function() {
+    it('should throw an error if no array is provided', function() {
+      assert.throws(function(){ identityIndex(); }, Error);
+    });
+    it('should return false if array is empty', function() {
+      assert.equal(identityIndex([]), null);
+    });
+    it('should return false if no value matches its index', function() {
+      assert.equal(identityIndex([1,2,3,4,5,6,7]), null);
+    });
+    it('should return true of a value exists that matches its index', function() {
+      assert.equal(identityIndex([-4,-1,2,4,6,9]), 2);
+    });
+  });
 });
 
 describe('Data Structures', function() {
