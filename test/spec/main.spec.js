@@ -959,6 +959,64 @@ describe('Data Structures', function() {
       assert.throws(function(){ graphy.findAdjacentNodes('O'); }, Error);
     });
   });
+  describe('Heap', function() {
+    it('should have a storage property',function(){
+      var heapy = new Heap();
+      assert.property(heapy,'storage');
+    });
+    it('should have an insert, max and extract_max function', function() {
+      var heapy = new Heap();
+      assert.property(heapy,'insert');
+      assert.property(heapy,'max');
+      assert.property(heapy,'extract_max');
+    });
+    it('should be able to insert a value into the heap', function() {
+      var heapy = new Heap();
+      heapy.insert(7);
+      assert.equal(heapy.storage[0],7); 
+    });
+    it('should be able to return the maximum value in the heap without removing it',function(){
+      var heapy = new Heap();
+      heapy.insert(7);
+      assert.equal(heapy.max(),7);
+      assert.equal(heapy.storage[0],7);
+    });
+    it('should return null if max() is called on an empty heap',function(){
+      var heapy = new Heap();
+      assert.equal(heapy.max() === null,true);
+    });
+    it('should always have the maximum value in the first index after insert', function() {
+      var heapy = new Heap();
+      heapy.insert(7);
+      assert.equal(heapy.max(),7);
+      assert.equal(heapy.storage[0],7);
+      heapy.insert(15);
+      assert.equal(heapy.max(),15);
+      assert.equal(heapy.storage[0],15);
+    });
+    it('should be able to remove the maximum value', function() {
+      var heapy = new Heap();
+      heapy.insert(7);
+      heapy.insert(15);
+      heapy.insert(8);
+      heapy.insert(13);
+      heapy.insert(4);
+      assert.equal(heapy.storage[0],15);
+      assert.equal(heapy.extract_max(),15);
+      assert.notEqual(heapy.storage[0],15);
+    });
+    it('should rebalance to place the next largest value at the first index after removal', function() {
+      var heapy = new Heap();
+      heapy.insert(7);
+      heapy.insert(15);
+      heapy.insert(8);
+      heapy.insert(13);
+      heapy.insert(4);
+      assert.equal(heapy.max(),15);
+      assert.equal(heapy.extract_max(),15);
+      assert.equal(heapy.max(),13);
+    });
+  });
 });
 
 describe('List of Primes', function() {
