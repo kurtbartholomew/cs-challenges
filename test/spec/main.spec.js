@@ -1,16 +1,23 @@
+// if (typeof window === 'undefined') {
+//   require('../mocha/mocha.js');
+//   require('../chai/chai.js');
+//   require('../sinon-1.15.4/index.js');
+//   require('../../problems.js');
+// }
+
 describe('Recursion', function(){
 
   describe('Recursive Max', function() {
 
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveMax");
-      recursiveMax([2,3]);
-      assert.equal(recursiveMax.callCount > 1,true);
-      window.recursiveMax.restore();
+      sinon.spy(CSC,"recursiveMax");
+      CSC.recursiveMax([2,3]);
+      assert.equal(CSC.recursiveMax.callCount > 1,true);
+      CSC.recursiveMax.restore();
     });
 
     it('should return the correct max from a list', function() {
-      assert.equal(recursiveMax([2,7,8,3,1,4]), 8);
+      assert.equal(CSC.recursiveMax([2,7,8,3,1,4]), 8);
     });
   });
 

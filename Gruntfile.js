@@ -40,4 +40,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', ['concat','connect','watch']);
+  grunt.registerTask('node', ['concat','watch']);
 };

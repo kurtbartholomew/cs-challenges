@@ -5,13 +5,16 @@
 
 */
 
-var iterativeMax = function(arr) {
-  return arr.reduce(function(max,current){
-    return max < current ? current : max;
-  },-Infinity);
-};
+(function(CSC){
 
-var recursiveMax = function(arr) {
-  if(!arr.length) { return -Infinity; }
-  return Math.max(arr[0],recursiveMax(arr.slice(1)));
-};
+  CSC.iterativeMax = function(arr) {
+    return arr.reduce(function(max,current){
+      return max < current ? current : max;
+    },-Infinity);
+  };
+
+  CSC.recursiveMax = function(arr) {
+    if(!arr.length) { return -Infinity; }
+    return Math.max(arr[0],this.recursiveMax(arr.slice(1)));
+  };
+})(CSC);
