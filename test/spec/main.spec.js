@@ -1005,6 +1005,14 @@ describe('Data Structures', function() {
       assert.equal(heapy.extract_max(),15);
       assert.notEqual(heapy.storage[0],15);
     });
+    it('should should return null when attempting to remove from an empty heap', function() {
+      var heapy = new Heap();
+      heapy.insert(7);
+      heapy.insert(15);
+      heapy.extract_max();
+      heapy.extract_max();
+      assert.equal(heapy.extract_max()===null,true);
+    });
     it('should rebalance to place the next largest value at the first index after removal', function() {
       var heapy = new Heap();
       heapy.insert(7);
