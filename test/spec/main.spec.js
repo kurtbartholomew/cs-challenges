@@ -991,8 +991,13 @@ describe('Data Structures', function() {
       assert.equal(heapy.max(),7);
       assert.equal(heapy.storage[0],7);
       heapy.insert(15);
-      assert.equal(heapy.max(),15);
-      assert.equal(heapy.storage[0],15);
+      heapy.insert(9);
+      heapy.insert(17);
+      assert.equal(heapy.max(),17);
+      assert.equal(heapy.storage[0],17);
+      assert.equal(heapy.storage[1],15);
+      assert.equal(heapy.storage[2],9);
+      assert.equal(heapy.storage[3],7);
     });
     it('should be able to remove the maximum value', function() {
       var heapy = new Heap();
