@@ -6,13 +6,16 @@
 
 */
 
-var iterativeListSum = function(arr) {
+(function(CSC){
+
+CSC.iterativeListSum = function(arr) {
   return arr.reduce(function(sum, nextInt) {
     return sum + nextInt;
   });
 };
 
-var recursiveListSum = function(arr) {
+CSC.recursiveListSum = function(arr) {
   if(arr.length === 1) { return arr[0]; }
   return recursiveListSum(arr.slice(1)) + arr[0];
 };
+})(CSC);

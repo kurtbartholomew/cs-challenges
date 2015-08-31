@@ -12,15 +12,19 @@
 
 */
 
-var iterativeCountingList = function(start, exclusiveEnd) {
+(function(CSC){
+
+CSC.iterativeCountingList = function(start, exclusiveEnd) {
   return Array.apply(null,{length:(Math.abs(exclusiveEnd-start))}).map(function(_element,index){
     return exclusiveEnd-start > 0 ? start+index : start-index;
   });
 };
 
-var recursiveCountingList = function(start, exclusiveEnd) {
+CSC.recursiveCountingList = function(start, exclusiveEnd) {
   if(start === exclusiveEnd) { return []; }
   return exclusiveEnd-start > 0 ?
     recursiveCountingList(start, exclusiveEnd-1).concat(exclusiveEnd-1) :
     recursiveCountingList(start, exclusiveEnd+1).concat(exclusiveEnd+1);
 };
+
+})(CSC);

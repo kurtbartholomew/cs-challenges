@@ -6,11 +6,15 @@
 
 */
 
-var iterativeListFlatten = function(arr) {
+(function(CSC){
+
+CSC.iterativeListFlatten = function(arr) {
   return [].concat.apply([],arr);
 };
 
-var recursiveListFlatten = function(arr) {
+CSC.recursiveListFlatten = function(arr) {
   if(!arr.length) { return arr; }
   return recursiveListFlatten(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
+
+})(CSC);

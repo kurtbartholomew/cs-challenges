@@ -10,7 +10,9 @@
 
 */
 
-var iterativeListInvert = function(arr) {
+(function(CSC){
+
+CSC.iterativeListInvert = function(arr) {
   return arr.map(function(element,index) {
     if(index % 2 === 0) {
       return element < 0 ? -element : element;
@@ -20,7 +22,7 @@ var iterativeListInvert = function(arr) {
   });
 };
 
-var recursiveListInvert = function(arr) {
+CSC.recursiveListInvert = function(arr) {
   if(!arr.length) { return arr; }
   return arr.length % 2 === 0 ?
     arr[arr.length-1] < 0 ? 
@@ -30,3 +32,4 @@ var recursiveListInvert = function(arr) {
       recursiveListInvert(arr.slice(0,-1)).concat(-arr[arr.length-1])
       : recursiveListInvert(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
+})(CSC);

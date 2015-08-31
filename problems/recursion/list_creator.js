@@ -9,13 +9,17 @@
 
 */
 
-var iterativeListCreator = function(number, numberOfElements) {
+(function(CSC){
+
+CSC.iterativeListCreator = function(number, numberOfElements) {
   return Array.apply(null,{length:numberOfElements}).map(function(){
     return number;
   });
 };
 
-var recursiveListCreator = function(number, numberOfElements) {
+CSC.recursiveListCreator = function(number, numberOfElements) {
   if(numberOfElements === 0) { return []; }
   return recursiveListCreator(number,numberOfElements-1).concat(number);
 };
+
+})(CSC);

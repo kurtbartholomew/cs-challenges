@@ -7,7 +7,9 @@
 
 */
 
-var iterativeListZip = function(arr1, arr2) {
+(function(CSC){
+
+CSC.iterativeListZip = function(arr1, arr2) {
   var zipped = [];
   var smallestLength = Math.min(arr1.length,arr2.length);
   for(var i = 0; i < smallestLength; i++) {
@@ -18,9 +20,10 @@ var iterativeListZip = function(arr1, arr2) {
     zipped.concat(arr1.slice(smallestLength));
 };
 
-var recursiveListZip = function(arr1, arr2) {
+CSC.recursiveListZip = function(arr1, arr2) {
   if(!arr1.length || !arr2.length) { 
     return arr1.concat(arr2);
   }
   return [arr1[0],arr2[0]].concat(recursiveListZip(arr1.slice(1),arr2.slice(1)));
 };
+})(CSC);
