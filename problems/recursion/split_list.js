@@ -9,7 +9,9 @@
 
 */
 
-var iterativeListSplit = function(arr, element) {
+(function(CSC){
+
+CSC.iterativeListSplit = function(arr, element) {
   return arr.reduce(function(splitArray,comparisonElement){
     if(comparisonElement < element) { splitArray[0].push(comparisonElement); }
     else { splitArray[1].push(comparisonElement); }
@@ -17,8 +19,8 @@ var iterativeListSplit = function(arr, element) {
   },[[],[]]);
 };
 
-var recursiveListSplit = function(arr, element) {
-	if(!arr.length) { return [[],[]]; }
+CSC.recursiveListSplit = function(arr, element) {
+  if(!arr.length) { return [[],[]]; }
   var newArr = recursiveListSplit(arr.slice(0,-1),element);
   if(arr[arr.length-1] < element) {
     newArr[0].push(arr[arr.length-1]);
@@ -27,3 +29,5 @@ var recursiveListSplit = function(arr, element) {
   }
   return newArr;
 };
+
+})(CSC);

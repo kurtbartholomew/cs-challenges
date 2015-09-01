@@ -9,16 +9,20 @@
 
 */
 
-var iterativeSublistCheck = function(arr, subarr) {
+(function(CSC){
+
+CSC.iterativeSublistCheck = function(arr, subarr) {
   return subarr.reduce(function(startsWith,element,index){
     return element === arr[index];
   },false);
 };
 
-var recursiveSublistCheck = function(arr, subarr) {
+CSC.recursiveSublistCheck = function(arr, subarr) {
   if(subarr.length === 1) { return arr[0] === subarr[0]; }
   var starting = subarr.length === 1 ? 
     recursiveSublistCheck(arr, subarr.slice(1)):
     recursiveSublistCheck(arr.slice(1), subarr.slice(1));
   return starting && (arr[0] === subarr[0]);
 };
+
+})(CSC);

@@ -10,7 +10,9 @@
 
 */
 
-var iterativePairSwap = function(arr) {
+(function(CSC){
+
+CSC.iterativePairSwap = function(arr) {
   var temp = 0;
   for(var i = 0; i < arr.length; i++) {
     if(i % 2 !== 0) {
@@ -22,9 +24,11 @@ var iterativePairSwap = function(arr) {
   return arr;
 };
 
-var recursivePairSwap = function(arr) {
+CSC.recursivePairSwap = function(arr) {
   if(!arr.length) { return arr; }
   return arr.length % 2 === 0 ? 
     recursivePairSwap(arr.slice(0,-2)).concat(arr[arr.length-1],arr[arr.length-2]) : 
     recursivePairSwap(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
+
+})(CSC);

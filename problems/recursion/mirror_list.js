@@ -6,7 +6,9 @@
 
 */
 
-var iterativeListMirror = function(arr) {
+(function(CSC){
+
+CSC.iterativeListMirror = function(arr) {
   var result = arr.slice();
   var length = result.length;
   for(var i = (length-1); i >= 0; i--) {
@@ -16,7 +18,9 @@ var iterativeListMirror = function(arr) {
   return result;
 };
 
-var recursiveListMirror = function(arr) {
+CSC.recursiveListMirror = function(arr) {
 	if(!arr.length) { return arr; }
   return [arr[0]].concat(recursiveListMirror(arr.slice(1)).concat(arr[0]));
 };
+
+})(CSC);

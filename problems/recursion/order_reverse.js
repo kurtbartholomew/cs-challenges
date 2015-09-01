@@ -5,14 +5,18 @@
 
 */
 
-var iterativeReverse = function(arr) {
+(function(CSC){
+
+CSC.iterativeReverse = function(arr) {
   return arr.reduce(function(newList,currentElement){
     newList.unshift(currentElement);
     return newList;
   },[]);
 };
 
-var recursiveReverse = function(arr) {
+CSC.recursiveReverse = function(arr) {
   if(!arr.length) { return arr; }
   return recursiveReverse(arr.slice(1)).concat(arr[0]);
 };
+
+})(CSC);

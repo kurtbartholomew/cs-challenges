@@ -6,14 +6,16 @@
 
 */
 
-var iterativeSeriesReduce = function(arr) {
+(function(CSC){
+
+CSC.iterativeSeriesReduce = function(arr) {
   return arr.filter(function(element,index,array){
     if(index === 0) { return true; }
     return (arr[index-1] !== element);
   });
 };
 
-var recursiveSeriesReduce = function(arr) {
+CSC.recursiveSeriesReduce = function(arr) {
   if(arr.length === 1) { return arr; }
   var newArr = recursiveSeriesReduce(arr.slice(0,-1));
   if(newArr[newArr.length-1] !== arr[arr.length-1]) {
@@ -21,3 +23,5 @@ var recursiveSeriesReduce = function(arr) {
   }
   return newArr;
 };
+
+})(CSC);

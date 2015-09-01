@@ -10,11 +10,13 @@
 
 */
 
-var iterativeSublistExtract = function(arr, startIndex, endIndex) {
+(function(CSC){
+
+CSC.iterativeSublistExtract = function(arr, startIndex, endIndex) {
   return arr.slice(startIndex,endIndex);
 };
 
-var recursiveSublistExtract = function(arr, startIndex, endIndex) {
+CSC.recursiveSublistExtract = function(arr, startIndex, endIndex) {
   if(arr.length === (startIndex+1)) { return [arr[startIndex]]; }
   var newArr = recursiveSublistExtract(arr.slice(0,-1),startIndex,endIndex);
   if(arr.length < (endIndex+1)){
@@ -22,3 +24,5 @@ var recursiveSublistExtract = function(arr, startIndex, endIndex) {
   }
   return newArr;
 };
+
+})(CSC);
