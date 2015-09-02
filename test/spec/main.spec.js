@@ -1,4 +1,4 @@
-// if (typeof window === 'undefined') {
+// if (typeof windo === 'undefined') {
 //   require('../mocha/mocha.js');
 //   require('../chai/chai.js');
 //   require('../sinon-1.15.4/index.js');
@@ -22,280 +22,282 @@ describe('Recursion', function(){
   });
 
   describe('Recursive Occurrence Count', function() {
+
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveTimes");
-      recursiveTimes([2,3],2);
-      assert.equal(recursiveTimes.callCount > 1,true);
-      window.recursiveTimes.restore();
+      assert.isDefined(CSC);
+      sinon.spy(CSC,"recursiveTimes");
+      CSC.recursiveTimes([2,3],2);
+      assert.equal(CSC.recursiveTimes.callCount > 1,true);
+      CSC.recursiveTimes.restore();
     });
 
     it('should count the correct number of 4\'s', function() {
-      assert.equal(recursiveTimes([2,7,4,4,1,4],4),3);
+      assert.equal(CSC.recursiveTimes([2,7,4,4,1,4],4),3);
     });
   });
 
   describe('Recursive List Reverse', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveReverse");
-      recursiveReverse([2,3]);
-      assert.equal(recursiveReverse.callCount > 1,true);
-      window.recursiveReverse.restore();
+      sinon.spy(CSC,"recursiveReverse");
+      CSC.recursiveReverse([2,3]);
+      assert.equal(CSC.recursiveReverse.callCount > 1,true);
+      CSC.recursiveReverse.restore();
     });
 
     it('should reverse a list', function() {
-      assert.deepEqual(recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
+      assert.deepEqual(CSC.recursiveReverse([2,7,8,3,1,4]),[4,1,3,8,7,2]);
     });
   });
 
   describe('Recursive Pair Swap', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursivePairSwap");
-      recursivePairSwap([2,3]);
-      assert.equal(recursivePairSwap.callCount > 1,true);
-      window.recursivePairSwap.restore();
+      sinon.spy(CSC,"recursivePairSwap");
+      CSC.recursivePairSwap([2,3]);
+      assert.equal(CSC.recursivePairSwap.callCount > 1,true);
+      CSC.recursivePairSwap.restore();
     });
 
     it('should swap pairs for even lists', function() {
-      assert.deepEqual(recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
+      assert.deepEqual(CSC.recursivePairSwap([2,7,8,3,1,4]),[7,2,3,8,4,1]);
     });
 
     it('should swap pairs for odd lists', function() {
-      assert.deepEqual(recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
+      assert.deepEqual(CSC.recursivePairSwap([3,6,8,1,5]),[6,3,1,8,5]);
     });
   });
 
   describe('Recursive List Sum', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListSum");
-      recursiveListSum([2,3]);
-      assert.equal(recursiveListSum.callCount > 1,true);
-      window.recursiveListSum.restore();
+      sinon.spy(CSC,"recursiveListSum");
+      CSC.recursiveListSum([2,3]);
+      assert.equal(CSC.recursiveListSum.callCount > 1,true);
+      CSC.recursiveListSum.restore();
     });
 
     it('should return the sum of all the list\'s elements', function() {
-      assert.equal(recursiveListSum([2,7,8,3,1,4]),25);
+      assert.equal(CSC.recursiveListSum([2,7,8,3,1,4]),25);
     });
   });
 
   describe('Recursive List Separate', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListSeparate");
-      recursiveListSeparate([2,3]);
-      assert.equal(recursiveListSeparate.callCount > 1,true);
-      window.recursiveListSeparate.restore();
+      sinon.spy(CSC,"recursiveListSeparate");
+      CSC.recursiveListSeparate([2,3]);
+      assert.equal(CSC.recursiveListSeparate.callCount > 1,true);
+      CSC.recursiveListSeparate.restore();
     });
     
     it('should separate each element into it\'s own list', function() {
-      assert.deepEqual(recursiveListSeparate([2,7,8,3,1,4]),[[2],[7],[8],[3],[1],[4]]);
+      assert.deepEqual(CSC.recursiveListSeparate([2,7,8,3,1,4]),[[2],[7],[8],[3],[1],[4]]);
     });
   });
 
   describe('Recursive Pair Separate', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursivePairSeparate");
-      recursivePairSeparate([2,3]);
-      assert.equal(recursivePairSeparate.callCount > 1,true);
-      window.recursivePairSeparate.restore();
+      sinon.spy(CSC,"recursivePairSeparate");
+      CSC.recursivePairSeparate([2,3]);
+      assert.equal(CSC.recursivePairSeparate.callCount > 1,true);
+      CSC.recursivePairSeparate.restore();
     });
     
     it('should separate pairs of even lists', function() {
-      assert.deepEqual(recursivePairSeparate([2,7,8,3,1,4]),[[2,7],[8,3],[1,4]]);
+      assert.deepEqual(CSC.recursivePairSeparate([2,7,8,3,1,4]),[[2,7],[8,3],[1,4]]);
     });
 
     it('should separate pairs of odd lists', function() {
-      assert.deepEqual(recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
+      assert.deepEqual(CSC.recursivePairSeparate([3,6,8,1,5]),[[3,6],[8,1],[5,0]]);
     });
   });
 
   describe('Recursive List Flatten', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListFlatten");
-      recursiveListFlatten([2,3]);
-      assert.equal(recursiveListFlatten.callCount > 1,true);
-      window.recursiveListFlatten.restore();
+      sinon.spy(CSC,"recursiveListFlatten");
+      CSC.recursiveListFlatten([2,3]);
+      assert.equal(CSC.recursiveListFlatten.callCount > 1,true);
+      CSC.recursiveListFlatten.restore();
     });
 
     it('should create a flat list from several nested lists', function() {
-      assert.deepEqual(recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
+      assert.deepEqual(CSC.recursiveListFlatten([[2,7], [8,3], [1,4]]),[2,7,8,3,1,4]);
     });
   });
 
   describe('Recursive List Split', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListSplit");
-      recursiveListSplit([2,3]);
-      assert.equal(recursiveListSplit.callCount > 1,true);
-      window.recursiveListSplit.restore();
+      sinon.spy(CSC,"recursiveListSplit");
+      CSC.recursiveListSplit([2,3]);
+      assert.equal(CSC.recursiveListSplit.callCount > 1,true);
+      CSC.recursiveListSplit.restore();
     });
 
     it('should produce two lists of integers: one lower than the pivot element and one higher or equal', function() {
-      assert.deepEqual(recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
+      assert.deepEqual(CSC.recursiveListSplit([2,7,8,3,1,4],4),[[2,3,1],[7,8,4]]);
     });
   });
 
   describe('Recursive Evens Filter', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveEvenFilter");
-      recursiveEvenFilter([2,3]);
-      assert.equal(recursiveEvenFilter.callCount > 1,true);
-      window.recursiveEvenFilter.restore();
+      sinon.spy(CSC,"recursiveEvenFilter");
+      CSC.recursiveEvenFilter([2,3]);
+      assert.equal(CSC.recursiveEvenFilter.callCount > 1,true);
+      CSC.recursiveEvenFilter.restore();
     });
 
     it('should return only a list of only even integers', function() {
-      assert.deepEqual(recursiveEvenFilter([2,7,8,3,1,4]),[2,8,4]);
+      assert.deepEqual(CSC.recursiveEvenFilter([2,7,8,3,1,4]),[2,8,4]);
     });
   });
 
   describe('Recursive List Sign Inversion', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListInvert");
-      recursiveListInvert([2,3]);
-      assert.equal(recursiveListInvert.callCount > 1,true);
-      window.recursiveListInvert.restore();
+      sinon.spy(CSC,"recursiveListInvert");
+      CSC.recursiveListInvert([2,3]);
+      assert.equal(CSC.recursiveListInvert.callCount > 1,true);
+      CSC.recursiveListInvert.restore();
     });
 
     it('should shift every other integer negative', function() {
-      assert.deepEqual(recursiveListInvert([2,7,8,3,1,4]),[2,-7,8,-3,1,-4]);
+      assert.deepEqual(CSC.recursiveListInvert([2,7,8,3,1,4]),[2,-7,8,-3,1,-4]);
     });
 
     it('should also shift negatives back to positive', function() {
-      assert.deepEqual(recursiveListInvert([-5,-3,7,1,-6,2]),[5,-3,7,-1,6,-2]);
+      assert.deepEqual(CSC.recursiveListInvert([-5,-3,7,1,-6,2]),[5,-3,7,-1,6,-2]);
     });
   });
 
   describe('Recursive List Zip', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListZip");
-      recursiveListZip([2,3],[2,3]);
-      assert.equal(recursiveListZip.callCount > 1,true);
-      window.recursiveListZip.restore();
+      sinon.spy(CSC,"recursiveListZip");
+      CSC.recursiveListZip([2,3],[2,3]);
+      assert.equal(CSC.recursiveListZip.callCount > 1,true);
+      CSC.recursiveListZip.restore();
     });
 
     it('should zip two lists together into one', function() {
-      assert.deepEqual(recursiveListZip([2,7,8,3,1,4], [9,5,1]),[2,9,7,5,8,1,3,1,4]);
+      assert.deepEqual(CSC.recursiveListZip([2,7,8,3,1,4], [9,5,1]),[2,9,7,5,8,1,3,1,4]);
     });
   });
 
   describe('Recursive List Creator', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListCreator");
-      recursiveListCreator(2,3);
-      assert.equal(recursiveListCreator.callCount > 1,true);
-      window.recursiveListCreator.restore();
+      sinon.spy(CSC,"recursiveListCreator");
+      CSC.recursiveListCreator(2,3);
+      assert.equal(CSC.recursiveListCreator.callCount > 1,true);
+      CSC.recursiveListCreator.restore();
     });
 
     it('should create a list of all zeroes', function() {
-      assert.deepEqual(recursiveListCreator(0, 5),[0,0,0,0,0]);
+      assert.deepEqual(CSC.recursiveListCreator(0, 5),[0,0,0,0,0]);
     });
 
     it('should create a list of three sevens', function() {
-      assert.deepEqual(recursiveListCreator(7, 3),[7,7,7]);
+      assert.deepEqual(CSC.recursiveListCreator(7, 3),[7,7,7]);
     });
   });
 
   describe('Recursive Counting List', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveCountingList");
-      recursiveCountingList(2,3);
-      assert.equal(recursiveCountingList.callCount > 1,true);
-      window.recursiveCountingList.restore();
+      sinon.spy(CSC,"recursiveCountingList");
+      CSC.recursiveCountingList(2,3);
+      assert.equal(CSC.recursiveCountingList.callCount > 1,true);
+      CSC.recursiveCountingList.restore();
     });
 
     it('should create an ascending list if second integer is higher', function() {
-      assert.deepEqual(recursiveCountingList(2,5),[2,3,4]);
+      assert.deepEqual(CSC.recursiveCountingList(2,5),[2,3,4]);
     });
 
     it('should create an descending list if first integer is higher', function() {
-      assert.deepEqual(recursiveCountingList(8,1),[8,7,6,5,4,3,2]);
+      assert.deepEqual(CSC.recursiveCountingList(8,1),[8,7,6,5,4,3,2]);
     });
 
     it('should create an empty list if given the same elements', function() {
-      assert.deepEqual(recursiveCountingList(3,3),[]);
+      assert.deepEqual(CSC.recursiveCountingList(3,3),[]);
     });
   });
 
   describe('Recursive Series Reduction', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveSeriesReduce");
-      recursiveSeriesReduce([2,3]);
-      assert.equal(recursiveSeriesReduce.callCount > 1,true);
-      window.recursiveSeriesReduce.restore();
+      sinon.spy(CSC,"recursiveSeriesReduce");
+      CSC.recursiveSeriesReduce([2,3]);
+      assert.equal(CSC.recursiveSeriesReduce.callCount > 1,true);
+      CSC.recursiveSeriesReduce.restore();
     });
 
     it('should reduce a series of zeroes to one', function() {
-      assert.deepEqual(recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
+      assert.deepEqual(CSC.recursiveSeriesReduce([2,0,0,0,1,4]),[2,0,1,4]);
     });
   });
 
   describe('Recursive List Mirror', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListMirror");
-      recursiveListMirror([2,3]);
-      assert.equal(recursiveListMirror.callCount > 1,true);
-      window.recursiveListMirror.restore();
+      sinon.spy(CSC,"recursiveListMirror");
+      CSC.recursiveListMirror([2,3]);
+      assert.equal(CSC.recursiveListMirror.callCount > 1,true);
+      CSC.recursiveListMirror.restore();
     });
 
     it('should insert elements to mirror the original list', function() {
-      assert.deepEqual(recursiveListMirror([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
+      assert.deepEqual(CSC.recursiveListMirror([2,7,8,3,1,4]),[2,7,8,3,1,4,4,1,3,8,7,2]);
     });
   });
 
   describe('Recursive Element Insert', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveElementInsert");
-      recursiveElementInsert([[2],[3]]);
-      assert.equal(recursiveElementInsert.callCount > 1,true);
-      window.recursiveElementInsert.restore();
+      sinon.spy(CSC,"recursiveElementInsert");
+      CSC.recursiveElementInsert([[2],[3]]);
+      assert.equal(CSC.recursiveElementInsert.callCount > 1,true);
+      CSC.recursiveElementInsert.restore();
     });
 
     it('should create nested lists of each element with the passed value', function() {
-      assert.deepEqual(recursiveElementInsert([[],[3],[7]],5),[[5],[3,5],[7,5]]);
+      assert.deepEqual(CSC.recursiveElementInsert([[],[3],[7]],5),[[5],[3,5],[7,5]]);
     });
   });
 
   describe('Recursive List Nest', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveListNest");
-      recursiveListNest([[2],[3]]);
-      assert.equal(recursiveListNest.callCount > 1,true);
-      window.recursiveListNest.restore();
+      sinon.spy(CSC,"recursiveListNest");
+      CSC.recursiveListNest([[2],[3]]);
+      assert.equal(CSC.recursiveListNest.callCount > 1,true);
+      CSC.recursiveListNest.restore();
     });
 
     it('should append every nested list inside the previous list', function() {
-      assert.deepEqual(recursiveListNest([[4,3],[5,6],[8,2]]),[4,3,[5,6,[8,2]]]);
+      assert.deepEqual(CSC.recursiveListNest([[4,3],[5,6],[8,2]]),[4,3,[5,6,[8,2]]]);
     });
   });
 
   describe('Recursive Sublist Check', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveSublistCheck");
-      recursiveSublistCheck([2,3],[2,3]);
-      assert.equal(recursiveSublistCheck.callCount > 1,true);
-      window.recursiveSublistCheck.restore();
+      sinon.spy(CSC,"recursiveSublistCheck");
+      CSC.recursiveSublistCheck([2,3],[2,3]);
+      assert.equal(CSC.recursiveSublistCheck.callCount > 1,true);
+      CSC.recursiveSublistCheck.restore();
     });
 
     it('should return true if the main list starts with the passed sublist', function() {
-      assert.equal(recursiveSublistCheck([2,7,8,3,1,4],[2,7]),true);
+      assert.equal(CSC.recursiveSublistCheck([2,7,8,3,1,4],[2,7]),true);
     });
 
     it('should return false if the main list doesn\'t start with the passed sublist', function() {
-      assert.equal(recursiveSublistCheck([5,6,7,1,4,6,7,1,3],[6,7,1]),false);
+      assert.equal(CSC.recursiveSublistCheck([5,6,7,1,4,6,7,1,3],[6,7,1]),false);
     });
   });
   
   describe('Recursive Sublist Extraction', function() {
     it('should operate recursively',function(){
-      sinon.spy(window,"recursiveSublistExtract");
-      recursiveSublistExtract([0,1,2,3],2,3);
-      assert.equal(recursiveSublistExtract.callCount > 1,true);
-      window.recursiveSublistExtract.restore();
+      sinon.spy(CSC,"recursiveSublistExtract");
+      CSC.recursiveSublistExtract([0,1,2,3],2,3);
+      assert.equal(CSC.recursiveSublistExtract.callCount > 1,true);
+      CSC.recursiveSublistExtract.restore();
     });
 
     it('should extract a list from even numbered lists', function() {
-      assert.deepEqual(recursiveSublistExtract([2,7,8,3,1,4],2,4),[8,3]);
+      assert.deepEqual(CSC.recursiveSublistExtract([2,7,8,3,1,4],2,4),[8,3]);
     });
     it('should extract a list from odd numbered lists', function() {
-      assert.deepEqual(recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
+      assert.deepEqual(CSC.recursiveSublistExtract([4,2,7,9,7],1,4),[2,7,9]);
     });
   });
 

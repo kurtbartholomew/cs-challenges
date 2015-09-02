@@ -21,7 +21,7 @@ CSC.iterativeListSplit = function(arr, element) {
 
 CSC.recursiveListSplit = function(arr, element) {
   if(!arr.length) { return [[],[]]; }
-  var newArr = recursiveListSplit(arr.slice(0,-1),element);
+  var newArr = CSC.recursiveListSplit(arr.slice(0,-1),element);
   if(arr[arr.length-1] < element) {
     newArr[0].push(arr[arr.length-1]);
   } else {

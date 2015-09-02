@@ -20,7 +20,7 @@ CSC.iterativeListMirror = function(arr) {
 
 CSC.recursiveListMirror = function(arr) {
 	if(!arr.length) { return arr; }
-  return [arr[0]].concat(recursiveListMirror(arr.slice(1)).concat(arr[0]));
+  return [arr[0]].concat(CSC.recursiveListMirror(arr.slice(1)).concat(arr[0]));
 };
 
 })(CSC);

@@ -18,7 +18,7 @@ CSC.iterativeSublistExtract = function(arr, startIndex, endIndex) {
 
 CSC.recursiveSublistExtract = function(arr, startIndex, endIndex) {
   if(arr.length === (startIndex+1)) { return [arr[startIndex]]; }
-  var newArr = recursiveSublistExtract(arr.slice(0,-1),startIndex,endIndex);
+  var newArr = CSC.recursiveSublistExtract(arr.slice(0,-1),startIndex,endIndex);
   if(arr.length < (endIndex+1)){
     newArr.push(arr[arr.length-1]);
   }

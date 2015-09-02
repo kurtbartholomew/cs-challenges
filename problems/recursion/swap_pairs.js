@@ -27,8 +27,8 @@ CSC.iterativePairSwap = function(arr) {
 CSC.recursivePairSwap = function(arr) {
   if(!arr.length) { return arr; }
   return arr.length % 2 === 0 ? 
-    recursivePairSwap(arr.slice(0,-2)).concat(arr[arr.length-1],arr[arr.length-2]) : 
-    recursivePairSwap(arr.slice(0,-1)).concat(arr[arr.length-1]);
+    CSC.recursivePairSwap(arr.slice(0,-2)).concat(arr[arr.length-1],arr[arr.length-2]) : 
+    CSC.recursivePairSwap(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
 
 })(CSC);

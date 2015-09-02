@@ -15,7 +15,7 @@ CSC.iterativeTimes = function(arr, element) {
 
 CSC.recursiveTimes = function(arr,element) {
   if(!arr.length) { return 0; }
-  return arr[0] === element ? recursiveTimes(arr.slice(1),element)+1 : recursiveTimes(arr.slice(1),element);
+  return arr[0] === element ? CSC.recursiveTimes(arr.slice(1),element)+1 : CSC.recursiveTimes(arr.slice(1),element);
 };
 
 })(CSC);

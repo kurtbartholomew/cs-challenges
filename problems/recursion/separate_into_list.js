@@ -16,7 +16,7 @@ CSC.iterativeListSeperate = function(arr) {
 
 CSC.recursiveListSeparate = function(arr) {
   if(!arr.length) { return arr; }
-  return recursiveListSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1]]]);
+  return CSC.recursiveListSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1]]]);
 };
 
 })(CSC);

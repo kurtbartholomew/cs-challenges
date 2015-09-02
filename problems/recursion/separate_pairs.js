@@ -28,8 +28,8 @@ CSC.iterativePairSeparate = function(arr) {
 CSC.recursivePairSeparate = function(arr) {
   if(!arr.length) { return arr; }
   return arr.length % 2 === 0 ? 
-    recursivePairSeparate(arr.slice(0,-2)).concat([[arr[arr.length-2],arr[arr.length-1]]]) :
-    recursivePairSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1],0]]);
+    CSC.recursivePairSeparate(arr.slice(0,-2)).concat([[arr[arr.length-2],arr[arr.length-1]]]) :
+    CSC.recursivePairSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1],0]]);
 };
 
 })(CSC);

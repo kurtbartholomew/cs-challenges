@@ -17,7 +17,7 @@ CSC.iterativeElementInsert = function(arr, element) {
 
 CSC.recursiveElementInsert = function(arr, element) {
 	if(!arr.length) { return arr; }
-  return recursiveElementInsert(arr.slice(0,-1),element).concat([arr[arr.length-1].concat(element)]);
+  return CSC.recursiveElementInsert(arr.slice(0,-1),element).concat([arr[arr.length-1].concat(element)]);
 };
 
 })(CSC);

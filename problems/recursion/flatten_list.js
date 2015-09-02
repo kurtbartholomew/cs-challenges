@@ -14,7 +14,7 @@ CSC.iterativeListFlatten = function(arr) {
 
 CSC.recursiveListFlatten = function(arr) {
   if(!arr.length) { return arr; }
-  return recursiveListFlatten(arr.slice(0,-1)).concat(arr[arr.length-1]);
+  return CSC.recursiveListFlatten(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
 
 })(CSC);

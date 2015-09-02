@@ -26,10 +26,10 @@ CSC.recursiveListInvert = function(arr) {
   if(!arr.length) { return arr; }
   return arr.length % 2 === 0 ?
     arr[arr.length-1] < 0 ? 
-      recursiveListInvert(arr.slice(0,-1)).concat(arr[arr.length-1])
-      : recursiveListInvert(arr.slice(0,-1)).concat(-arr[arr.length-1])
+      CSC.recursiveListInvert(arr.slice(0,-1)).concat(arr[arr.length-1])
+      : CSC.recursiveListInvert(arr.slice(0,-1)).concat(-arr[arr.length-1])
     : arr[arr.length-1] < 0 ?
-      recursiveListInvert(arr.slice(0,-1)).concat(-arr[arr.length-1])
-      : recursiveListInvert(arr.slice(0,-1)).concat(arr[arr.length-1]);
+      CSC.recursiveListInvert(arr.slice(0,-1)).concat(-arr[arr.length-1])
+      : CSC.recursiveListInvert(arr.slice(0,-1)).concat(arr[arr.length-1]);
 };
 })(CSC);

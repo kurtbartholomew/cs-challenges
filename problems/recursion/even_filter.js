@@ -16,8 +16,8 @@ CSC.iterativeEvenFilter = function(arr) {
 CSC.recursiveEvenFilter = function(arr) {
   if(!arr.length) { return arr; }
   return arr[arr.length-1] % 2 === 0 ? 
-    recursiveEvenFilter(arr.slice(0,-1)).concat(arr[arr.length-1]) :
-    recursiveEvenFilter(arr.slice(0,-1));
+    CSC.recursiveEvenFilter(arr.slice(0,-1)).concat(arr[arr.length-1]) :
+    CSC.recursiveEvenFilter(arr.slice(0,-1));
 };
 
 })(CSC);

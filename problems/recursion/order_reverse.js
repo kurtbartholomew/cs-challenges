@@ -16,7 +16,7 @@ CSC.iterativeReverse = function(arr) {
 
 CSC.recursiveReverse = function(arr) {
   if(!arr.length) { return arr; }
-  return recursiveReverse(arr.slice(1)).concat(arr[0]);
+  return CSC.recursiveReverse(arr.slice(1)).concat(arr[0]);
 };
 
 })(CSC);

@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     jshint: {
-      files: ['problems/**/*.js','test/spec/*.js','Gruntfile.js']
+      files: ['main.js','problems/**/*.js','test/spec/*.js','Gruntfile.js']
     },
     concat: {
       scripts: {
-        src: ['problems/**/*.js'],
+        src: ['main.js','problems/**/*.js'],
         dest: 'problems.js'
       }
     },

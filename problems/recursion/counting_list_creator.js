@@ -23,8 +23,8 @@ CSC.iterativeCountingList = function(start, exclusiveEnd) {
 CSC.recursiveCountingList = function(start, exclusiveEnd) {
   if(start === exclusiveEnd) { return []; }
   return exclusiveEnd-start > 0 ?
-    recursiveCountingList(start, exclusiveEnd-1).concat(exclusiveEnd-1) :
-    recursiveCountingList(start, exclusiveEnd+1).concat(exclusiveEnd+1);
+    CSC.recursiveCountingList(start, exclusiveEnd-1).concat(exclusiveEnd-1) :
+    CSC.recursiveCountingList(start, exclusiveEnd+1).concat(exclusiveEnd+1);
 };
 
 })(CSC);

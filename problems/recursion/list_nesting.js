@@ -17,7 +17,7 @@ CSC.iterativeListNest = function(arr) {
 CSC.recursiveListNest = function(arr) {
   if(!arr.length) { return []; }
   return arr.length === 1 ?
-    arr[0].concat(recursiveListNest(arr.slice(1))):
-    arr[0].concat([recursiveListNest(arr.slice(1))]);
+    arr[0].concat(CSC.recursiveListNest(arr.slice(1))):
+    arr[0].concat([CSC.recursiveListNest(arr.slice(1))]);
 };
 })(CSC);

@@ -17,7 +17,7 @@ CSC.iterativeSeriesReduce = function(arr) {
 
 CSC.recursiveSeriesReduce = function(arr) {
   if(arr.length === 1) { return arr; }
-  var newArr = recursiveSeriesReduce(arr.slice(0,-1));
+  var newArr = CSC.recursiveSeriesReduce(arr.slice(0,-1));
   if(newArr[newArr.length-1] !== arr[arr.length-1]) {
     newArr.push(arr[arr.length-1]);
   }
