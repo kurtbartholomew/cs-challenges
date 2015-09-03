@@ -1143,11 +1143,11 @@ describe('Sierpinski\'s Gasket', function(){
 
 describe('ASCII Hex Converter', function() {
   it('should convert ASCII text to hexidecimal', function() {
-    assert.equal(Converter.toHex("Look mom, no hands"),"4c6f6f6b206d6f6d2c206e6f2068616e6473");
+    assert.equal(CSC.Converter.toHex("Look mom, no hands"),"4c6f6f6b206d6f6d2c206e6f2068616e6473");
   });
 
   it('should convert hexidecimal to ASCII text', function() {
-    assert.equal(Converter.toAscii("4c6f6f6b206d6f6d2c206e6f2068616e6473"),"Look mom, no hands");
+    assert.equal(CSC.Converter.toAscii("4c6f6f6b206d6f6d2c206e6f2068616e6473"),"Look mom, no hands");
   });
 
 });
@@ -1516,11 +1516,11 @@ describe('Linked Loop Finder', function() {
 
 describe('Stack Method to Find Minimum', function() {
   it('should return null if the stack is empty', function() {
-    var altStacky = new AltStack();
+    var altStacky = new CSC.AltStack();
     assert.equal(altStacky.minimum() === null,true);
   });
   it('should return the minimum of a stack', function() {
-    var altStacky = new AltStack();
+    var altStacky = new CSC.AltStack();
     var values = [105,71,33,83,45,39,54,90];
     values.forEach(function(value){ altStacky.push(value); });
     assert.equal(altStacky.minimum(),33);

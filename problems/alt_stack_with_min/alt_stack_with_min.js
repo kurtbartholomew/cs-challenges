@@ -5,19 +5,21 @@
 
 */
 
-function AltStack(){
+(function(CSC){
+
+CSC.AltStack = function(){
   this.storage = [];
   this.stackSize = 0;
   this.min = null;
-}
+};
 
-AltStack.prototype.push = function(value){
+CSC.AltStack.prototype.push = function(value){
   this.stackSize++;
   if(this.min > value || this.min === null) { this.min = value; }
   this.storage[this.stackSize] = [value,this.min];
 };
 
-AltStack.prototype.pop = function(){
+CSC.AltStack.prototype.pop = function(){
   if(this.stackSize === 0) { return null; }
   var temp = this.storage[this.stackSize];
   delete this.storage[this.stackSize];
@@ -26,7 +28,7 @@ AltStack.prototype.pop = function(){
   return temp[0];
 };
 
-AltStack.prototype.minimum = function(){
+CSC.AltStack.prototype.minimum = function(){
   return this.min;
 };
 
@@ -60,3 +62,6 @@ AltStack.prototype.minimum = function(){
 //   if(this.stackSize === 0) { return null; }
 //   return this.minStack.peek();
 // };
+
+
+})(CSC);
