@@ -11,7 +11,9 @@
 
  */
 
-var centerNodeRemoval = function(linkedList){
+(function(CSC){
+
+CSC.centerNodeRemoval = function(linkedList){
   var fastPointer = linkedList.head;
   var normalPointer = linkedList.head;
   var previousNode;
@@ -24,3 +26,5 @@ var centerNodeRemoval = function(linkedList){
   previousNode.next = normalPointer.next;
   normalPointer.next = null;
 };
+
+})(CSC);

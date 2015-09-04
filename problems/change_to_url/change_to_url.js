@@ -6,12 +6,14 @@
   
 */
 
-var stringToURL = function(string) {
+(function(CSC){
+
+CSC.stringToURL = function(string) {
   return string.replace(/\s/g,'%20');
 };
 
 // Alternate solution not using regex
-// var stringToURL = function(string) {
+// CSC.stringToURL = function(string) {
 //   var spaceCount = 0;
 //   for(var i = 0, max = string.length; i < max; i++) {
 //     if(string[i] === ' '){ spaceCount++; }
@@ -29,3 +31,5 @@ var stringToURL = function(string) {
 //   }
 //   return newCharArray.join('');
 // };
+
+})(CSC);

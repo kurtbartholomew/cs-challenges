@@ -366,39 +366,39 @@ describe('Recursion', function(){
 
   describe('Broken Multiply', function() {
     it('should throw errors if sufficient arguments are not provided', function() {
-      assert.throws(function(){ brokenMultiply(); }, Error);
+      assert.throws(function(){ CSC.brokenMultiply(); }, Error);
     });
     it('should return zero if either input is zero', function() {
-       assert.equal(brokenMultiply(0,2),0);
-       assert.equal(brokenMultiply(7,0),0);
+       assert.equal(CSC.brokenMultiply(0,2),0);
+       assert.equal(CSC.brokenMultiply(7,0),0);
     });
     it('should return the other argument if either input is one', function() {
-       assert.equal(brokenMultiply(1,2),2);
-       assert.equal(brokenMultiply(7,1),7);
+       assert.equal(CSC.brokenMultiply(1,2),2);
+       assert.equal(CSC.brokenMultiply(7,1),7);
     });
     it('should return the correct product', function() {
-      assert.equal(brokenMultiply(2,2),4);
-      assert.equal(brokenMultiply(43,62),2666);
-      assert.equal(brokenMultiply(450,953),428850);
+      assert.equal(CSC.brokenMultiply(2,2),4);
+      assert.equal(CSC.brokenMultiply(43,62),2666);
+      assert.equal(CSC.brokenMultiply(450,953),428850);
     });
   });
 
   describe('Coin sums', function(){
     it('should throw errors if sufficient arguments are not provided', function() {
-      assert.throws(function(){ coinSums(); }, Error);
+      assert.throws(function(){ CSC.coinSums(); }, Error);
     });
     it('should return zero if input is zero', function() {
-       assert.equal(coinSums(0),0);
+       assert.equal(CSC.coinSums(0),0);
     });
     it('should return one if input is below five', function() {
-       assert.equal(coinSums(1),1);
-       assert.equal(coinSums(2),2);
-       assert.equal(coinSums(3),3);
-       assert.equal(coinSums(4),4);
+       assert.equal(CSC.coinSums(1),1);
+       assert.equal(CSC.coinSums(2),2);
+       assert.equal(CSC.coinSums(3),3);
+       assert.equal(CSC.coinSums(4),4);
     });
     it('should return the correct number of ways', function() {
-      assert.equal(coinSums(12),23);
-      assert.equal(coinSums(21),67);
+      assert.equal(CSC.coinSums(12),23);
+      assert.equal(CSC.coinSums(21),67);
     });
   });
 
@@ -1215,10 +1215,10 @@ describe('String Permutation Finder', function() {
 
 describe('String to URL Changer', function() {
   it('should return the same string if it contains no spaces', function() {
-    assert.equal(stringToURL('antidisestablishmentarianism'),'antidisestablishmentarianism');
+    assert.equal(CSC.stringToURL('antidisestablishmentarianism'),'antidisestablishmentarianism');
   });
   it('should fill spaces with %20', function() {
-    assert.equal(stringToURL('The woman had a refined palate'),'The%20woman%20had%20a%20refined%20palate');
+    assert.equal(CSC.stringToURL('The woman had a refined palate'),'The%20woman%20had%20a%20refined%20palate');
   });
 });
 
@@ -1343,7 +1343,7 @@ describe('Center Node Removal', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    centerNodeRemoval(linky);
+    CSC.centerNodeRemoval(linky);
     assert.equal(linky.size() % 2,0);
   });
   it('the original list to remove it\'s center node', function() {
@@ -1352,7 +1352,7 @@ describe('Center Node Removal', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    centerNodeRemoval(linky);
+    CSC.centerNodeRemoval(linky);
     linky.removeFromHead();
     linky.removeFromHead();
     linky.removeFromHead();
@@ -1457,7 +1457,7 @@ describe('Common Node Detector', function() {
         linky1.addToTail(vals1.shift());
         linky2.addToTail(vals2.shift());
     }
-    assert.equal(commonNodeDetector(linky1,linky2),null);
+    assert.equal(CSC.commonNodeDetector(linky1,linky2),null);
   });
   it('should return the first shared node two linked lists connect', function() {
     var linky1 = new LinkedList();
@@ -1486,7 +1486,7 @@ describe('Common Node Detector', function() {
         linky2.addToTail(vals2.shift());
       }
     }
-    assert.equal(commonNodeDetector(linky1,linky2),commonFirstNode);
+    assert.equal(CSC.commonNodeDetector(linky1,linky2),commonFirstNode);
   });
 });
 
@@ -1714,7 +1714,7 @@ describe('Balanced Tree Check', function() {
   }
 
   it('should throw an error if no tree is provided', function() {
-    assert.throws(function(){ balancedTreeCheck(); }, Error );
+    assert.throws(function(){ CSC.balancedTreeCheck(); }, Error );
   });
   it('should return true if the tree is balanced', function() {
     var bTreeNode = new binTree(5);
@@ -1724,7 +1724,7 @@ describe('Balanced Tree Check', function() {
     bTreeNode.left.right = new binTree(12);
     bTreeNode.right.left = new binTree(7);
     bTreeNode.right.right = new binTree(19);
-    assert.equal(balancedTreeCheck(bTreeNode),true);
+    assert.equal(CSC.balancedTreeCheck(bTreeNode),true);
   });
   it('should return false if the tree is not balanced', function() {
     var bTreeNode = new binTree(5);
@@ -1733,7 +1733,7 @@ describe('Balanced Tree Check', function() {
     bTreeNode.right.right = new binTree(19);
     bTreeNode.right.right.left = new binTree(15);
     bTreeNode.right.right.right = new binTree(24);
-    assert.equal(balancedTreeCheck(bTreeNode),false);
+    assert.equal(CSC.balancedTreeCheck(bTreeNode),false);
   });
 });
 describe('Binary Search Tree Validator', function() {
@@ -1745,7 +1745,7 @@ describe('Binary Search Tree Validator', function() {
   }
 
   it('should throw an error if no tree is provided', function() {
-    assert.throws(function(){ BSTValidator(); }, Error );
+    assert.throws(function(){ CSC.BSTValidator(); }, Error );
   });
   it('should return true if the tree is balanced', function() {
     var bTreeNode = new binTree(9);
@@ -1755,7 +1755,7 @@ describe('Binary Search Tree Validator', function() {
     bTreeNode.left.right = new binTree(7);
     bTreeNode.right.left = new binTree(12);
     bTreeNode.right.right = new binTree(17);
-    assert.equal(BSTValidator(bTreeNode),true);
+    assert.equal(CSC.BSTValidator(bTreeNode),true);
   });
   it('should return false if the tree is not balanced', function() {
     var bTreeNode = new binTree(9);
@@ -1765,7 +1765,7 @@ describe('Binary Search Tree Validator', function() {
     bTreeNode.left.right = new binTree(7);
     bTreeNode.right.left = new binTree(12);
     bTreeNode.right.right = new binTree(17);
-    assert.equal(BSTValidator(bTreeNode),false);
+    assert.equal(CSC.BSTValidator(bTreeNode),false);
   });
   it('should return false if duplicate values exist in right branches', function() {
     var bTreeNode = new binTree(9);
@@ -1775,7 +1775,7 @@ describe('Binary Search Tree Validator', function() {
     bTreeNode.left.right = new binTree(7);
     bTreeNode.right.left = new binTree(12);
     bTreeNode.right.right = new binTree(15);
-    assert.equal(BSTValidator(bTreeNode),false);
+    assert.equal(CSC.BSTValidator(bTreeNode),false);
   });
 });
 

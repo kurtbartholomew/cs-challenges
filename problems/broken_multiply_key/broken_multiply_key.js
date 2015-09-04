@@ -10,6 +10,8 @@
 
 */
 
+(function(CSC){
+
 // ---------------- Naive implementation --------------------
 
 // var brokenMultiply = function(integer1,integer2){
@@ -82,25 +84,27 @@
 
 // --------------------- No Cache Split (Deals with odds better) --------------
 
-var brokenMultiply = function(integer1,integer2){
+CSC.brokenMultiply = function(integer1,integer2){
   if(arguments.length !== 2 ||
      integer1.constructor !== Number ||
      integer1.constructor !== Number){ throw new Error('Incorrect parameters'); }
   
   var smaller = integer1 < integer2 ? integer1 : integer2;
   var bigger = integer1 < integer2 ? integer2 : integer1;
-  return findMultiply(smaller,bigger);
+  return CSC.findMultiply(smaller,bigger);
 };
 
-var findMultiply = function(smaller, bigger){
+CSC.findMultiply = function(smaller, bigger){
   if(smaller === 0){ return 0; }
   if(smaller === 1){ return bigger; }
   
   var half = smaller >> 1;
-  var firstHalf = findMultiply(half,bigger);
+  var firstHalf = CSC.findMultiply(half,bigger);
   var secondHalf = firstHalf;
   if(smaller % 2 === 1) {
     return firstHalf + secondHalf + bigger;
   }
   return firstHalf + secondHalf;
 };
+
+})(CSC);

@@ -19,12 +19,14 @@
   
 */
 
-var BSTValidator = function(treeNode){
+(function(CSC){
+
+CSC.BSTValidator = function(treeNode){
   if(!treeNode) { throw new Error('You must pass a valid binary tree node'); }
-  return bstTraverseAndCheck(treeNode,null,null);
+  return CSC.bstTraverseAndCheck(treeNode,null,null);
 };
 
-var bstTraverseAndCheck = function(currentNode,minValue,maxValue){
+CSC.bstTraverseAndCheck = function(currentNode,minValue,maxValue){
   if(currentNode === null){ return true; }
 
   if((minValue !== null && currentNode.data <= minValue) ||
@@ -32,10 +34,12 @@ var bstTraverseAndCheck = function(currentNode,minValue,maxValue){
     return false;
   }
 
-  if(bstTraverseAndCheck(currentNode.left,minValue,currentNode.data) &&
-     bstTraverseAndCheck(currentNode.right,currentNode.data,maxValue)){
+  if(CSC.bstTraverseAndCheck(currentNode.left,minValue,currentNode.data) &&
+     CSC.bstTraverseAndCheck(currentNode.right,currentNode.data,maxValue)){
     return true;
   } else {
     return false;
   }
 };
+
+})(CSC);

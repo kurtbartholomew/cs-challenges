@@ -14,7 +14,9 @@
 
 */
 
-var commonNodeDetector = function(linkedList1, linkedList2){
+(function(CSC){
+
+CSC.commonNodeDetector = function(linkedList1, linkedList2){
   var recurseThroughList = function(node1,node2) {
     if(node1 === null && node2 === null) {
       return null;
@@ -29,3 +31,5 @@ var commonNodeDetector = function(linkedList1, linkedList2){
   };
   return recurseThroughList(linkedList1.head,linkedList2.head);
 };
+
+})(CSC);
