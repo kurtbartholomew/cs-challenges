@@ -17,19 +17,7 @@
 (function(CSC){
 
 CSC.commonNodeDetector = function(linkedList1, linkedList2){
-  var recurseThroughList = function(node1,node2) {
-    if(node1 === null && node2 === null) {
-      return null;
-    }
-    node1 = node1 === null ? null : node1.next;
-    node2 = node2 === null ? null : node2.next;
-    var result = recurseThroughList(node1,node2);
-    if(node1 === node2){
-      result = node1;
-    }
-    return result;
-  };
-  return recurseThroughList(linkedList1.head,linkedList2.head);
+  
 };
 
 })(CSC);

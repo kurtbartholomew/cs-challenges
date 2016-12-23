@@ -9,28 +9,11 @@
 
 */
 
-var DuplicationRemoval = function(linkedList) {
-  if(linkedList.tail === null) { return linkedList; }
-  var valueHash = {};
-  var previousNode = linkedList.head;
-  var currentNode = linkedList.head.next;
-  valueHash[linkedList.head.value] = true;
-  while(currentNode) {
-    if(valueHash[currentNode.value]){
-      if(currentNode.next){
-        previousNode.next = currentNode.next;
-        currentNode.next = null;
-      } else {
-        previousNode.next = null;
-      }
-    } else {
-      valueHash[currentNode.value] = true;
-      previousNode = currentNode;
-    }
-    currentNode = previousNode.next;
-  }
-  return linkedList;
+(function(CSC){
+
+CSC.DuplicationRemoval = function(linkedList){
+  
 };
 
-// ========= Alternate Implementation ( O(1) Space Complexity ) ========
+})(CSC);
 

@@ -12,24 +12,23 @@
 
 */
 
-var StackQueue =  function(){
-  this.front = new Stack();
-  this.back = new Stack();
+
+(function(CSC){
+
+CSC.StackQueue = function(){
+  
 };
 
-StackQueue.prototype.size = function(){
-  return this.front.objectSize + this.back.objectSize;
+CSC.StackQueue.prototype.size = function(){
+  
 };
 
-StackQueue.prototype.enqueue = function(value){
-  this.back.push(value);
+CSC.StackQueue.prototype.enqueue = function(value){
+  
 };
 
-StackQueue.prototype.dequeue = function(){
-  if(this.back.isEmpty() && this.front.isEmpty()) { return null; }
-  if(this.front.isEmpty() && !this.back.isEmpty()) {
-    while(this.back.peek() !== null){ this.front.push(this.back.pop()); }
-  }
-  return this.front.pop();
+CSC.StackQueue.prototype.dequeue = function(){
+  
 };
 
+})(CSC);

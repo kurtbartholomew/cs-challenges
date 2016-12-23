@@ -8,21 +8,10 @@
 
 */
 
-var stringCompress = function(string) {
-  if(!string || !string.length || string.constructor !== String) {
-    return null;
-  }
-  var compressedString = '';
-  var charCount = 0;
+(function(CSC){
 
-  for(var i = 0; i < string.length; i++) {
-    charCount++;
-
-    if((i+1) >= string.length || string[i] != string[i+1]) {
-      compressedString += (string[i] + charCount);
-      charCount = 0;
-    }
-  }
-
-  return compressedString.length < string.length ? compressedString : string;
+CSC.stringCompress = function(string){
+  
 };
+
+})(CSC);

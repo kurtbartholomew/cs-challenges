@@ -7,22 +7,14 @@
 
 */
 
-var greatestCommonDivisor = function(a,b) {
-  var temp;
-  while (b !== 0) {
-    temp = b;
-    b = a % b;
-    a = temp;
-  }
-  return a;
+(function(CSC){
+
+CSC.leastCommonMultiples = function(){
+  
 };
 
-var leastCommonMultiple = function(a,b) {
-  return (a * b / greatestCommonDivisor(a,b));
+CSC.greatestCommonDivisor = function(a,b) {
+  
 };
 
-var leastCommonMultiples = function(){
-  var args = Array.prototype.slice.call(arguments);
-
-  return args.reduce(leastCommonMultiple);
-};
+})(CSC);

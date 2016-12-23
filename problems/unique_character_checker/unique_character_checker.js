@@ -13,27 +13,11 @@
   
 */
 
-// var uniqueChecker = function(string) {
-//   var checker = {};
-//   for(var i = 0; i < string.length; i++) {
-//     if(checker[string[i]]) {
-//       return false;
-//     }
-//     checker[string[i]] = true;
-//   }
-//   return true;
-// };
 
-// Alternate solution using bit arrays
-var uniqueChecker = function(string) {
-    var checker = 0;
-    var aCharCode = "a".charCodeAt(0);
-    for(var i = 0; i < string.length; i++) {
-        var shiftValue = string.charCodeAt(i) - aCharCode;
-        if(checker !== 0) {
-            if((checker & (1 << shiftValue)) > 0) { return false; }
-        }
-        checker = checker | (1 << shiftValue);
-    }
-    return true;
+(function(CSC){
+
+CSC.uniqueChecker = function(string){
+  
 };
+
+})(CSC);

@@ -15,16 +15,14 @@
 
 */
 
-var int32ToIp = function(number) {
-  return number.toString(2).match(/.{8}/g).map(function(element){
-    return parseInt(element,2);
-  }).join('.');
+(function(CSC){
+
+CSC.int32ToIp = function(number){
+  
 };
 
-var ipToInt32 = function(ip) {
-  return parseInt(ip.split('.').map(function(element){
-    element = Number(element).toString(2);
-    element = "00000000".substr(element.length)+element;
-    return element;
-  }).join(''),2);
+CSC.ipToInt32 = function(ip){
+  
 };
+
+})(CSC);

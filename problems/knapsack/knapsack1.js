@@ -47,18 +47,10 @@ knapsack will return an array of integers that specifies the quantity of each it
 (the order of the quantities must match the order of items)
 */
 
-var knapsack = function(capacity,items){
-  var sortedItems = items
-    .map(function(item, i) { return item.concat([i]); })
-    .sort(function(a,b) { return a[0]/a[1] > b[0]/b[1]; });
+(function(CSC){
 
-  var quantities = items.map(function() { return 0; });
-
-  sortedItems.forEach(function(item) {
-    var currentItemCount = capacity / item[0] | 0;
-    capacity -= currentItemCount * item[0];
-    quantities[item[2]] = currentItemCount;
-  });
+CSC.knapsack = function(capacity,items){
   
-  return quantities;
 };
+
+})(CSC);

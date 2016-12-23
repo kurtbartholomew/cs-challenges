@@ -13,19 +13,11 @@
 
 */
 
-var treeLevelStore = function(rootTreeNode){
-  if(!rootTreeNode) { throw new Error("You must provide a binary tree."); }
-  var result = [];
-  traverseLevels(rootTreeNode,0,result);
-  return result;
+
+(function(CSC){
+
+CSC.treeLevelStore = function(rootTreeNode){
+  
 };
 
-var traverseLevels = function(currentNode,depth,depthArray){
-  if(currentNode === null) { return ;}
-  if(currentNode.data !== null){
-    if(!depthArray[depth]) { depthArray[depth] = new LinkedList(); }
-    depthArray[depth].addToTail(currentNode.data);
-  }
-  traverseLevels(currentNode.left,depth+1,depthArray);
-  traverseLevels(currentNode.right,depth+1,depthArray);
-};
+})(CSC);

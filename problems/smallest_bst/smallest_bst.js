@@ -10,15 +10,10 @@
 
 */
 
-var smallestBST = function(array) {
-  return createNewTree(array,0,array.length-1);
+(function(CSC){
+
+CSC.smallestBST = function(array){
+  
 };
 
-var createNewTree = function(array,start,end){
-  if(end < start) { return null; }
-  var midpoint = Math.floor((end + start)/2);
-  var bst = { data: array[midpoint] };
-  bst.left = createNewTree(array,start,midpoint-1);
-  bst.right = createNewTree(array,midpoint+1,end);
-  return bst;
-};
+})(CSC);

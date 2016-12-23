@@ -23,21 +23,11 @@
 (function(CSC){
 
 CSC.balancedTreeCheck = function(treeNode){
-  if(!treeNode){ throw new Error("Please supply a tree."); }
-  if(CSC.treeBranchDepth(treeNode) === -1){
-    return false;
-  } else {
-    return true;
-  }
+  
 };
 
 CSC.treeBranchDepth = function(treeNode) {
-  if(treeNode === null) { return 0; }
-  var leftDepth = CSC.treeBranchDepth(treeNode.left) + 1;
-  if(leftDepth === -1) { return -1; }
-  var rightDepth = CSC.treeBranchDepth(treeNode.right) + 1;
-  if(Math.abs(leftDepth - rightDepth) > 1) { return -1; }
-  return Math.max(leftDepth,rightDepth);
+  
 };
 
 })(CSC);

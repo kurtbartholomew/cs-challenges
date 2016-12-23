@@ -13,17 +13,10 @@
 
 */
 
-var linkedLoopFinder = function(linkedList){
-  var slowPointer = linkedList.head;
-  var fastPointer = linkedList.head;
+(function(CSC){
 
-  while(fastPointer !== null && fastPointer.next !== null) {
-    slowPointer = slowPointer.next;
-    fastPointer = fastPointer.next.next;
-
-    if(slowPointer === fastPointer) {
-      return true;
-    }
-  }
-  return false;
+CSC.linkedLoopFinder = function(linkedList){
+  
 };
+
+})(CSC);

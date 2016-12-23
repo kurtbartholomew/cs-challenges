@@ -14,17 +14,7 @@
 (function(CSC){
 
 CSC.centerNodeRemoval = function(linkedList){
-  var fastPointer = linkedList.head;
-  var normalPointer = linkedList.head;
-  var previousNode;
-  while(fastPointer.next) {
-    if(!fastPointer.next.next) { return undefined; }
-    fastPointer = fastPointer.next.next;
-    previousNode = normalPointer;
-    normalPointer = normalPointer.next;
-  }
-  previousNode.next = normalPointer.next;
-  normalPointer.next = null;
+  
 };
 
 })(CSC);

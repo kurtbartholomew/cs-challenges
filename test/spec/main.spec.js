@@ -303,24 +303,24 @@ describe('Recursion', function(){
 
   describe('Fibonacci Sequence', function() {
     it('should return 0 when n is zero and 1 when n is one', function() {
-      assert.equal(fibonacci(0),0);
-      assert.equal(fibonacci(1),1);
+      assert.equal(CSC.fibonacci(0),0);
+      assert.equal(CSC.fibonacci(1),1);
     });
     it('should return the nth number in a fibonacci sequence', function() {
-      assert.equal(fibonacci(5),5);
-      assert.equal(fibonacci(6),8);
+      assert.equal(CSC.fibonacci(5),5);
+      assert.equal(CSC.fibonacci(6),8);
     });
     it('should utilize memoization to run at roughly O(n) time complexity', function() {
-      assert.equal(fibonacci(45),1134903170);
+      assert.equal(CSC.fibonacci(45),1134903170);
     });
   });
 
   describe('Meal Planner', function() {
     it('should return the correct number of plans for a small amount of hamburgers', function() {
-      assert.equal(mealPlanner(8),171);
+      assert.equal(CSC.mealPlanner(8),171);
     });
     it('should return the correct number of plans for a large amount of hamburgers', function() {
-      assert.equal(mealPlanner(22),2796203);
+      assert.equal(CSC.mealPlanner(22),2796203);
     });
   });
 
@@ -340,10 +340,10 @@ describe('Recursion', function(){
                              [1,0,1,1,0,0,1],
                              [1,1,0,1,1,0,1]];
     it('should return an empty array when no path exists', function() {
-      assert.deepEqual(dungeonEscape(impossibleDungeon),[]);
+      assert.deepEqual(CSC.dungeonEscape(impossibleDungeon),[]);
     });
     it('should return an array of array positions for the path', function() {
-      assert.deepEqual(dungeonEscape(possibleDungeon),[[0,0],[0,1],[0,2],[1,2],
+      assert.deepEqual(CSC.dungeonEscape(possibleDungeon),[[0,0],[0,1],[0,2],[1,2],
                                                        [1,3],[1,4],[1,5],[2,5],
                                                        [3,5],[4,5],[4,6],[5,6],
                                                        [6,6]]);
@@ -352,14 +352,14 @@ describe('Recursion', function(){
 
   describe('Power Set', function() {
     it('should throw errors if sufficient arguments are not provided', function() {
-      assert.throws(function(){ powerSet(); }, Error);
+      assert.throws(function(){ CSC.powerSet(); }, Error);
     });
     it('should return null if given an empty set', function() {
-      assert.deepEqual(powerSet([]),['']);
+      assert.deepEqual(CSC.powerSet([]),['']);
     });
     it('should return the proper subsets of any given set', function() {
-      assert.deepEqual(powerSet(['5','8','3']),["", "5", "8", "58", "3", "53", "83", "583"]);
-      assert.deepEqual(powerSet(['5','8','3','4']),
+      assert.deepEqual(CSC.powerSet(['5','8','3']),["", "5", "8", "58", "3", "53", "83", "583"]);
+      assert.deepEqual(CSC.powerSet(['5','8','3','4']),
         ["", "5", "8", "58", "3", "53", "83", "583", "4", "54", "84", "584", "34", "534", "834", "5834"]);
     });
   });
@@ -404,16 +404,16 @@ describe('Recursion', function(){
 
   describe('Identity Index', function() {
     it('should throw an error if no array is provided', function() {
-      assert.throws(function(){ identityIndex(); }, Error);
+      assert.throws(function(){ CSC.identityIndex(); }, Error);
     });
     it('should return false if array is empty', function() {
-      assert.equal(identityIndex([]), null);
+      assert.equal(CSC.identityIndex([]), null);
     });
     it('should return false if no value matches its index', function() {
-      assert.equal(identityIndex([1,2,3,4,5,6,7]), null);
+      assert.equal(CSC.identityIndex([1,2,3,4,5,6,7]), null);
     });
     it('should return true of a value exists that matches its index', function() {
-      assert.equal(identityIndex([-4,-1,2,4,6,9]), 2);
+      assert.equal(CSC.identityIndex([-4,-1,2,4,6,9]), 2);
     });
   });
 });
@@ -1043,31 +1043,31 @@ describe('Data Structures', function() {
 
 describe('List of Primes', function() {
   it('should return null if integer is less than 2', function() {
-    assert.equal(listOfPrimes(1) === null,true);
+    assert.equal(CSC.listOfPrimes(1) === null,true);
   });
   it('should return a list of type array', function() {
-    assert.equal(listOfPrimes(5).constructor,Array);
+    assert.equal(CSC.listOfPrimes(5).constructor,Array);
   });
   it('should return a list of primes if given an integer', function() {
-    assert.deepEqual(listOfPrimes(17),[ 2, 3, 5, 7, 11, 13, 17 ]);
-    assert.deepEqual(listOfPrimes(67),[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67]);
+    assert.deepEqual(CSC.listOfPrimes(17),[ 2, 3, 5, 7, 11, 13, 17 ]);
+    assert.deepEqual(CSC.listOfPrimes(67),[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67]);
   });
 });
 
 describe('Knapsack (greedy solution)', function() {
   it('should choose one item correctly', function() {
-    assert.equal("["+knapsack(100, [[1, 1]]).join(", ")+"]", "["+[100].join(", ")+"]");
-    assert.equal("["+knapsack(100, [[100, 1]]).join(", ")+"]", "["+[1].join(", ")+"]");
+    assert.equal("["+CSC.knapsack(100, [[1, 1]]).join(", ")+"]", "["+[100].join(", ")+"]");
+    assert.equal("["+CSC.knapsack(100, [[100, 1]]).join(", ")+"]", "["+[1].join(", ")+"]");
   });
 
   it('should choose two items correctly', function() {
-    assert.equal("["+knapsack(100, [[1, 1],[3, 4]]).join(", ")+"]", "["+[1, 33].join(", ")+"]");
-    assert.equal("["+knapsack(100, [[60, 80],[50, 50]]).join(", ")+"]", "["+[1, 0].join(", ")+"]");
+    assert.equal("["+CSC.knapsack(100, [[1, 1],[3, 4]]).join(", ")+"]", "["+[1, 33].join(", ")+"]");
+    assert.equal("["+CSC.knapsack(100, [[60, 80],[50, 50]]).join(", ")+"]", "["+[1, 0].join(", ")+"]");
   });
 
   it('should choose two items correctly', function() {
-    assert.equal("["+knapsack(100, [[10, 10],[30, 40],[56, 78]]).join(", ")+"]", "["+[1, 1, 1].join(", ")+"]");
-    assert.equal("["+knapsack(100, [[11.2,  7.4],[25.6, 17.8],[51.0, 41.2],[23.9, 15.6],[27.8, 19.0]]).join(", ")+"]",
+    assert.equal("["+CSC.knapsack(100, [[10, 10],[30, 40],[56, 78]]).join(", ")+"]", "["+[1, 1, 1].join(", ")+"]");
+    assert.equal("["+CSC.knapsack(100, [[11.2,  7.4],[25.6, 17.8],[51.0, 41.2],[23.9, 15.6],[27.8, 19.0]]).join(", ")+"]",
              "["+[2, 1, 1, 0, 0].join(", ")+"]");
   });
 });
@@ -1075,13 +1075,13 @@ describe('Knapsack (greedy solution)', function() {
 describe('Sorting Algorithms', function(){
   describe('Merge Sort', function(){
     it('sort properly', function(){
-      assert.deepEqual(mergeSort([7,5,9,12,15,2,4,10]),[2,4,5,7,9,10,12,15]);
+      assert.deepEqual(CSC.mergeSort([7,5,9,12,15,2,4,10]),[2,4,5,7,9,10,12,15]);
     });
   });
   describe('Quick Sort', function(){
     it('sort properly', function(){
       var arr = [7,5,9,12,15,2,4,10];
-      quickSort(arr);
+      CSC.quickSort(arr);
       assert.deepEqual(arr,[2,4,5,7,9,10,12,15]);
     });
   });
@@ -1089,24 +1089,24 @@ describe('Sorting Algorithms', function(){
 
 describe('Square Matrix Multiplication', function() {
   it('should work for a 2x2 matrix', function() {
-    assert.equal(JSON.stringify(matrixMultiplication([[1, 2], [3, 2]], [[3, 2], [1, 1]])),JSON.stringify([[5, 4], [11, 8]]));
+    assert.equal(JSON.stringify(CSC.matrixMultiplication([[1, 2], [3, 2]], [[3, 2], [1, 1]])),JSON.stringify([[5, 4], [11, 8]]));
   });
 });
 
 describe('Primes in Numbers', function() {
   it('should display the proper factors for 7775460', function() {
-    assert.equal(primeFactors(7775460),"(2**2)(3**3)(5)(7)(11**2)(17)");
+    assert.equal(CSC.primeFactors(7775460),"(2**2)(3**3)(5)(7)(11**2)(17)");
   });
 
   it('should display the proper factors for 86240', function() {
-    assert.equal(primeFactors(86240),"(2**5)(5)(7**2)(11)");
+    assert.equal(CSC.primeFactors(86240),"(2**5)(5)(7**2)(11)");
   });
 });
 
 describe('Sierpinski\'s Gasket', function(){
   it('should have a single L for an input of 0', function() {
     var inputOf0 = 'L';
-    assert.equal(sierpinski(0),inputOf0);
+    assert.equal(CSC.sierpinski(0),inputOf0);
   });
 
   it('should have 4 layers of L\'s for 1', function() {
@@ -1114,7 +1114,7 @@ describe('Sierpinski\'s Gasket', function(){
       'L',
       'L L'
     ].join('\n');
-    assert.equal(sierpinski(1),inputOf1);
+    assert.equal(CSC.sierpinski(1),inputOf1);
   });
 
   it('should have 4 layers of L\'s for 2', function() {
@@ -1124,7 +1124,7 @@ describe('Sierpinski\'s Gasket', function(){
       'L   L',
       'L L L L'
     ].join('\n');
-    assert.equal(sierpinski(2),inputOf2);
+    assert.equal(CSC.sierpinski(2),inputOf2);
   });
   it('should have 8 layers of L\'s for 3', function() {
     var inputOf3 = [
@@ -1137,7 +1137,7 @@ describe('Sierpinski\'s Gasket', function(){
       'L   L   L   L',
       'L L L L L L L L'
     ].join('\n');
-    assert.equal(sierpinski(3),inputOf3);
+    assert.equal(CSC.sierpinski(3),inputOf3);
   });
 });
 
@@ -1154,62 +1154,62 @@ describe('ASCII Hex Converter', function() {
 
 describe('Least Common Multiple', function() {
   it('should find the smallest multiple of 2 and 5', function() {
-    assert.equal(leastCommonMultiples(2,5),10);
+    assert.equal(CSC.leastCommonMultiples(2,5),10);
   });
   
   it('should find the smallest multiple of 2, 3, and 4', function() {
-    assert.equal(leastCommonMultiples(2,3,4),12);
+    assert.equal(CSC.leastCommonMultiples(2,3,4),12);
   });
   
   it('should find the smallest multiple of 9', function() {
-    assert.equal(leastCommonMultiples(9),9);
+    assert.equal(CSC.leastCommonMultiples(9),9);
   });
 });
 
 describe('Josephus Survivor', function() {
   it('should correctly return the last survivor ', function() {
-    assert.equal(josephusSurvivor(7,3),4);
-    assert.equal(josephusSurvivor(11,19),10);
-    assert.equal(josephusSurvivor(1,300),1);
-    assert.equal(josephusSurvivor(14,2),1);
-    assert.equal(josephusSurvivor(100,1),100);
+    assert.equal(CSC.josephusSurvivor(7,3),4);
+    assert.equal(CSC.josephusSurvivor(11,19),10);
+    assert.equal(CSC.josephusSurvivor(1,300),1);
+    assert.equal(CSC.josephusSurvivor(14,2),1);
+    assert.equal(CSC.josephusSurvivor(100,1),100);
   });
 });
 
 describe('32 bit integer to IPv4', function() {
   it('should translate a 32 bit integer to ipv4 address', function() {
-    assert.equal(int32ToIp(2149583361),"128.32.10.1");
+    assert.equal(CSC.int32ToIp(2149583361),"128.32.10.1");
   });
   it('should translate a ipv4 address to 32 bit integer', function() {
-    assert.equal(ipToInt32("128.32.10.1"),2149583361);
+    assert.equal(CSC.ipToInt32("128.32.10.1"),2149583361);
   });
 });
 
 describe('Unique Character Checker', function() {
   it('should return true if there are no repeated characters', function(){
-    assert.equal(uniqueChecker('nodachi'),true);
+    assert.equal(CSC.uniqueChecker('nodachi'),true);
   });
 
   it('should return false if characters are repeated', function(){
-    assert.equal(uniqueChecker('flamberge'),false);
+    assert.equal(CSC.uniqueChecker('flamberge'),false);
   });
 });
 
 describe('String Permutation Finder', function() {
   it('should return true if the second string is a permutation', function(){
-    assert.equal(stringPermuteFinder('supreme','presume'),true);
+    assert.equal(CSC.stringPermuteFinder('supreme','presume'),true);
   });
 
   it('should return false if letters are used more than once', function() {
-    assert.equal(stringPermuteFinder('macguffin','macmuffin'),false);
+    assert.equal(CSC.stringPermuteFinder('macguffin','macmuffin'),false);
   });
 
   it('should return false because of extra whitespace', function() {
-    assert.equal(stringPermuteFinder('taco','   coat     '),false);
+    assert.equal(CSC.stringPermuteFinder('taco','   coat     '),false);
   });
   
   it('should return false if letter case is changed', function() {
-    assert.equal(stringPermuteFinder('grandiose','Organised'),false);
+    assert.equal(CSC.stringPermuteFinder('grandiose','Organised'),false);
   });
 });
 
@@ -1224,68 +1224,68 @@ describe('String to URL Changer', function() {
 
 describe('Palindrome Permutation Finder', function() {
   it('should find palindromes when they exist in the provided characters', function(){
-    assert.equal(palindromicPermuter("ceararc"),true);
+    assert.equal(CSC.palindromicPermuter("ceararc"),true);
   });
   
   it('should return nothing if no palindromes can be made', function(){
-    assert.equal(palindromicPermuter("helicop"),false);
+    assert.equal(CSC.palindromicPermuter("helicop"),false);
   });  
 });
 
 describe('One Change Away Check', function() {
   it('should return true if the two strings provided are the same word', function(){
-    assert.equal(oneChangeAwayCheck("monkey","monkey"),true);
+    assert.equal(CSC.oneChangeAwayCheck("monkey","monkey"),true);
   });
   it('should return false if the first word is more than one change away from the second', function(){
-    assert.equal(oneChangeAwayCheck("monkey","mooney"),false);
+    assert.equal(CSC.oneChangeAwayCheck("monkey","mooney"),false);
   });
   it('should return true if the first word is one changed character away from the second', function(){
-    assert.equal(oneChangeAwayCheck("monkey","money"),true);
+    assert.equal(CSC.oneChangeAwayCheck("monkey","money"),true);
   });
 });
 
 describe('String Compression', function() {
   it('should compress strings with multiple instances of characters', function() {
-    assert.equal(stringCompress('bbbbaaaannnnaaaannnnaaa'),'b4a4n4a4n4a3');
+    assert.equal(CSC.stringCompress('bbbbaaaannnnaaaannnnaaa'),'b4a4n4a4n4a3');
   });
 
   it('should not compress strings with no repeat characters', function() {
-    assert.equal(stringCompress('banana'),'banana');
+    assert.equal(CSC.stringCompress('banana'),'banana');
   });
 });
 
 describe('Rotating a Matrix', function() {
   it('should return a matrix rotated 90 degrees', function() {
-    assert.deepEqual(matrixRotate([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]),
+    assert.deepEqual(CSC.matrixRotate([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]),
       [[13,9,5,1],[14,10,6,2],[15,11,7,3],[16,12,8,4]]);
   });
 });
 
 describe('Matrix Bomberman', function() {
   it('should replace all values perpendicular to zero with zero', function() {
-    assert.deepEqual(matrixBomberman([[5,3,8],[2,7,1],[0,9,4]]),[[0,3,8],[0,7,1],[0,0,0]]);
+    assert.deepEqual(CSC.matrixBomberman([[5,3,8],[2,7,1],[0,9,4]]),[[0,3,8],[0,7,1],[0,0,0]]);
   });
 });
 
 describe('Incrementing an Integer Array', function() {
   it('should increment only the last integer if it is not a 9', function() {
-    assert.deepEqual(integerArrayIncrement([1,2,3,4]),[1,2,3,5]);
+    assert.deepEqual(CSC.integerArrayIncrement([1,2,3,4]),[1,2,3,5]);
   });
   it('should increment the index before it if the last integer is a 9', function() {
-    assert.deepEqual(integerArrayIncrement([2,0,9,0,9]),[2,0,9,1,0]);
+    assert.deepEqual(CSC.integerArrayIncrement([2,0,9,0,9]),[2,0,9,1,0]);
   });
   it('should add an additional array index and start with 1 if values are all 9\'s', function() {
-    assert.deepEqual(integerArrayIncrement([9,9,9,9,9]),[1,0,0,0,0,0]);
+    assert.deepEqual(CSC.integerArrayIncrement([9,9,9,9,9]),[1,0,0,0,0,0]);
   });
 });
 
 describe('Rotated String Finder', function() {
   it('should return true if second string is rotated version of first', function() {
-    assert.equal(rotatedStringLocator('anthropomorphic','phicanthropomor'),true);
+    assert.equal(CSC.rotatedStringLocator('anthropomorphic','phicanthropomor'),true);
   });
 
   it('should return false if string is reversed instead of rotated', function() {
-    assert.equal(rotatedStringLocator('geriatric','cirtaireg'),false);
+    assert.equal(CSC.rotatedStringLocator('geriatric','cirtaireg'),false);
   });
 });
 
@@ -1296,7 +1296,7 @@ describe('Duplication Removal', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    var noDupsList = DuplicationRemoval(linky);
+    var noDupsList = CSC.DuplicationRemoval(linky);
     while(noDupsList.size() > 0){
       vals.push(noDupsList.removeFromHead());
     }
@@ -1308,7 +1308,7 @@ describe('Duplication Removal', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    var noDupsList = DuplicationRemoval(linky);
+    var noDupsList = CSC.DuplicationRemoval(linky);
     while(noDupsList.size() > 0){
       vals.push(noDupsList.removeFromHead());
     }
@@ -1323,16 +1323,16 @@ describe('Nth From The End', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(nthFromLast(linky,4),6);
+    assert.equal(CSC.nthFromLast(linky,4),6);
   });
   it('returns null if the list is empty or n is out of bounds', function() {
     var linky = new LinkedList();
-    assert.equal(nthFromLast(linky,5) === null,true);
+    assert.equal(CSC.nthFromLast(linky,5) === null,true);
     var vals = [5,3,2,7,8,1];
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(nthFromLast(linky,8) === null,true);
+    assert.equal(CSC.nthFromLast(linky,8) === null,true);
   });
 });
 
@@ -1367,7 +1367,7 @@ describe('Linked List Sectioning', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    var sectioned = linkedListSectioning(linky,5);
+    var sectioned = CSC.linkedListSectioning(linky,5);
     while(sectioned.size() > 0){
       vals.push(sectioned.removeFromHead());
     }
@@ -1379,7 +1379,7 @@ describe('Linked List Sectioning', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    var sectioned = linkedListSectioning(linky,5);
+    var sectioned = CSC.linkedListSectioning(linky,5);
     while(sectioned.size() > 0){
       vals.push(sectioned.removeFromHead());
     }
@@ -1397,7 +1397,7 @@ describe('Linked List Addition', function() {
       linky1.addToTail(vals1.shift());
       linky2.addToTail(vals2.shift());
     }
-    var addedList = backwardListAddition(linky1,linky2);
+    var addedList = CSC.backwardListAddition(linky1,linky2);
     while(addedList.size() > 0){
       vals1.push(addedList.removeFromHead());
     }
@@ -1412,7 +1412,7 @@ describe('Linked List Addition', function() {
       linky1.addToTail(vals1.shift());
       linky2.addToTail(vals2.shift());
     }
-    var addedList = forwardListAddition(linky1,linky2);
+    var addedList = CSC.forwardListAddition(linky1,linky2);
     while(addedList.size() > 0){
       vals1.push(addedList.removeFromHead());
     }
@@ -1427,7 +1427,7 @@ describe('Linked List Palindrome Finder', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(linkedListPalindromeFinder(linky),true);
+    assert.equal(CSC.linkedListPalindromeFinder(linky),true);
   });
   it('returns true if an even-lettered palindrome exists in the linked list', function() {
     var linky = new LinkedList();
@@ -1435,7 +1435,7 @@ describe('Linked List Palindrome Finder', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(linkedListPalindromeFinder(linky),true);
+    assert.equal(CSC.linkedListPalindromeFinder(linky),true);
   });
   it('returns false if no palindrome exists', function() {
     var linky = new LinkedList();
@@ -1443,7 +1443,7 @@ describe('Linked List Palindrome Finder', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(linkedListPalindromeFinder(linky),false);
+    assert.equal(CSC.linkedListPalindromeFinder(linky),false);
   });
 });
 
@@ -1497,7 +1497,7 @@ describe('Linked Loop Finder', function() {
     while(vals.length) {
       linky.addToTail(vals.shift());
     }
-    assert.equal(linkedLoopFinder(linky),false);
+    assert.equal(CSC.linkedLoopFinder(linky),false);
   });
   it('should return true if a loop exists', function() {
     var linky = new LinkedList();
@@ -1510,7 +1510,7 @@ describe('Linked Loop Finder', function() {
     linky.addToTail(75);
     linky.addToTail(64);
     linky.tail.next = nodeToLoopTo;
-    assert.equal(linkedLoopFinder(linky),true);
+    assert.equal(CSC.linkedLoopFinder(linky),true);
   });
 });
 
@@ -1529,7 +1529,7 @@ describe('Stack Method to Find Minimum', function() {
 
 describe('Stack Collection', function() {
   it('should return the same values from the collection as a normal stack', function() {
-    var multiStacky = new multiStackCollection(3);
+    var multiStacky = new CSC.multiStackCollection(3);
     var values = [2,4,6,8,10,12,14];
     values.forEach(function(value){ multiStacky.push(value); });
     assert.equal(multiStacky.pop(),14);
@@ -1538,7 +1538,7 @@ describe('Stack Collection', function() {
     assert.equal(multiStacky.pop(),8);
   });
   it('should possess a popFrom function that targets a specific stack in the colleciton', function() {
-    var multiStacky = new multiStackCollection(2);
+    var multiStacky = new CSC.multiStackCollection(2);
     var values = [5,6,7,8,9,10,11];
     values.forEach(function(value){ multiStacky.push(value); });
     assert.equal(multiStacky.popAt(2),8);
@@ -1547,18 +1547,18 @@ describe('Stack Collection', function() {
 
 describe('Stack Queue', function() {
   it('should provide a size function that returns the number of elements stored', function() {
-    var stackyQueue = new StackQueue();
+    var stackyQueue = new CSC.StackQueue();
     assert.equal(stackyQueue.size(),0);
   });
   it('should provide a enqueue function that stores values', function() {
-    var stackyQueue = new StackQueue();
+    var stackyQueue = new CSC.StackQueue();
     stackyQueue.enqueue(3);
     stackyQueue.enqueue(8);
     stackyQueue.enqueue(9);
     assert.equal(stackyQueue.size(),3);
   });
   it('should provide a dequeue function that removes and returns values from the queue', function() {
-    var stackyQueue = new StackQueue();
+    var stackyQueue = new CSC.StackQueue();
     assert.equal(stackyQueue.dequeue(),null);
     stackyQueue.enqueue(7);
     stackyQueue.enqueue(3);
@@ -1573,7 +1573,7 @@ describe('Order Stack', function() {
     var stacky = new Stack();
     var values = [7,6,5,4,3,2,1];
     values.forEach(function(value){ stacky.push(value); });
-    var orderedStacky = orderStack(stacky);
+    var orderedStacky = CSC.orderStack(stacky);
     var orderedVals = [];
     while(orderedStacky.peek() !== null){ orderedVals.push(orderedStacky.pop()); }
     assert.deepEqual(orderedVals,[1,2,3,4,5,6,7]);
@@ -1582,7 +1582,7 @@ describe('Order Stack', function() {
     var stacky = new Stack();
     var values = [4,8,6,12,15,2,7];
     values.forEach(function(value){ stacky.push(value); });
-    var orderedStacky = orderStack(stacky);
+    var orderedStacky = CSC.orderStack(stacky);
     var orderedVals = [];
     while(orderedStacky.peek() !== null){ orderedVals.push(orderedStacky.pop()); }
     assert.deepEqual(orderedVals,[2,4,6,7,8,12,15]);
@@ -1591,13 +1591,13 @@ describe('Order Stack', function() {
 
 describe('Park Ride Queue', function() {
   it('should return null when attempting to dequeue an empty queue', function() {
-    var parkyQueue = new parkRideQueue();
+    var parkyQueue = new CSC.parkRideQueue();
     assert.equal(parkyQueue.dequeueEither() === null, true);
     assert.equal(parkyQueue.dequeueRed() === null, true);
     assert.equal(parkyQueue.dequeueBlue() === null, true);
   });
   it('should be able to enqueue and dequeue a Red queue passenger', function() {
-    var parkyQueue = new parkRideQueue();
+    var parkyQueue = new CSC.parkRideQueue();
     parkyQueue.enqueue("Red","Jim");
     parkyQueue.enqueue("Blue","Manny");
     parkyQueue.enqueue("Red","Sara");
@@ -1605,7 +1605,7 @@ describe('Park Ride Queue', function() {
     assert.equal(parkyQueue.dequeueRed(), "Sara");
   });
   it('should be able to enqueue and dequeue a Blue queue passenger', function() {
-    var parkyQueue = new parkRideQueue();
+    var parkyQueue = new CSC.parkRideQueue();
     parkyQueue.enqueue("Blue","Manny");
     parkyQueue.enqueue("Red","Jim");
     parkyQueue.enqueue("Blue","Jenna");
@@ -1613,7 +1613,7 @@ describe('Park Ride Queue', function() {
     assert.equal(parkyQueue.dequeueBlue(), "Jenna");
   });
   it('should be able to enqueue multiple passengers and dequeue the earliest queued passenger', function() {
-    var parkyQueue = new parkRideQueue();
+    var parkyQueue = new CSC.parkRideQueue();
     parkyQueue.enqueue("Blue","Manny");
     parkyQueue.enqueue("Red","Jim");
     parkyQueue.enqueue("Red","Sara");
@@ -1664,11 +1664,11 @@ describe('Smallest Binary Search Tree', function() {
   }
 
   it('should return a tree with minimal height for odd lists', function() {
-    var bst = smallestBST([1,2,3,4,5,6,7,8,9,10,11]);
+    var bst = CSC.smallestBST([1,2,3,4,5,6,7,8,9,10,11]);
     assert.equal(maxHeight(bst),4);
   });
   it('should return a tree with minimal height for even lists', function() {
-    var bst = smallestBST([5,6,7,8,9,10]);
+    var bst = CSC.smallestBST([5,6,7,8,9,10]);
     assert.equal(maxHeight(bst),3);
   });
 });
@@ -1682,11 +1682,11 @@ describe('Tree Level Store', function() {
   }
 
   it('should throw an error if no tree is provided', function() {
-    assert.throws(function(){ treeLevelStore(); }, Error);
+    assert.throws(function(){ CSC.treeLevelStore(); }, Error);
   });
   it('should return an array if a tree is provided', function() {
     var bTreeNode = new binTree(5);
-    assert.equal(treeLevelStore(bTreeNode).constructor, Array);
+    assert.equal(CSC.treeLevelStore(bTreeNode).constructor, Array);
   });
   it('should return an array of linked lists if given a binary tree', function() {
     var bTreeNode = new binTree(5);
@@ -1696,7 +1696,7 @@ describe('Tree Level Store', function() {
     bTreeNode.left.right = new binTree(12);
     bTreeNode.right.left = new binTree(7);
     bTreeNode.right.right = new binTree(19);
-    var list = treeLevelStore(bTreeNode);
+    var list = CSC.treeLevelStore(bTreeNode);
     assert.equal(list[0].head.value,5);
     assert.equal(list[1].head.value,6);
     assert.equal(list[1].tail.value,14);
@@ -1788,37 +1788,37 @@ describe('LRU (least-recently-used) Cache ', function() {
   var data5 = 'waffle';
 
   it('should throw an error attempting to initialize the cache without a size', function() {
-    assert.throws(function(){ new lruCache(); }, Error );
+    assert.throws(function(){ new CSC.lruCache(); }, Error );
   });
   it('should contain a limit property', function() {
-    assert.property(new lruCache(4),'limit');
+    assert.property(new CSC.lruCache(4),'limit');
   });
   it('should contain a set method', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     assert.isFunction(cachey.set,true);
   });
   it('should contain a storage list', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     assert.property(cachey,'storage');
     assert.property(cachey.storage,'head');
     assert.property(cachey.storage,'tail');
   });
   it('should be able to add data to the cache', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     cachey.set('data1',data1);
     assert.equal(cachey.storage.head.value,data1);
   });
   it('should contain a get method', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     assert.isFunction(cachey.get,true);
   });
   it('should be able to retrieve data from the cache', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     cachey.set('data1',data1);
     assert.equal(cachey.get('data1').value,data1);
   });
   it('should place the latest used data furthest from removal point', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     cachey.set('data1',data1);
     cachey.set('data2',data2);
     cachey.set('data3',data3);
@@ -1826,7 +1826,7 @@ describe('LRU (least-recently-used) Cache ', function() {
     assert.equal(cachey.storage.tail.value,data1);
   });
   it('should return null if data is not present in cache', function() {
-    var cachey = new lruCache(4);
+    var cachey = new CSC.lruCache(4);
     assert.equal(cachey.get('data2'),null);
   });
 });
@@ -1856,16 +1856,16 @@ describe('First Shared Node', function() {
   bTreeNode.right.right.right = new binTree(36);
 
   it('should throw an error if no nodes are provided', function() {
-    assert.throws(function(){ firstSharedNode(); }, Error );
+    assert.throws(function(){ CSC.firstSharedNode(); }, Error );
   });
   it('should return null if the root node is ever passed as the second or third argument', function() {
-    assert.equal(firstSharedNode(bTreeNode,bTreeNode.right.right,bTreeNode),null);
+    assert.equal(CSC.firstSharedNode(bTreeNode,bTreeNode.right.right,bTreeNode),null);
   });
   it('should return the first node that is shared by the two nodes passed', function() {
-    assert.equal(firstSharedNode(bTreeNode,bTreeNode.left.left.right,bTreeNode.right.left),bTreeNode);
+    assert.equal(CSC.firstSharedNode(bTreeNode,bTreeNode.left.left.right,bTreeNode.right.left),bTreeNode);
   });
   it('should return the root node if they are immmediately in two seperate trees', function() {
-    assert.equal(firstSharedNode(bTreeNode,bTreeNode.right.left.left,bTreeNode.right.right),bTreeNode.right);
+    assert.equal(CSC.firstSharedNode(bTreeNode,bTreeNode.right.left.left,bTreeNode.right.right),bTreeNode.right);
   });
 });
 

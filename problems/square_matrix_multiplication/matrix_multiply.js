@@ -34,18 +34,11 @@ C[1][1] = A[1][0] * B[0][1] + A[1][1] * B[1][1] = 3 * 2 + 2 * 1 = 8
 
 */
 
-function matrixMultiplication(matrix1, matrix2) {
-  var result = [[],[]];
-  var length = matrix1.length;
 
-  for(var i = 0; i < length; i++) {
-    for(var j = 0; j < length; j++) {
-      result[i][j] = 0;
-      for(var k = 0; k < length; k++) {
-        result[i][j] += matrix1[i][k] * matrix2[k][j];
-      }
-    }
-  }
+(function(CSC){
 
-  return result;
-}
+CSC.matrixMultiplication = function(matrix1, matrix2){
+  
+};
+
+})(CSC);

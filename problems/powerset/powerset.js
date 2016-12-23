@@ -10,13 +10,10 @@
   
 */
 
-var powerSet = function(integerSet){
-  var results = [];
-  results.push('');
-  for(var i = 0,max=integerSet.length; i < max;i++){
-    for(var j = 0,max2=results.length; j < max2;j++){
-      results.push(results[j]+integerSet[i]);
-    }
-  }
-  return results;
+(function(CSC){
+
+CSC.powerSet = function(integerSet){
+  
 };
+
+})(CSC);

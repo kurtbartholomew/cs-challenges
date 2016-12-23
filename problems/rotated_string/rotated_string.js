@@ -10,8 +10,10 @@
 
 */
 
-var rotatedStringLocator = function(string1,string2){
-  if(string1.length !== string2.length) { return false; }
-  if((string1 + string1).indexOf(string2) > -1) { return true; }
-  return false;
+(function(CSC){
+
+CSC.rotatedStringLocator = function(string1,string2){
+  
 };
+
+})(CSC);

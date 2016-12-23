@@ -10,66 +10,14 @@
 
 */
 
+(function(CSC){
 
-
-var identityBSearch = function(array,begin,end){
-  if(end < begin) { return null;}
-  var mid = Math.floor((begin+end)/2);
-  if(array[mid] < mid){
-    identityBSearch(array,mid+1,end);
-  } else if(array[mid] > mid) {
-    identityBSearch(array,begin,mid-1);
-  } else {
-    return array[mid];
-  }
-
+CSC.identityBSearch = function(array,begin,end){
+  
 };
 
-var identityIndex = function(sortedIntArray){
-  if(sortedIntArray === undefined || sortedIntArray.constructor !== Array){
-    throw new Error("Incorrect argument passed");
-  }
-  identityBSearch(sortedIntArray,0,sortedIntArray.length-1);
-  return identityBSearch(sortedIntArray,0,sortedIntArray.length-1);
+CSC.identityIndex = function(sortedIntArray){
+  
 };
 
-
-
-// ---------------- Binary Search Method ---------------
-
-// var identityBSearch = function(array,begin,end){
-//   if(end < begin) { return null;}
-//   var mid = Math.floor((begin+end)/2);
-//   if(array[mid] < mid){
-//     identityBSearch(array,mid+1,end);
-//   } else if(array[mid] > mid) {
-//     identityBSearch(array,begin,mid-1);
-//   } else {
-//     return array[mid];
-//   }
-
-// };
-
-// var identityIndex = function(sortedIntArray){
-//   if(sortedIntArray === undefined || sortedIntArray.constructor !== Array){
-//     throw new Error("Incorrect argument passed");
-//   }
-//   identityBSearch(sortedIntArray,0,sortedIntArray.length-1);
-//   return identityBSearch(sortedIntArray,0,sortedIntArray.length-1);
-// };
-
-
-// ----------- BRUTE FORCE ALGORITHM ----------------
-
-// var identityIndex = function(sortedIntArray){
-//   if(sortedIntArray === undefined || sortedIntArray.constructor !== Array){
-//     throw new Error("Incorrect argument passed");
-//   }
-//   var result = [];
-//   for(var i = 0; i < sortedIntArray.length; i++){
-//     if(sortedIntArray[i] > i){ break; }
-//     if(sortedIntArray[i] === i){ return sortedIntArray[i]; }
-//   }
-//   return null;
-// };
-
+})(CSC);

@@ -33,16 +33,10 @@ L L L L L L L L
 
 */
 
-function sierpinski(n) {
-  var m = Math.pow(2,n), s = ['L'];
+(function(CSC){
+
+CSC.sierpinski = function(n){
   
-  for (var i = 1; i < m; i++){
-    s.push('L');
-    for (var j = 2, l = i * 2; j < l; j +=2 ){
-      s[i] += ' ' + (s[i-1][j]===s[i-1][j-2]? ' ': 'L');
-    }
-    s[i] += ' L';
-  }
-  
-  return s.join('\n');
-}
+};
+
+})(CSC);

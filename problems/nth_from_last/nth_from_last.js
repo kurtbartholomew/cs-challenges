@@ -7,17 +7,11 @@
 
 */
 
-var nthFromLast = function(lList,numberOfNodes) {
-  if(lList.size() < numberOfNodes) { return null; }
-  var first = lList.head;
-  var second = lList.head;
-  var startCounter = 0;
-  while(first){
-    if(startCounter>=numberOfNodes){
-      second = second.next;
-    }
-    first = first.next;
-    startCounter++;
-  }
-  return second.value;
+(function(CSC){
+
+CSC.nthFromLast = function(lList,numberOfNodes){
+  
 };
+
+})(CSC);
+
