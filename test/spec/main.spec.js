@@ -1868,3 +1868,47 @@ describe('First Shared Node', function() {
     assert.equal(firstSharedNode(bTreeNode,bTreeNode.right.left.left,bTreeNode.right.right),bTreeNode.right);
   });
 });
+
+describe('Max Heap', function() {
+
+  var validateMaxHeapRules = function(unsortedHeap) {
+    var followsMaxHeapRules = true;
+    var sortedHeap = new MaxHeap(unsortedHeap).getSet();
+    for(var i = 0; i < sortedHeap.length; i++) {
+      if(i !== 0 && sortedHeap[Math.round(i/2)] < sortedHeap[i]) {
+        followsMaxHeapRules = false;
+        break;
+      }
+    }
+    return followsMaxHeapRules;
+  };
+
+  describe('Max Heap Basic Functions', function() {
+
+    var unsortedHeap = [16,4,10,14,7,9,3,2,8,1];
+
+    it('should throw an error if heap array is empty', function() {
+      assert.throws(function(){ new MaxHeap(); }, Error);
+    });
+    it('should build an array that follows max heap rules', function() {
+      assert.equal(validateMaxHeapRules( new MaxHeap(unsortedHeap).getSet()),true);
+    });
+    it('should contain an insert method to insert new into the heap', function() {
+      var heap = new MaxHeap(unsortedHeap);
+      heap.insert(12);
+      assert.equal(heap.getSet().indexOf(12) < 6, true);
+    });
+    it('should contain a max method to return the maximum value in the heap', function() {
+      var heap = new MaxHeap(unsortedHeap);
+      assert.equal(heap.max(), 16);
+    });
+    it('should contain an extractMax method to return the maximum value and remove it from the heap', function() {
+      var heap = new MaxHeap(unsortedHeap);
+      assert.equal(heap.extractMax(), 16);
+      assert.equal(heap.getSet()[0] !== 16,true);
+    });
+  });
+});
+
+
+
