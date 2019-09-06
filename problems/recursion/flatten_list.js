@@ -9,12 +9,11 @@
 (function(CSC){
 
 CSC.iterativeListFlatten = function(arr) {
-  return [].concat.apply([],arr);
+  
 };
 
 CSC.recursiveListFlatten = function(arr) {
-  if(!arr.length) { return arr; }
-  return CSC.recursiveListFlatten(arr.slice(0,-1)).concat(arr[arr.length-1]);
+
 };
 
 })(CSC);

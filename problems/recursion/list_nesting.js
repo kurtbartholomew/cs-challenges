@@ -9,15 +9,10 @@
 (function(CSC){
 
 CSC.iterativeListNest = function(arr) {
-  return arr.reduceRight(function(nestedList,element){
-    return element.concat([nestedList]);
-  });
+
 };
 
 CSC.recursiveListNest = function(arr) {
-  if(!arr.length) { return []; }
-  return arr.length === 1 ?
-    arr[0].concat(CSC.recursiveListNest(arr.slice(1))):
-    arr[0].concat([CSC.recursiveListNest(arr.slice(1))]);
+  
 };
 })(CSC);

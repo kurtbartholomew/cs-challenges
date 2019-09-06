@@ -26,73 +26,21 @@ function Stack() {
 }
 
 Stack.prototype.size = function(){
-  return this.objectSize;
+  
 };
 
 Stack.prototype.push = function(value){
-  this.objectSize++;
-  this.storage[this.objectSize] = value;
+
 };
 
 Stack.prototype.pop = function(){
-  if(this.objectSize === 0) { return null; }
-  var poppedVal = this.storage[this.objectSize];
-  delete this.storage[this.objectSize];
-  this.objectSize--;
-  return poppedVal;
+
 };
 
 Stack.prototype.peek = function(){
-  if(this.objectSize === 0) { return null; }
-  return this.storage[this.objectSize];
+
 };
 
 Stack.prototype.isEmpty = function(){
-  if(!this.objectSize) { return true; }
-  return false;
+
 };
-
-// ========== Alternate Implementation ( Singly Linked List) ===========
-
-// function Stack() {
-//   this.top = null;
-// }
-
-// function StackNode(value) {
-//   this.value = value;
-//   this.next = null;
-// }
-
-// Stack.prototype.size = function(){
-//   if(this.top === null) { return 0; }
-//   var currentNode = this.top;
-//   var objectSize = 1;
-//   while(currentNode) {
-//     objectSize++;
-//     currentNode = currentNode.next;
-//   }
-//   return objectSize;
-// };
-
-// Stack.prototype.push = function(value){
-//   var newNode = new StackNode(value);
-//   if(this.top) { this.top.next = newNode; }
-//   this.top = newNode;
-// };
-
-// Stack.prototype.pop = function(){
-//   if(this.top === null) { return null; }
-//   var poppedVal = this.top.value;
-//   this.top = this.top.next;
-//   return poppedVal;
-// };
-
-// Stack.prototype.peek = function(){
-//   if(this.top === null) { return null; }
-//   return this.top.value;
-// };
-
-// Stack.prototype.isEmpty = function(){
-//   if(this.top === null) { return true; }
-//   return false;
-// };

@@ -9,14 +9,11 @@
 (function(CSC){
 
 CSC.iterativeListSeperate = function(arr) {
-  return arr.map(function(element) {
-    return [element];
-  },[]);
+
 };
 
 CSC.recursiveListSeparate = function(arr) {
-  if(!arr.length) { return arr; }
-  return CSC.recursiveListSeparate(arr.slice(0,-1)).concat([[arr[arr.length-1]]]);
+
 };
 
 })(CSC);

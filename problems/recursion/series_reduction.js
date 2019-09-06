@@ -9,19 +9,11 @@
 (function(CSC){
 
 CSC.iterativeSeriesReduce = function(arr) {
-  return arr.filter(function(element,index,array){
-    if(index === 0) { return true; }
-    return (arr[index-1] !== element);
-  });
+
 };
 
 CSC.recursiveSeriesReduce = function(arr) {
-  if(arr.length === 1) { return arr; }
-  var newArr = CSC.recursiveSeriesReduce(arr.slice(0,-1));
-  if(newArr[newArr.length-1] !== arr[arr.length-1]) {
-    newArr.push(arr[arr.length-1]);
-  }
-  return newArr;
+
 };
 
 })(CSC);

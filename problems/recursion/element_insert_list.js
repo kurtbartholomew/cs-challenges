@@ -10,14 +10,11 @@
 (function(CSC){
 
 CSC.iterativeElementInsert = function(arr, element) {
-  return arr.map(function(arrayElement){
-    return arrayElement.concat(element);
-  });
+
 };
 
 CSC.recursiveElementInsert = function(arr, element) {
-	if(!arr.length) { return arr; }
-  return CSC.recursiveElementInsert(arr.slice(0,-1),element).concat([arr[arr.length-1].concat(element)]);
+  
 };
 
 })(CSC);

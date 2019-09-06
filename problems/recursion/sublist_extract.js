@@ -13,16 +13,11 @@
 (function(CSC){
 
 CSC.iterativeSublistExtract = function(arr, startIndex, endIndex) {
-  return arr.slice(startIndex,endIndex);
+  
 };
 
 CSC.recursiveSublistExtract = function(arr, startIndex, endIndex) {
-  if(arr.length === (startIndex+1)) { return [arr[startIndex]]; }
-  var newArr = CSC.recursiveSublistExtract(arr.slice(0,-1),startIndex,endIndex);
-  if(arr.length < (endIndex+1)){
-    newArr.push(arr[arr.length-1]);
-  }
-  return newArr;
+
 };
 
 })(CSC);

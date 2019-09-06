@@ -43,46 +43,13 @@ var hSwap = function(array,parentIndex,childIndex){
 };
 
 Heap.prototype.insert = function(value){
-  var index = this.storage.push(value) - 1;
-  if(index === 0){ return ; }
-  var parentIndex = index % 2 !== 0 ? ((index-1)/2) : ((index-2)/2);
-  var parentVal = this.storage[parentIndex];
-  while(value > parentVal && index !== 0){
-    hSwap(this.storage,parentIndex,index);
-    index = parentIndex;
-    parentIndex = parentIndex = index % 2 !== 0 ? ((index-1)/2) : ((index-2)/2);
-    parentVal = this.storage[parentIndex];
-  }
+
 };
 
 Heap.prototype.max = function(){
-  if(!this.storage.length) { return null; }
-  return this.storage[0];
+
 };
 
 Heap.prototype.extract_max = function(){
-  if(!this.storage.length) { return null; }
-  if(this.storage.length === 1) { return this.storage.pop();}
 
-  hSwap(this.storage,0,this.storage.length-1);
-  var max = this.storage.pop();
-
-  var currentIndex = 0;
-  var leftChildIndex = (currentIndex * 2 + 1);
-  var rightChildIndex = (currentIndex * 2 + 2);
-
-  while(true){
-    if(this.storage[leftChildIndex] !== undefined &&
-       this.storage[leftChildIndex] > this.storage[currentIndex]){
-      hSwap(this.storage,currentIndex,leftChildIndex);
-      currentIndex = leftChildIndex;
-    } else if(this.storage[rightChildIndex] !== undefined &&
-              this.storage[rightChildIndex] > this.storage[currentIndex]){
-      hSwap(this.storage,currentIndex,rightChildIndex);
-      currentIndex = leftChildIndex;
-    } else {
-      break;
-    }
-  }
-  return max;
 };

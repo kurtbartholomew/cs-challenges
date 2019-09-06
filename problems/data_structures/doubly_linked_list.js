@@ -33,34 +33,13 @@ function DoublyLinkedListNode(value) {
 }
 
 DoublyLinkedList.prototype.addToTail = function(value) {
-  var node = value.constructor === DoublyLinkedListNode ?
-             value : new DoublyLinkedListNode(value);
-  if(this.head === null) {
-    this.head = node;
-    this.tail = node;
-  } else {
-    node.previous = this.tail;
-    this.tail.next = node;
-    this.tail = node;
-  }
+
 };
 
 DoublyLinkedList.prototype.removeFromHead = function() {
-  if(this.head === null) { return null; }
-  var oldHead = this.head;
-  this.head = oldHead.next;
-  this.head.previous = null;
-  oldHead.next = null;
-  return oldHead.value;
+
 };
 
 DoublyLinkedList.prototype.size = function() {
-  if(this.head === null) { return 0; }
-  var length = 1;
-  var currentNode = this.head;
-  while(currentNode.next !== null) {
-    length++;
-    currentNode = currentNode.next;
-  }
-  return length;
+  
 };

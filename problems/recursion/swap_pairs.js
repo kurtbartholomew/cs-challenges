@@ -13,22 +13,11 @@
 (function(CSC){
 
 CSC.iterativePairSwap = function(arr) {
-  var temp = 0;
-  for(var i = 0; i < arr.length; i++) {
-    if(i % 2 !== 0) {
-      temp = arr[i];
-      arr[i] = arr[i-1];
-      arr[i-1] = temp;
-    }
-  }
-  return arr;
+
 };
 
 CSC.recursivePairSwap = function(arr) {
-  if(!arr.length) { return arr; }
-  return arr.length % 2 === 0 ? 
-    CSC.recursivePairSwap(arr.slice(0,-2)).concat(arr[arr.length-1],arr[arr.length-2]) : 
-    CSC.recursivePairSwap(arr.slice(0,-1)).concat(arr[arr.length-1]);
+
 };
 
 })(CSC);

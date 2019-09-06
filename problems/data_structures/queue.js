@@ -29,74 +29,17 @@ function Queue() {
 }
 
 Queue.prototype.size = function () {
-  return this.end - this.beginning;
+  
 };
 
 Queue.prototype.enqueue = function (value) {
-  this.end++;
-  this.storage[this.end] = value;
+  
 };
 
 Queue.prototype.dequeue = function () {
-  if(this.end === this.beginning) { return null; }
-  this.beginning++;
-  var temp = this.storage[this.beginning];
-  delete this.storage[this.beginning];
-  return temp;
+
 };
 
 Queue.prototype.isEmpty = function () {
-  if(this.end === this.beginning) { return true; }
-  return false;
+
 };
-
-
-// ======= Alternate Implementation (Singly Linked List) ========
-
-
-// function Queue() {
-//   this.head = null;
-//   this.tail = null;
-// }
-
-// function QueueNode(value){
-//   this.value = value || null;
-//   this.next = null;
-// }
-
-// Queue.prototype.size = function () {
-//   if(this.tail === null) { return 0; }
-//   var queueSize = 0;
-//   var currentNode = this.head;
-//   while(currentNode) {
-//     queueSize++;
-//     currentNode = currentNode.next;
-//   }
-//   return queueSize;
-// };
-
-// Queue.prototype.enqueue = function (value) {
-//   var newNode = new QueueNode(value);
-//   if(this.tail === null) {
-//     this.head = newNode;
-//     this.tail = newNode;
-//   } else {
-//     this.tail.next = newNode;
-//     this.tail = newNode;
-//   }
-// };
-
-// Queue.prototype.dequeue = function () {
-//   if(this.tail === null) { return null; }
-//   var temp = this.head;
-//   this.head = this.head.next;
-//   temp.next = null;
-//   if(this.head === null) { this.tail = null; }
-//   return temp.value;
-// };
-
-// Queue.prototype.isEmpty = function () {
-//   if(this.tail === null) { return true; }
-//   return false;
-// };
-

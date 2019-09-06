@@ -34,32 +34,14 @@ function Tree(dataValue) {
 }
 
 Tree.prototype.addChild = function(dataValue){
-  this.children.push(new Tree(dataValue));
+  
 };
 
 Tree.prototype.removeChild = function(dataValue){
-  for(var i = 0; i < this.children.length; i++){
-    if(this.children[i].data === dataValue) {
-      return this.children.splice(i,1)[0];
-    }
-  }
-  return null;
+
 };
 
 Tree.prototype.contains = function(dataValue){
-  var found = false;
 
-  var traverseTree = function(treeNode){
-    if(treeNode.data === dataValue){ 
-      found = true;
-    }
-    if(!treeNode.children.length) { return ; }
-    for(var i = 0; i < treeNode.children.length; i++){
-      traverseTree(treeNode.children[i]);
-    }
-  };
-
-  traverseTree(this);
-  return found;
 };
 

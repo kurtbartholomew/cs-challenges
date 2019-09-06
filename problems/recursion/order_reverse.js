@@ -8,15 +8,11 @@
 (function(CSC){
 
 CSC.iterativeReverse = function(arr) {
-  return arr.reduce(function(newList,currentElement){
-    newList.unshift(currentElement);
-    return newList;
-  },[]);
+
 };
 
 CSC.recursiveReverse = function(arr) {
-  if(!arr.length) { return arr; }
-  return CSC.recursiveReverse(arr.slice(1)).concat(arr[0]);
+
 };
 
 })(CSC);
